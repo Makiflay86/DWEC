@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWEC - Tema 3</title>
+    <style>
+         .borde 
+        {
+            border: 1px solid black;            
+        };
+    </style>
+</head>
+<body style="margin: 2%;">
+    
+    <h1>
+        AybarRomero_Francisco_02-03 JS Operadores
+    </h1>
+    
+    <hr>
+    
+    <br>
+
+    <h2>
+        1º Rellena el siguiente tabla  
+    </h2>
+    <table style="text-align: center; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <td class="borde">Operador</td>
+            <td class="borde">Nombre</td>
+            <td class="borde">Entrada</td>
+            <td class="borde">Resultado</td>
+        </tr>
+        <tr>
+            <td class="borde">==</td>
+            <td class="borde">Igualdad</td>
+            <td class="borde">1 == 1</td>
+            <td class="borde"><script>document.writeln(1 == 1)</script></td>
+        </tr>
+        <tr>
+            <td class="borde">!=</td>
+            <td class="borde">Distinto</td>
+            <td class="borde">1 != 1</td>
+            <td class="borde"><script>document.writeln(1 != 1)</script></td>
+        </tr>
+        <tr>
+            <td class="borde">===</td>
+            <td class="borde">Igualdad estricta</td>
+            <td class="borde">1 === 1</td>
+            <td class="borde"><script>document.writeln(1 === 1)</script></td>
+        </tr>
+        <tr>
+            <td class="borde">!==</td>
+            <td class="borde">Desigualdad estricta</td>
+            <td class="borde">1 !== 1</td>
+            <td class="borde"><script>document.writeln(1 !== 1)</script></td>
+        </tr>
+        <tr>
+            <td class="borde">></td>
+            <td class="borde">Mayor que</td>
+            <td class="borde">1 > 2</td>
+            <td class="borde"><script>document.writeln(1 > 2)</script></td>
+        </tr>
+        <tr>
+            <td class="borde">>=</td>
+            <td class="borde">Mayor o igual</td>
+            <td class="borde">1 >= 1</td>
+            <td class="borde"><script>document.writeln(1 >= 1)</script></td>
+        </tr>
+        <tr>
+            <td class="borde"><</td>
+            <td class="borde">Menor que</td>
+            <td class="borde">1 < 2</td>
+            <td class="borde"><script>document.writeln(1 < 2)</script></td>
+        </tr>
+        <tr>
+            <td class="borde"><=</td>
+            <td class="borde">Menor o igual que</td>
+            <td class="borde">1 <= 2</td>
+            <td class="borde"><script>document.writeln(1 <= 2)</script></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <h2>
+        2º Ejecuta el siguiente código 
+    </h2>
+    <script>
+        var resultado1 = 30 == 30 ;
+var resultado2 = 30 == 30.0;  // true
+var resultado3 = 5 != 8;  // true
+var resultado4 = 9 > 13;  // false
+var resultado5 =  7.29 <= 7.28;  // false
+var resultado6 =  "Marta" == "Marta";  // true
+var resultado7 =  "Marta" == "marta";  // false
+var resultado8 =  "Marta" > "marta";  // false
+var resultado9 =  "Mark" < "Marta";  // true
+
+document.write( "resultado1 "+ resultado1+ "<br>" + 
+"resultado1 "+ resultado1+ "<br> "+ 
+"resultado2 "+ resultado2+ "<br> "+ 
+"resultado3 "+ resultado3+ "<br> "+ 
+"resultado4 "+ resultado4+ "<br> "+ 
+"resultado5 "+ resultado5+ "<br> "+ 
+"resultado6 "+ resultado6+ "<br> "+ 
+"resultado7 "+ resultado7+ "<br> "+ 
+"resultado8 "+ resultado8+ "<br> "+ 
+"resultado9 "+ resultado9+ "<br>");
+    </script>
+
+    <br>
+
+    <h2>
+        3º Rellena el siguiente tabla  y creala con html5
+    </h2>
+    <table style="text-align: center; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <td class="borde"></td>
+            <td class="borde">Nombre</td>
+            <td class="borde">Tipos de operadores</td>
+            <td class="borde">Resultados</td>
+        </tr>
+        <tr>
+            <td class="borde">+</td>
+            <td class="borde">Más</td>
+            <td class="borde">integer, float, string</td>
+            <td class="borde">integer, float, string</td>
+        </tr>
+        <tr>
+            <td class="borde">-</td>
+            <td class="borde">Menos</td>
+            <td class="borde">integer, float</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">*</td>
+            <td class="borde">Multiplicación</td>
+            <td class="borde">integer, float</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">/</td>
+            <td class="borde">División</td>
+            <td class="borde">integer, float</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">%</td>
+            <td class="borde">Módulo</td>
+            <td class="borde">integer, float</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">++</td>
+            <td class="borde">Incremento</td>
+            <td class="borde">integer, float</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">--</td>
+            <td class="borde">Decremento</td>
+            <td class="borde">integer, float</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">+valor</td>
+            <td class="borde">Positivo</td>
+            <td class="borde">integer, float, string</td>
+            <td class="borde">integer, float</td>
+        </tr>
+        <tr>
+            <td class="borde">-valor</td>
+            <td class="borde">Negativo</td>
+            <td class="borde">integer, float, string</td>
+            <td class="borde">integer, float</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <h2>
+        4º Ejecuta el siguiente código
+    </h2>
+    <script>
+        var resultado1 = 30;
+var resultado2 = 100;
+var resultado3 = resultado1 + resultado2;
+var resultado3 = resultado1 - resultado2 ;
+var resultado4 = resultado1 * resultado2 ;
+var resultado5 = resultado1 / resultado2 ;
+var resultado6 = resultado1 % 2 ;
+var resultado7 = resultado1 ++  ;
+var resultado8 = resultado1 -- ;
+var resultado9 = -resultado1  ;
+
+
+document.write( "resultado1 "+ resultado1+ "<br>" + 
+"resultado1 "+ resultado1+ "<br> "+ 
+"resultado2 "+ resultado2+ "<br> "+ 
+"resultado3 "+ resultado3+ "<br> "+ 
+"resultado4 "+ resultado4+ "<br> "+ 
+"resultado5 "+ resultado5+ "<br> "+ 
+"resultado6 "+ resultado6+ "<br> "+ 
+"resultado7 "+ resultado7+ "<br> "+ 
+"resultado8 "+ resultado8+ "<br> "+ 
+"resultado9 "+ resultado9+ "<br>"); 
+    </script>
+</body>
+</html>
