@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DWEC - Tema 2</title>
     <script src="./AybarRomero_Francisco_02-02 JS Tipos de Datos.html"></script>
+     <style>
+         .borde 
+        {
+            border: 1px solid black;            
+        };
+    </style>
 </head>
 <body style="margin: 2%;">
 
@@ -14,6 +20,8 @@
         AybarRomero_Francisco_02-02 JS Tipos de Datos
     </h1>    
     <br>
+
+
 
     <h3>
         3º ¿Qué etiqueta se utiliza para insertar código JavaScript en HTML?
@@ -40,12 +48,181 @@
         .js -> javascript
     </p>
 
+
     <h3>
         6º ¿Cómo se referencia un archivo .js en HTML?
     </h3>
     <p>
         Habría que añadir dentro de la etiqueta script esto: src="./script.js"
     </p>
+
+
+    <h3>
+        7º ¿Qué debe hacer si el archivo JavaScript se encuentra en otro directorio?
+    </h3>
+    <p>
+        Se puede hacer mediante dos formas, usando rutas absolutas o rutas relativas. Lo mejor es usar 
+        las rutas relativas ya que no tendras que modificar esta ruta si mueves el directorio de trabajo.
+    </p>
+
+
+    <h3>8º ¿Qué etiqueta se usa para mostrar un mensaje si el navegador no soporta JavaScript?</h3>
+    <p>
+        La etiqueta &lt;noscript&gt;.
+    </p>
+
+
+    <h3>9º ¿Qué diferencia hay al insertar JavaScript en XHTML?</h3>
+    <p>Si te equivos lo más mínimo XHTML no te dirá donde esta el error, te pondrá que todo esta mal.</p>
+
+
+    <h3>10º ¿Qué es la ofuscación de código y por qué se utiliza?</h3>
+    <p>
+        Es modificar el programa para hacer que su código sea mucho más difícil de entender para los humanos. 
+        Normalmente se suele usar para la seguridad, ocultar código malicioso, reducir el tamaño del archivo.
+    </p>
+
+    
+    <h3>11º ¿Cómo se llama el lenguaje que se menciona en el texto?</h3>
+    <p>Pues no se que texto.</p>
+
+
+    <h3>12º ¿Qué nombre le dio Microsoft a JavaScript?</h3>
+    <p>JScript.</p>
+
+
+    <h3>13º ¿Por qué Microsoft usó el nombre Jscript?</h3>
+    <p>Como forma de competir con Netscape, el creador de JavaScript.</p>
+
+
+    <h3>14º ¿Qué problema surgió con la versión de JScript de Microsoft?</h3>
+    <p>Problemas de compatibilidad en el desarrollo web.</p>
+
+
+    <h3>15º ¿Qué es el DOM y por qué fue diseñado?</h3>
+    <p>
+        Interfaz de programación para documentos HTML y XML que representa la estructura de la 
+        página como un árbol de nodos. Fue diseñado para la interactividad y como estándar de acceso.
+    </p>
+
+
+    <h3>16º ¿Qué navegadores incorporaron el DOM desde su primera versión?</h3>
+    <p>Netscape navegador, Internet Explorer y Mozilla.</p>
+
+
+    <h3>17º ¿Qué estándar regula el lenguaje JavaScript desde 1997?</h3>
+    <p>ECMAScript.</p>
+
+
+    <h3>18º ¿Qué documento detalla las especificaciones del estándar ECMA?</h3>
+    <p>Define como es el lenguaje como JavaScript.</p>
+
+
+    <h3>19º ¿Qué relación tiene JavaScript con Java?</h3>
+    <p>Ambos son lenguajes de programación orientados a objetos y que su sintaxis se inspira en C.</p>
+
+
+    <h3>20º ¿Quién desarrolló originalmente JavaScript y con qué nombre?</h3>
+    <p>
+        Brendan Eich desarrolló JavaScript en 1995 para Netscape, inicialmente 
+        con el nombre de Mocha.
+    </p>
+
+
+    <h3>21º Usa la función alert para enseñar el mensaje holamundo</h3>
+    <p>
+        <!-- <script>
+            alert("holamundo");
+        </script> -->
+        alert("holamundo");
+    </p>
+
+
+    <h3>22º En el un archivo y declara varias variables en una sola linea</h3>
+    <p>
+        <script>
+            var a ="hola" , b=34, c=3.1e3, d = 34; 
+        </script>
+        var a ="hola" , b=34, c=3.1e3, d = 34; 
+    </p>
+
+
+    <h3>23º ¿Qué caracteres y nombres  están prohibidos como nombre de variables? </h3>
+    <p>
+        !, @, #, %, etc.<br>
+        if, for, while, int, etc.
+    </p>
+
+
+    <h3>
+        24º Crea un ejemplo para cada tipos de datos  (Crea una tabla en html5 
+        en el documento htm)
+    </h3>
+    <table style="border-collapse: collapse;">
+        <tr>
+            <td class="borde">Cadena</td>
+            <td class="borde">var cadena = "Hola Mundo";</td>
+        </tr>
+        <tr>
+            <td class="borde">Número</td>
+            <td class="borde">var numero = 19;</td>
+        </tr>
+        <tr>
+            <td class="borde">Boolean</td>
+            <td class="borde">var salida = true;</td>
+        </tr>
+        <tr>
+            <td class="borde">Null</td>
+            <td class="borde">var nulo = null;</td>
+        </tr>
+        <tr>
+            <td class="borde">Object</td>
+            <td class="borde">const coche = new Object();</td>
+        </tr>
+        <tr>
+            <td class="borde">arrays</td>
+            <td class="borde">var array = ["hola"];</td>
+        </tr>
+        <tr>
+            <td class="borde">Function</td>
+            <td class="borde">function sumar(a, b)        <br>
+                              {                           <br>
+                                  return a + b;           <br>
+                              }</td>
+        </tr>
+    </table>
+
+
+    <h3>25º Usa la función  typeof para mostrar el tipo de los códigos </h3>
+    <p>
+        <script>
+            var numero = 10;
+            var texto = "Hola";
+            var esVerdadero = true;
+            var noDefinido;
+
+            document.writeln(typeof numero, "<br>");     // Devuelve "number"
+            document.writeln(typeof texto, "<br>");       // Devuelve "string"
+            document.writeln(typeof esVerdadero, "<br>"); // Devuelve "boolean"
+            document.writeln(typeof noDefinido, "<br>");  // Devuelve "undefined"
+            document.writeln(typeof null);        // Devuelve "object" (un error conocido) [2]
+        </script>
+    </p>
+
+
+    <h3>26º Ejecuta estos datos y muestralos en un documento html</h3>
+    <p>
+        <script>
+            var aaa=true;
+            var bbb=hola;
+            var ccc=1;
+            document.writeln(aaa);
+            document.writeln(bbb);
+            document.writeln(ccc);
+        </script>
+    </p>
+    
+
 
 
 
