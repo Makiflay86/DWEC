@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_02-05 JS Operadores Objetos</title>
+</head>
+<body>
+    <h1>
+        AybarRomero_Francisco_02-05 JS Operadores Objetos
+    </h1>
+    
+
+
+
+    <h2>1º ¿Qué hace el operador "."?</h2>
+    <p>Acceder a propiedades o métodos de un objeto.</p>
+
+
+    <h2>2º Ejecuta este código y explícalo.</h2>
+    <p>
+        <script>
+            var s = new String('rafa');document.write(s);
+	        var longitud = s.length;document.write(longitud);
+	        var pos = s.indexOf("fa"); document.write(pos);
+        </script>
+    </p>
+    <p>
+        Este código muestra un nombre(rafa), seguido muestra la longitud(en letras) del nombre y por último 
+        muestra la posición en la que se encuentra situado "fa" del nombre.
+    </p>
+
+
+    <h2>3º ¿Qué hace el operador [ ]?</h2>
+    <p>Se usa para las arrays.</p>
+
+
+    <h2>4º Ejecuta estos códigos y explica que hacen</h2>
+    <p>
+        <script>
+            var arraya =["Santiago","Coruña", "Lugo"];
+            // var arrayb={ elem1:"Santiago", elem2:"Coruña",  elem3:"Lugo" };
+            document.write(arraya[1]);
+            // document.write(arrayb["elem3"]);
+        </script>
+    </p>
+    <p>
+        Se declara e instancia un array llamado "arraya" que contiene nombres de ciudades y posteriormente muestra
+        la posición 1 de la array que es "Coruña".
+    </p>
+
+
+    <h2>5º ¿Qué hace el operador { }?</h2>
+    <p>Se usa para definir objetos literales y para crear bloques de código.</p>
+
+
+    <h2>6º Ejecuta estos  códigos y explica que hacen</h2>
+    <p>
+        <script>
+            var arrayb={ elem1:"Santiago", elem2:"Coruña",  elem3:"Lugo" };
+            document.write(arrayb["elem3"]);
+        </script>
+    </p>
+    <p>
+        Se declara e instancia un objeto literal llamado "arrayb" que contiene elementos y cada elemento tiene 
+        un nombre de una ciudad y posteriormente muestra el elemento 3 que es "Lugo".
+    </p>
+
+
+    <h2>7º ¿Qué hace el operador Delete?</h2>
+    <p>Eliminar propiedades de un objeto.</p>
+
+
+    <h2>8º Crea un ejemplo de delete para eliminar la propiedad elem3 </h2>
+    <p>
+        <script>
+            delete arrayb["elem3"];
+            document.writeln(arrayb["elem3"]);
+        </script>
+    </p>
+    
+
+    <h2>9º ¿Qué hace el operador de escape \’?</h2>
+    <p>Incluir en un texto caracteres especiales (como comillas).</p>
+
+
+    <h2>
+        10º crea un ejemplo para escribir la cadena literal
+        “&lt;el pajarito “pedro” comia “grillos”&gt;” 
+        Ojo a lo mejor debes usar el las entidades html 
+    </h2>
+    <p>“&lt;el pajarito “pedro” comia “grillos”&gt;”</p>
+
+
+    <h2>11º ¿Qué hace el operador instanceof?</h2>
+    <p>Verificar si un objeto fue creado por una clase o constructor específico.</p>
+
+
+    <h2>12º Ejecuta el codigo</h2>
+    <p>
+        <script>
+            a = new Array(1,2,3);
+            if (a instanceof Array) // devolverá true.
+            {
+                document.writeln("true");
+
+            } else
+            {
+                document.writeln("false");
+            }
+        </script>
+    </p>
+
+
+    <h2>13º ¿Qué hace el operador coma?   Operador .  Coma operador :  instanceof</h2>
+    <p>
+        Separa los elementos en listas, ejemplos arrays, argumentos de funciones, objetos y también
+        para evaluar múltiples expersiones y devuelve la última.
+    </p>
+
+
+    <h2>14º Ejecuta este codigo</h2>
+    <p>
+        <script>
+            var nombre="juan", direccion="C\ pepep,1", apellidos="lopez Abad", edad="30";
+            document.writeln( nombre + "," + apellidos  + "," + direccion + "," + edad );
+        </script>
+    </p>
+
+
+    <h2>15º ¿Qué hace el operador :?</h2>
+    <p>Para asignar valores a propiedades y para estructuras como los switch.</p>
+
+
+    <h2>16º Ejecuta este codigo</h2>
+    <p>
+        <script>
+            var a =10;
+            var b = 15; 
+            var opcion= b>a ? "B es mayor que A": "A es mayor que B";
+            document.writeln( "opcion "+opcion);
+        </script>
+    </p>
+
+
+    <h2>17º Ejecuta este codigo</h2>
+    <p> <!--Esta comentado para que no moleste-->
+        <!-- <script>
+            var a =confirm("Estas de Acuerdo");
+            var opcion= a ? "Acuerdo": "En Desacuerdo";
+            document.write( "opcion "+opcion);
+        </script> -->
+    </p>
+
+
+    <h2>18º ¿Qué hace el operador typeof?</h2>
+    <p>Para conocer el tipo de dato primitivo de una variable.</p>
+
+
+    <h2>19º Ejecuta este codigo</h2>
+    <p>
+        <script>
+            var a ="hola" , b=34, c=3.1e3, d = 34; 
+            var at =typeof(a) ;
+            var bt =typeof(b) ;
+            var ct =typeof(c) ;
+            document.writeln( " tipo de "+ a + " es  "+at, "<br>");
+            document.writeln( " tipo de "+ b + " es  "+bt, "<br>");
+            document.writeln( " tipo de "+ c + " es  "+ct);
+        </script>
+    </p>
+
+
+
+
+</body>
+</html>
