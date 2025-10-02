@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DWEC - Tema 2</title>
-    <script src="./AybarRomero_Francisco_02-02 JS Tipos de Datos.html"></script>
      <style>
          .borde 
         {
             border: 1px solid black;            
-        };
+        }
+        table
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        tr
+        {
+            border: 1px solid black;
+        }
+        td
+        {
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body style="margin: 2%;">
@@ -213,19 +225,178 @@
     <h3>26º Ejecuta estos datos y muestralos en un documento html</h3>
     <p>
         <script>
-            var aaa=true;
-            var bbb=hola;
-            var ccc=1;
-            document.writeln(aaa);
-            document.writeln(bbb);
-            document.writeln(ccc);
+            var a = true;
+            var b = "hola";
+            var c = 1;
+
+            document.writeln(a, "<br>");
+            document.writeln(b, "<br>");
+            document.writeln(c, "<br>");
         </script>
-    </p>
+    </p>    
+    <table>
+        <tr>
+            <td>4 + 4</td>
+            <td>
+                <script>
+                    document.writeln(4 + 4);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>"4" + 4</td>
+            <td>
+                <script>
+                    document.writeln("4" + 4);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>a + c</td>
+            <td>
+                <script>
+                    document.writeln(a + c);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>b + c</td>
+            <td>
+                <script>
+                    document.writeln(b + c);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>2.9e3+1</td>
+            <td>
+                <script>
+                    document.writeln(2.9e3+1);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>2.9e3 + b</td>
+            <td>
+                <script>
+                    document.writeln(2.9e3 + b);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>2.9e3 + a</td>
+            <td>
+                <script>
+                    document.writeln(2.9e3 + a);
+                </script>
+            </td>
+        </tr>
+    </table>
     
 
+    <h2>
+        27º Usa la función  parseFloat y  parseInt para convertir explícitamente los 
+        valores   2.9e3,  30.1e-3, 0,000000004 , 0,6, 3000000 , 301231000
+    </h2>
+    <p>
+        <script>
+            var valor1 = parseFloat(2.9e3);
+            var valor2 = parseFloat(30.1e-3);
+            var valor3 = parseFloat(4);
+            var valor4 = parseFloat(6);
+            var valor5 = parseFloat(3000000);
+
+            document.writeln("Usando parseFloat");
+            document.writeln("<br>", valor1);
+            document.writeln("<br>", valor2);
+            document.writeln("<br>", valor3);
+            document.writeln("<br>", valor4);
+            document.writeln("<br>", valor5);
+
+            var valor1 = parseInt(2.9e3);
+            var valor2 = parseInt(30.1e-3);
+            var valor3 = parseInt(4);
+            var valor4 = parseInt(6);
+            var valor5 = parseInt(3000000);
+            document.writeln("<br><br>Usando parseInt");
+            document.writeln("<br>", valor1);
+            document.writeln("<br>", valor2);
+            document.writeln("<br>", valor3);
+            document.writeln("<br>", valor4);
+            document.writeln("<br>", valor5);
+        </script>
+    </p>
 
 
+    <h2>
+        28º Usa la función length para hallar el tamaño de las cadenas "123456" , 
+    </h2>
+    <p>
+        <script>
+            var cadena = "123456";
+
+            document.writeln("El tamaño de la cadena es: ", cadena.length);
+        </script>
+    </p>
 
 
+    <h2>
+        29º Declara varias variables con const e intenta cambiarlas y visualizarlas con un alert que pasa?
+    </h2>
+    <p>
+        <script>
+            /* const variable1 = "HOLA";
+            const variable2 = 33;
+
+            document.writeln(variable1);
+            document.writeln("<br>", variable2);
+
+            const variable1 = "ADIOS";
+            const variable2 = 34;
+            document.writeln("<br>", variable1);
+            document.writeln("<br>", variable2);
+            document.writeln("Aquí arriba debería aparecer, al intentar cambiarlos da error.") */
+        </script>
+        <br>Si no aparece nada, comprueba que no este comentado
+    </p>
+
+
+    <h2>
+        30º Declara varias variables con var dentro de un bloque if al principio e  intenta acceder 
+        a ellas para mostrarlas dentro del bloque y fuera del bloque con un alert que pasa? 
+    </h2>
+    <p>
+        <script>
+            var varFueraDelIf = "Hola, estoy fuera del IF.";
+
+            if (1==1)
+            {
+                var varDentroDelIf = "Hola, estoy dentro del If.";
+            }
+
+            document.writeln(varFueraDelIf);
+            document.writeln("<br> ", varDentroDelIf);
+        </script>
+    </p>
+
+
+    <h2>
+        31º Realiza el mismo ejercicio anterior pero con varias variables con let dentro de 
+        un bloque if . Se pueden ver el contenido de las variables. 
+    </h2>
+    <p>
+        <script>
+            let letFueraDelIf = "Hola, estoy fuera del IF.";
+
+            if (1==1)
+            {
+                let letDentroDelIf = "Hola, estoy dentro del If.";
+            }
+
+            document.writeln(letFueraDelIf);
+            document.writeln("<br> La variable usando let dentro del IF no aparecec porque dice que no esta definida.");
+            document.writeln("<br> ", letDentroDelIf);
+        </script>
+    </p>
 </body>
 </html>
