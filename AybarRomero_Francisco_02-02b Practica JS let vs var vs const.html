@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_02-02b Practica JS let vs var vs const</title>
+    <style>
+        table
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+        };
+        tr
+        {
+            border: 1px solid black;
+        }
+        td
+        {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        AybarRomero_Francisco_02-02b Practica JS let vs var vs const
+    </h1>
+
+
+
+    <h2>
+        1º Crea un archivo "02-02-JSTiposdeDatos.html"  comentalo de las dos maneras posibles
+    </h2>
+    <p>¡¡Creado!!</p>
+
+
+    <h2>
+        2º Usa la función alert para enseñar el mensaje holamundo
+    </h2>
+    <p>
+        <script>
+            //alert("Hola Mundo");
+        </script>
+        <br>Si no se ve nada, comprueba que no este comentado.
+    </p>
+
+
+    <h2>
+        3º En el un archivo y declarar varias variables en una sola línea
+    </h2>
+    <p>
+        <script>
+            var [a,b,c] = [1,2,3];
+            
+            document.writeln([a,b,c]);
+        </script>
+    </p>
+
+
+    <h2>
+        4º ¿Qué caracteres y nombres  están prohibidos como nombre de variables ? 
+    </h2>
+    <p>
+        True, and, or, not, if, else, !, @, #, %, etc.
+    </p>
+
+
+    <h2>
+        5º Crea un ejemplo para cada tipos de datos  (Crea una tabla en html5 en 
+        el documento htm)
+    </h2>
+    <table>
+        <tr>
+            <td>Cadena</td>
+            <td>var cadena = "Hola Mundo"</td>
+        </tr>
+        <tr>
+            <td>Número</td>
+            <td>var numero = 3</td>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>var buleano = true</td>
+        </tr>
+        <tr>
+            <td>Null</td>
+            <td>var nulo = null</td>
+        </tr>
+        <tr>
+            <td>Objetc</td>
+            <td>const coche = new Objetc()</td>
+        </tr>
+        <tr>
+            <td>arrays</td>
+            <td>var array =["hola"]</td>
+        </tr>
+        <tr>
+            <td>Funtion</td>
+            <td>function sumar(a, b)                        <br>
+                              {                             <br>
+                                  return a + b;             <br>
+                              }</td>
+        </tr>
+    </table>
+
+
+    <h2>
+        6º Usa la función  typeof para mostrar el tipo de los códigos 
+    </h2>
+    <p>
+        <script>
+            var numero = 10;
+            var texto = "Hola";
+            var esVerdadero = true;
+            var noDefinido;
+
+            document.writeln(typeof numero, "<br>");     // Devuelve "number"
+            document.writeln(typeof texto, "<br>");       // Devuelve "string"
+            document.writeln(typeof esVerdadero, "<br>"); // Devuelve "boolean"
+            document.writeln(typeof noDefinido, "<br>");  // Devuelve "undefined"
+            document.writeln(typeof null);        // Devuelve "object" (un error conocido) [2]
+        </script>
+    </p>
+
+
+    <h2>
+        7º Ejecuta estos datos y mostrarlos en un documento htm
+    </h2>
+    <p>
+        <script>
+            var a = true;
+            var b = "hola";
+            var c = 1;
+
+            document.writeln(a, "<br>");
+            document.writeln(b, "<br>");
+            document.writeln(c, "<br>");
+        </script>
+    </p>    
+    <table>
+        <tr>
+            <td>4 + 4</td>
+            <td>
+                <script>
+                    document.writeln(4 + 4);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>"4" + 4</td>
+            <td>
+                <script>
+                    document.writeln("4" + 4);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>a + c</td>
+            <td>
+                <script>
+                    document.writeln(a + c);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>b + c</td>
+            <td>
+                <script>
+                    document.writeln(b + c);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>2.9e3+1</td>
+            <td>
+                <script>
+                    document.writeln(2.9e3+1);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>2.9e3 + b</td>
+            <td>
+                <script>
+                    document.writeln(2.9e3 + b);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>2.9e3 + a</td>
+            <td>
+                <script>
+                    document.writeln(2.9e3 + a);
+                </script>
+            </td>
+        </tr>
+    </table>
+    
+
+    <h2>
+        8º Usa la función  parseFloat y  parseInt para convertir explícitamente los 
+        valores   2.9e3,  30.1e-3, 4,6,3000000
+    </h2>
+    <p>
+        <script>
+            var valor1 = parseFloat(2.9e3);
+            var valor2 = parseFloat(30.1e-3);
+            var valor3 = parseFloat(4);
+            var valor4 = parseFloat(6);
+            var valor5 = parseFloat(3000000);
+
+            document.writeln("Usando parseFloat");
+            document.writeln("<br>", valor1);
+            document.writeln("<br>", valor2);
+            document.writeln("<br>", valor3);
+            document.writeln("<br>", valor4);
+            document.writeln("<br>", valor5);
+
+            var valor1 = parseInt(2.9e3);
+            var valor2 = parseInt(30.1e-3);
+            var valor3 = parseInt(4);
+            var valor4 = parseInt(6);
+            var valor5 = parseInt(3000000);
+            document.writeln("<br><br>Usando parseInt");
+            document.writeln("<br>", valor1);
+            document.writeln("<br>", valor2);
+            document.writeln("<br>", valor3);
+            document.writeln("<br>", valor4);
+            document.writeln("<br>", valor5);
+        </script>
+    </p>
+
+
+    <h2>
+        9º Usa la función length para hallar el tamaño de las cadenas "123456" 
+    </h2>
+    <p>
+        <script>
+            var cadena = "123456";
+
+            document.writeln("El tamaño de la cadena es: ", cadena.length);
+        </script>
+    </p>
+
+    
+    <h2>
+        10º Escribe el código html en esta tabla
+    </h2>
+    <p>
+        En el PDF.
+    </p>
+</body>
+</html>
