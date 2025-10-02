@@ -148,11 +148,581 @@
     <p>
         <script>
             var variable = window.location.href;
-            variable = variable.substring(0, 16);
+            variable = variable.substring(0, 4);
 
             document.writeln(variable);
             
+            if (variable === 'file') 
+            {
+                document.writeln(" - Página local.");
+
+            } else if (variable === 'http') 
+            {
+                document.writeln(" - Página local.");
+
+            } else 
+            {
+                document.writeln("ERROR: No se reconoce el tipo de página.");
+            }
         </script>
+    </p>
+
+    
+    <h2>
+        8º Solicitar al usuario un número de cliente. Si el número es el 1000, imprimir 
+        "Ganaste un premio".
+    </h2>
+    <p>
+        <script>
+            /* var numero = parseInt(prompt("Introduce un número: "));
+
+            if (numero == 1000)
+            {
+                document.writeln("Ganaste un premio.");
+
+            } else 
+            {
+                document.writeln("Casi... Intentalo de nuevo.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        9º Solicitar al usuario que ingrese dos números y mostrar cuál de los dos es menor. 
+        No considerar el caso en que ambos números son iguales.
+    </h2>
+    <p>
+        <script>
+            /* var numero1 = parseInt(prompt("Introduce un número: "));
+            var numero2 = parseInt(prompt("Introduce otro número: "));
+
+            if (numero1 < numero2)
+            {
+                document.writeln("El número '", numero1, "' es el menor.");
+
+            } else
+            {
+                document.writeln("El número '", numero2, "' es el menor.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        10º Solicitar al usuario que ingrese dos números y mostrar cuál de los dos 
+        es menor. Considerar el caso en que ambos números son iguales.
+    </h2>
+    <p>
+        <script>
+            /* var numero1 = parseInt(prompt("Introduce un número: "));
+            var numero2 = parseInt(prompt("Introduce otro número: "));
+
+            if (numero1 < numero2)
+            {
+                document.writeln("El número '", numero1, "' es el menor.");
+
+            } else if (numero1 == numero2)
+            {
+                document.writeln("Los dos números son iguales.");
+
+            } else
+            {
+                document.writeln("El número '", numero2, "' es el menor.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+    
+    <h2>
+        11º Requerir al usuario que ingrese un día de la semana e imprimir un mensaje 
+        si es lunes, otro mensaje diferente si es viernes, otro mensaje diferente si 
+        es sábado o domingo. Si el día ingresado no es ninguno de esos, imprimir otro mensaje.
+    </h2>
+    <p>
+        <script>
+            /* var dia = parseInt(prompt("Introduce un día de la semana(1-7): "));
+
+            switch (dia)
+            {
+                case 1:
+                    document.writeln("Hoy es LUNES!!!");
+                    break;
+                case 2:
+                    document.writeln("Hoy es MARTES!!!");
+                    break;
+                case 3:
+                    document.writeln("Hoy es MIERCOLES!!!");
+                    break;
+                case 4:
+                    document.writeln("Hoy es JUEVES!!!");
+                    break;
+                case 5:
+                    document.writeln("Hoy es VIERNES!!!");
+                    break;
+                case 6:
+                    document.writeln("Hoy es SÁBADO!!!");
+                    break;
+                case 7:
+                    document.writeln("Hoy es DOMINGO!!!");
+                    break;
+                default:
+                    document.writeln("ERROR: No es un día de la semana.");
+                    break;
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        12º Escribir un programa que, dado un número entero, muestre su valor absoluto. 
+        Nota: para los números positivos su valor absoluto es igual al número (el valor 
+        absoluto de 52 es 52), mientras que, para los negativos, su valor absoluto es el 
+        número multiplicado por -1 (el valor absoluto de -52 es 52). 
+    </h2>
+    <p>
+        <script>
+            /* var numero = parseInt(prompt("Introduce un número entero: "));
+
+            if (isNaN(numero))
+            {
+              document.writeln("ERROR: No es un número.");
+                
+            } else if (numero < 0)
+            {
+                document.writeln("El valor absoluto de '", numero, "' es '", (numero = numero * (-1)), "'.");
+                
+            } else
+            {
+                document.writeln("El valor absoluto de '", numero, "' es '", numero, "'.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        13º Solicitar al usuario que ingrese los nombres de dos personas, los cuales 
+        se almacenarán en dos variables. A continuación, imprimir “coincidencia” si los 
+        nombres de ambas personas comienzan con la misma letra o si terminan con la misma 
+        letra. Si no es así, imprimir “no hay coincidencia”.
+    </h2>
+    <p>
+        <script>
+            /* var nombre1 = prompt("Introduce un nombre: ");
+            var nombre2 = prompt("Introduce otro nombre: ");
+
+            document.writeln("Nombre 1: ", nombre1);
+            document.writeln("<br>Nombre 2: ", nombre2);
+
+            if ((nombre1.substring(0,1)) == (nombre2.substring(0,1)))
+            {
+                document.writeln("<br>Coincidencia, la primera letra.");
+
+            } else if ((nombre1.at(-1)) == (nombre2.at(-1)))
+            {
+                document.writeln("<br>Coincidencia, la última letra.");
+
+            } else
+            {
+                document.writeln("<br>No hay coincidencia.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        14º Crear un programa que permita al usuario elegir un candidato por el 
+        cual votar. Las posibilidades son: candidato A por el partido rojo, candidato 
+        B por el partido verde, candidato C por el partido azul. Según el candidato 
+        elegido (A, B ó C) se le debe imprimir el mensaje “Usted ha votado por el partido 
+        [color que corresponda al candidato elegido]”. Si el usuario ingresa una opción 
+        que no corresponde a ninguno de los candidatos disponibles, indicar “Opción errónea”.
+    </h2>
+    <p>
+        <script>
+            /* var candidato = prompt(" Candidato A - Partido Rojo\n Candidato B - Partido Verde\n Candidato C - Partido Azul\n\n Introduce un candidato(A, B o C): ").toUpperCase();
+            
+            if (candidato == "A")
+            {
+                document.writeln("Usted ha votado por el partido 'Rojo'.");
+
+            } else if (candidato == "B")
+            {
+                document.writeln("Usted ha votado por el partido 'Verde'.");
+
+            } else if (candidato == "C")
+            {
+                document.writeln("Usted ha votado por el partido 'Azul'.");
+
+            } else
+            {
+                document.writeln("ERROR: No es un partido correcto.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        15º Escribir un programa que solicite al usuario una letra y, si es una vocal, 
+        muestre el mensaje “es vocal”. Se debe validar que el usuario ingrese sólo un 
+        carácter. Si ingresa un string de más de un carácter, informarle que no se puede 
+        procesar el dato. (si length es mayor que 1 va a 0 si no un if con 5 OR con las 
+        vocales) 
+    </h2>
+    <p>
+        <script>
+            /* var letra = prompt("Introduce una letra: ").toLowerCase();
+            
+
+            if (letra.length > 1)
+            {
+                document.writeln("ERROR: Solo una letra, no más.");
+
+            } else 
+            {
+                if (letra == "a" || letra == "e" || letra == "i" || letra == "o" || letra == "u")
+                {
+                    document.writeln("Es vocal.");
+
+                } else
+                {
+                    document.writeln("No es vocal.");
+                }
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        16º Hacer un programa que permita saber si un año es bisiesto. Para que un 
+        año sea bisiesto debe ser divisible por 4 y no debe ser divisible por 100, 
+        excepto que también sea divisible por 400.
+    </h2>
+    <p>
+        <script>
+            /* var year = parseInt(prompt("Introduce una año(YYYY): "));
+
+            if (year % 4 == 0 && year % 100 == 0)
+            {
+                document.writeln("El '", year, "' no es un año bisiesto.");
+
+            } else if (year % 400 == 0 && year % 100 == 0 || year % 4 == 0)
+            {
+                document.writeln("El '", year, "' es un año bisiesto.");
+
+            } else
+            {
+                document.writeln("El '", year, "' no es un año bisiesto.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        17º Hacer el ejercicio 14 con swicth
+    </h2>
+    <p>
+        <script>
+            /* var candidato = prompt(" Candidato A - Partido Rojo\n Candidato B - Partido Verde\n Candidato C - Partido Azul\n\n Introduce un candidato(A, B o C): ").toUpperCase();
+            
+            switch (candidato)
+            {
+                case "A":
+                    document.writeln("Usted ha votado por el partido 'Rojo'.");
+                    break;
+                case "B":
+                    document.writeln("Usted ha votado por el partido 'Verde'.");
+                    break;
+                case "C":
+                    document.writeln("Usted ha votado por el partido 'Azul'.");
+                    break;
+                default:
+                    document.writeln("ERROR: No es un partido correcto.");
+                    break;
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        18º Pide un número y muestra si es par o impar usando el operador ternario.
+    </h2>
+    <p>
+        <script>
+            /* var numero = parseInt(prompt("Introduce un número: "));
+
+            if (isNaN(numero))
+            {
+                document.writeln("ERROR: Número incorrecto.");
+                
+            } else 
+            {
+                numero % 2 == 0 ? document.writeln("Es par.") : document.writeln("Es impar.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        19º Verifica si una persona puede votar (mayor o igual a 18 años) usando el 
+        operador ternario.
+    </h2>
+    <p>
+        <script>
+            /* var edad = parseInt(prompt("Introduce tu edad: "));
+
+            edad >= 18 ? document.writeln("Puedes votar.") : document.writeln("No puedes votar"); */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        20º Dado dos números, muestra cuál es mayor utilizando el operador ternario
+    </h2>
+    <p>
+        <script>
+            /* var numero1 = parseInt(prompt("Introduce un número: "));
+            var numero2 = parseInt(prompt("Introduce otro número: "));
+
+            numero1 > numero2 ? document.writeln("El número 1 (", numero1, ") es mayor que el número 2 (", numero2, ").") : document.writeln("El número 2 (", numero2, ") es mayor que el número 1 (", numero1, ")."); */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+    
+    <h2>
+        21º Clasificar una nota usando if 
+    </h2>
+    <p>
+        <script>
+            /* var nota = parseInt(prompt("Introduce una nota(0-10): "));
+
+            if (nota < 5)
+            {
+                document.writeln("Suspenso, tu nota es: ", nota);
+
+            } else if (nota < 6)
+            {
+                document.writeln("Suficiente, tu nota es: ", nota);
+
+            } else if (nota < 7)
+            {
+                document.writeln("Bien, tu nota es: ", nota);
+
+            } else if (nota < 9)
+            {
+                document.writeln("Notable, tu nota es: ", nota);
+                
+            } else if (nota < 10)
+            {
+                document.writeln("Sobresaliente, tu nota es: ", nota);
+
+            } else if (nota == 10)
+            {
+                document.writeln("Matrícula de honor, tu nota es: ", nota);
+
+            } else 
+            {
+                document.writeln("ERROR: No es una nota válida.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        22º Clasifica una nota numérica del 0 al 10 en:
+    </h2>
+    <p>
+        <script>
+            /* var nota = parseInt(prompt("Introduce una nota(0-10): "));
+
+            if (nota < 5)
+            {
+                document.writeln("Insuficiente");
+
+            } else if (nota < 7)
+            {
+                document.writeln("Suficiente");
+
+            } else if (nota < 9)
+            {
+                document.writeln("Notable");
+
+            } else if (nota <= 10)
+            {
+                document.writeln("Sobresaliente");
+
+            } else 
+            {
+                document.writeln("ERROR: No es una nota válida.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        23º Indica si un número ingresado es positivo, negativo o cero.
+    </h2>
+    <p>
+        <script>
+            /* var numero = parseInt(prompt("Introduce un número: "));
+
+            if (numero < 0)
+            {
+                document.writeln("El número '", numero, "' es negativo.");
+
+            } else if (numero == 0)
+            {
+                document.writeln("El número '", numero, "' es cero.");
+
+            } else if (numero > 0)
+            {
+                document.writeln("El número '", numero, "' es positivo.");
+
+            } else 
+            {
+                document.writeln("ERRRO: No es un número.");
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        24º  Validar contraseña Verifica si una contraseña ingresada es igual a 
+        "admin123" y muestra un mensaje de acceso concedido o denegado.
+    </h2>
+    <p>
+        <script>
+            /* var passwordUsuario = prompt("Introduce la contraseña: ");
+            var password = "admin123";
+
+            passwordUsuario == password ? document.writeln("Contraseña correcta, acceso concedido.") : document.writeln("Contraseña incorrecta, acceso denegado."); */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        25º ¿Muestra el nombre del  Día de la semana  correspondiente a un número 
+        del 1 al 7 usando switch.
+    </h2>
+    <p>
+        <script>
+            /* var dia = parseInt(prompt("Introduce un día de la semana(1-7): "));
+
+            switch (dia)
+            {
+                case 1:
+                    document.writeln("Hoy es LUNES!!!");
+                    break;
+                case 2:
+                    document.writeln("Hoy es MARTES!!!");
+                    break;
+                case 3:
+                    document.writeln("Hoy es MIERCOLES!!!");
+                    break;
+                case 4:
+                    document.writeln("Hoy es JUEVES!!!");
+                    break;
+                case 5:
+                    document.writeln("Hoy es VIERNES!!!");
+                    break;
+                case 6:
+                    document.writeln("Hoy es SÁBADO!!!");
+                    break;
+                case 7:
+                    document.writeln("Hoy es DOMINGO!!!");
+                    break;
+                default:
+                    document.writeln("ERROR: No es un día de la semana.");
+                    break;
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        26º Crea una Calculadora básica Dado dos números y una operación (+, -, *, /), 
+        muestra el resultado usando switch.
+    </h2>
+    <p>
+        <script>
+            /* var numero1 = parseInt(prompt("Introduce un número: "));
+            var numero2 = parseInt(prompt("Introduce otro número: "));
+            var operacion = prompt("Introduce la operación: ");
+
+            switch (operacion)
+            {
+                case "+":
+                    document.writeln(numero1, " + ", numero2, " = ", numero1 + numero2);
+                    break;
+                case "-":
+                    document.writeln(numero1, " - ", numero2, " = ", numero1 - numero2);
+                    break;
+                case "*":
+                    document.writeln(numero1, " * ", numero2, " = ", numero1 * numero2);
+                    break;
+                case "/":
+                    if (numero2 == 0)
+                    {
+                        document.writeln("ERROR: No se puede dividir entre 0.");
+
+                    } else
+                    {
+                        document.writeln(numero1, " / ", numero2, " = ", numero1 / numero2);
+
+                    }
+                    break;
+                default:
+                    document.writeln("ERROR: Operación incorrecta.");
+                    break;
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
+    </p>
+
+
+    <h2>
+        27º Crea un Semáforo Dado un color (rojo, amarillo, verde), muestra la acción 
+        correspondiente: "Detente", "Precaución" o "Avanza".
+    </h2>
+    <p>
+        <script>
+            /* var color = prompt("Introduce el color(rojo, amarillo, verde): ").toLowerCase();
+
+            switch (color)
+            {
+                case "rojo":
+                    document.writeln("Detente.");
+                    break;
+                case "amarillo":
+                    document.writeln("Precaución.");
+                    break;
+                case "verde":
+                    document.writeln("Avanza.");
+                    break;
+                default:
+                    document.writeln("ERROR: Color incorrecto.");
+                    break;
+            } */
+        </script>
+        <br>Si no aparece nada, comprueba si esta comentado.
     </p>
 </body>
 </html>
