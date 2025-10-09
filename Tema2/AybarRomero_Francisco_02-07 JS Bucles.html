@@ -343,6 +343,27 @@
         </div>
 
 
+        <div id="ejercicio11" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                11º Escribir un programa que pida al usuario una palabra y luego 
+                muestre por pantalla una a una las letras de la palabra introducida 
+                empezando por la última.
+            </h2>
+            <p>
+                <script>
+                    var palabra = window.prompt("Introduce una palabra: ");
+                    var arrayPalabra = palabra.split("");
+                    document.writeln("La palabra: ", palabra);
+                    document.writeln("<br>");
+                    for (let i = 0; i < arrayPalabra.length; i++)
+                    {
+                        document.writeln(arrayPalabra[i], " ");
+                    }
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
 
     </div>
 </body>
