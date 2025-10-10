@@ -157,8 +157,11 @@
 
                         var correo = 
                         `
-                            <h2>${nombre.trim()}</h2>
-                        `;
+                            <h3>
+                                Hola ${nombre.trim()}, tu pedido del producto ${producto} se 
+                                enviará el ${fecha}.
+                            </h3>
+                        `.toUpperCase();
 
                         document.writeln(correo);
                     </script>
@@ -167,11 +170,139 @@
         </section>
 
 
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Genera una tabla de datos en HTML. Usar template literals y 
+                métodos de cadena para generar un bloque HTML limpio.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div>
+                    <script>
+                        // Datos
+                        var usuarios = ["   ana ", "PEDRO", "maria   "];
+
+                        // Tareas:
+                        // Limpia los nombres (trim() y toLowerCase()).
+                        // Capitaliza la primera letra de cada uno.
+                        // Usa backticks para crear un bloque HTML con una lista <ul> donde cada <li> tenga un nombre formateado.
+                        // (Extra) Usa padEnd() o padStart() para alinear los nombres si los imprimes en consola.
+
+                        for (var i = 0; i < usuarios.length; i++)
+                        {
+                            usuarios[i] = usuarios[i].trim();
+                            usuarios[i] = usuarios[i].charAt(0).toUpperCase() + usuarios[i].slice(1).toLowerCase();
+                            document.writeln(usuarios[i]);
+                        }
+
+                        var nombres = 
+                        `
+                            <h3>Usuarios</h3>
+                            <ul>
+                                ${usuarios.map(n => `<li>${n}</li>`)}
+                            </ul>
+                        `;
+
+                        document.writeln(nombres);
+                    </script>
+                </div>
+            </article>
+        </section>
 
 
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Análisis de texto dinámico. Analizar un texto generado 
+                con template literals y aplicar varias funciones de String.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <script>
+                        // Datos
+                        var nombre = "Lucía";
+                        var hobby = "leer libros de ciencia ficción";
+
+                        // Tareas:
+                        //  Crea un mensaje: `A ${nombre} le encanta ${hobby}.`
+                        //  Muestra cuántas letras tiene el mensaje (length).
+                        //  Verifica si el texto incluye la palabra “ficción” (includes()).
+                        //  Reemplaza “ficción” por “aventuras” (replace()).
+                        //  Convierte la oración a minúsculas y luego a mayúsculas (toLowerCase(), toUpperCase()).
+                        //  Convierte todo el mensaje a mayúsculas (usa toUpperCase).
+
+                        var mensaje = 
+                        `
+                            <p>
+                                A ${nombre} le encanca ${hobby}.
+                            </p>
+                            `;
+
+                        document.writeln(mensaje);
+                        
+                        document.writeln("Este texto tiene ", mensaje.length, " letras.");
+                        
+                        if (mensaje.includes("ficción"))
+                        {
+                            document.writeln("<br>Incluye la palabra ficción.");
+
+                        } else 
+                        {
+                            document.writeln("<br>No incluye la palabra ficción.");
+                        }
+                        
+                        document.writeln("<br>Remplazo la palabra ficción por aventura.");
+                        mensaje = mensaje.replace("ficción", "aventuras");
+                        document.writeln(mensaje);
+
+                        document.writeln(mensaje.toLowerCase());
+
+                        document.writeln(mensaje.toUpperCase());
+                    </script>
+                </p>
+            </article>
+        </section>
 
 
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Plantilla de perfil resumido. Generar un resumen de 
+                usuario y recortar texto si es demasiado largo.
+            </h1>
 
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <script>
+                        var usuario = 
+                        {
+                            nombre: "Beatriz",
+                            descripcion: "Apasionada del desarrollo web, la inteligencia artificial y los videojuegos."
+                        };
+
+                        // Tareas:
+                        // Genera un texto con backticks: `Perfil de ${usuario.nombre}: ${usuario.descripcion}`
+                        // Si la descripción tiene más de 50 caracteres, recórtala y añade "..." al final (usa slice y length).
+                        // Muestra el resultado final.
+
+                        /* Compruebo si la descripción sea mayor de 50 para mostrar
+                           solo eso y al final ...*/
+                        if (usuario.descripcion.length > 50)
+                        {
+                            usuario.descripcion = usuario.descripcion.substr(0, 50) + "...";
+                        }
+
+                        var texto = 
+                        `
+                            <p>
+                                Perfil de ${usuario.nombre}: ${usuario.descripcion}
+                            </p>
+                        `;
+
+                        document.writeln(texto);
+                    </script>
+                </p>
+            </article>
+        </section>
 
 
     </div>
