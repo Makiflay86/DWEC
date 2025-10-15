@@ -372,14 +372,137 @@
                 aparece la letra en la frase.
             </h2>
             <p>
-                <script>
-                    var frase = window.prompt("Introduce una frase: ").split("");
+                <!-- <script>
+                    var frase = window.prompt("Introduce una frase: ");
                     var letra = window.prompt("Introduce una letra: ");
+                    var contador = 0;
+                    var i = 0;
 
+                    while (i != frase.length)
+                    {
+                        if (frase[i] == letra)
+                        {
+                            contador++;
+                        }
+                        i++;
+                    }
 
-
+                    document.writeln("La frase es: ", frase);
+                    document.writeln("<br>La letra es: ", letra);
                     
-                </script>
+                    if (contador > 1)
+                    {
+                        document.writeln("<br>Se han encontrado ", contador, " veces la letra ", letra);
+
+                    } else 
+                    {
+                        document.writeln("<br>Se han encontrado ", contador, " vez la letra ", letra);
+                    }
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio13" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                13º Escribir un programa que muestre el eco de todo lo que el 
+                usuario introduzca hasta que el usuario escriba "salir" que terminará.
+            </h2>
+            <p>
+                <!-- <script>
+                    do
+                    {
+                        var texto = prompt("Introduzca un texto: ", texto);
+
+                        if (texto.toLowerCase().slice(texto.length-5, texto.length) == ("salir")) 
+                        {
+                            document.writeln("El texto es: ", texto);
+    
+                        } else 
+                        {
+                            alert("Debes de escribir 'salir' al final para salir.");
+                        }
+
+                    } while (texto.toLowerCase().slice(texto.length-5, texto.length) != ("salir"));
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio14" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                14º Escribir un programa que pregunte al usuario una cantidad a 
+                pedir, el interés anual y el número de años en el que lo amortizara, 
+                y muestre por pantalla las cuotas pagadas durante cada años suponiendo 
+                que actualizan los intereses cada año.
+            </h2>
+            <p>
+                <!-- <script>
+                    var cantidad = window.prompt("Introduce una cantidad a pedir: ");
+                    var interes = window.prompt("Introduce el interés anual: ");
+                    var year = window.prompt("Introduce el número de años: ");
+                    
+                    document.writeln("Cantidad: ", cantidad, "€");
+                    document.writeln("<br>Interés: ", interes, "%");
+                    document.writeln("<br>Años: ", year);
+                    
+                    interes = (interes / 100);
+
+                    var formula = (cantidad * (1 + interes) ^ year);
+                                        
+                    document.writeln("<br><br>")
+
+                    for (var i = 0; i < year; i++)
+                    {
+                        formula += (formula / (year * 12)); 
+                        var devolver = formula-cantidad;
+                        
+                        document.writeln("Año: ", i+1, " - Cantidad a devolver: ", Math.round(devolver), "€");
+                        document.writeln("<br>");
+                    }
+
+                    document.writeln("<br>El último año abrá pagado los: ", cantidad, "(cantidad) + ", Math.round(devolver), "(intereses) = ", Math.round(formula), "€");
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio15" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                15º Escribir un programa que pregunte al usuario una cantidad a invertir, 
+                el interés anual y el número de años en el que lo invertirá, y muestre por 
+                pantalla el total. 
+            </h2>
+            <p>
+                <!-- <script>
+                    var cantidad = window.prompt("Introduce una cantidad a invertir: ");
+                    var interes = window.prompt("Introduce el interés anual: ");
+                    var year = window.prompt("Introduce el número de años: ");
+                    
+                    document.writeln("Cantidad: ", cantidad, "€");
+                    document.writeln("<br>Interés: ", interes, "%");
+                    document.writeln("<br>Años: ", year);
+                    
+                    interes = (interes / 100);
+
+                    var formula = (cantidad * (1 + interes) ^ year);
+                                        
+                    document.writeln("<br><br>")
+
+                    for (var i = 0; i < year; i++)
+                    {
+                        formula += (formula / (year * 12)); 
+                        var dar = formula-cantidad;
+                        
+                        document.writeln("Año: ", i+1, " - Cantidad a darte: ", Math.round(dar), "€");
+                        document.writeln("<br>");
+                    }
+
+                    document.writeln("<br>El último año te abrán dado: ", cantidad, "(cantidad) + ", Math.round(dar), "(intereses) = ", Math.round(formula), "€");
+                </script> -->
                 <br>Si no se ve nada, comprueba que no este comentado.
             </p>
         </div>
