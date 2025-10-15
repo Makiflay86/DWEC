@@ -77,7 +77,7 @@
             </p>
         </div>
 
-        <div class="my-3 p-5 rounded bg-white shadow-sm"> <!-- PUTA TABLA COÑO  -->
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
             <h2>
                 4º Sea estos dos arrays
                 const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
@@ -90,14 +90,14 @@
                     const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
                     const arr2 = ["bonita", "Guapa", " Bella", "Pintoresca", "Hermosa" ];
 
-                    document.writeln("<table class='table table-bordered border-success'>");
-                    for (let i of arr1) 
+                    document.writeln("<table class='table'>");
+                    for (let i of arr2) 
                     {
                         document.writeln("<tr>");
-                        for (let j of arr2) 
+                        for (let j of arr1) 
                         {
                             document.writeln("<td>");
-                            document.writeln(i + " - " + j);
+                            document.writeln(j + " - " + i);
                             document.writeln("</td>");
                         }
                         document.writeln("</tr>");
@@ -107,27 +107,118 @@
             </p>
         </div>
 
-        <table class="table table-bordered ">
-            <tr>
-                <td>Málaga - guapa</td>
-                <td>Granada - guapa</td>
-            </tr>
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
+            <h2>
+                5º Crea un script que cree un formulario con tantos botones como haya en el siguiente
+                const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ]; 
+                ponle  esto dentro de cada boton 
+                &lt;input type="button" onclick='alert("La ciudad mas bonita es Malaga")'&gt; 
+            </h2>
 
-            <tr>
-                <td>Málaga - hermosa</td>
-                <td>Granada - guapa</td>
-            </tr>
+            <p>
+                <script>
+                    const array1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ]; 
 
-            <tr>
-                <td>Málaga - guapa</td>
-                <td>Granada - guapa</td>
-            </tr>
+                    for (let i = 0; i < array1.length; i++)
+                    {
+                        document.writeln(`<input type="button" value="${array1[i]}" onclick='alert("La ciudad mas bonita es ${array1[i]}")'>`);
+                    }
+                </script>
+            </p>
+        </div>
+        
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
+            <h2>
+                6º Escribe un programa que dibuje la frase "hola que tal"  
+                10 veces cada vez más pequeña ... puedes usar algo como 
+                document.write(&lt;p style="font-size: "+i+"px"&gt; hola que tal&lt;/p&gt;);
+            </h2>
 
-            <tr>
-                <td>Málaga - hermosas</td>
-                <td>Granada - guapa</td>
-            </tr>
-        </table>
+            <p>
+                <script>
+                    var size = 40;
+                    for (let i = 0; i < 10; i++)
+                    {
+                        document.write(`<p style="font-size: ${size}px">hola que tal</p>`)
+                        size -= 2;
+                    }
+                </script>
+            </p>
+        </div>
+
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
+            <h2>
+                7º Copia este código y ejecutalo modificalo para hacerlo 
+                con un while y un do loop
+            </h2>
+
+            <form name="selectForm">
+                <p>
+                    <label for="musicTypes">
+                        Elija algunos tipos de música (CTRL + click-left), luego haga clic en el botón de abajo:
+                    </label>
+
+                    <select id="musicTypes" name="musicTypes" multiple="multiple">
+                        <option selected="selected">R&B</option>
+                        <option>Jazz</option>
+                        <option>Blues</option>
+                        <option>New Age</option>
+                        <option>Classical</option>
+                        <option>Opera</option>
+                    </select>
+                </p>
+                <p><input id="btn" type="button" value="¿Cuántos están seleccionados?"></p>
+            </form>
+
+            <script>
+                var boton = document.getElementById("btn");
+                var seleccionadas = 0;
+
+                while(!boton)
+                {
+                    var selectObject = document.selectForm.musicTypes;
+                    for (let i = 0; i < selectObject.options.length; i++) 
+                    {
+                        if (selectObject.options[i].selected) 
+                        {
+                            seleccionadas++;
+                        }
+                    }
+                }
+
+                boton.addEventListener("click", function()
+                {
+                    document.writeln("Número de opciones seleccionadas: " + seleccionadas);
+                });
+
+
+
+
+                /* Hacer esto de abjo con un bucle */
+
+
+              /*   function howMany(selectObject) 
+                {
+                    let numberSelected = 0;
+                    for (let i = 0; i < selectObject.options.length; i++) 
+                    {
+                        if (selectObject.options[i].selected) 
+                        {
+                            numberSelected++;
+                        }
+                    }
+                    return numberSelected;
+                } */
+
+                /* let btn = document.getElementById("btn");
+                btn.addEventListener("click", function () 
+                {
+                    alert(
+                        "Número de opciones seleccionadas: " + howMany(document.selectForm.musicTypes),
+                    );
+                }); */
+            </script>
+        </div>
 
     </div>
 </body>
