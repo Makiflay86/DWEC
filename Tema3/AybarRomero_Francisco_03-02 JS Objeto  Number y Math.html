@@ -175,8 +175,9 @@
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
                 <p>
-                    <script>
-                        
+                    <!-- <script>
+                        var numero = parseInt(window.prompt("Introduce un número: "));;
+                        var radian = ((numero / 180) * Math.PI);
 
                         if (isNaN(numero) || numero < 0 || numero > 360)
                         {
@@ -186,18 +187,38 @@
                         {
                             var resultado = 
                             `
-                                <p>El radian de ${numero} es: ${radian.toFixed(2)}</p>
+                                <p>El radian de ${numero} es: ${radian.toFixed(3)}</p>
                             `;
 
                             document.writeln(resultado);
                         }
-                    </script>
+
+                        document.writeln("<br>El cos() es: ", (Math.cos(radian)).toFixed(3));
+                        document.writeln("<br>El sin() es: ", (Math.sin(radian)).toFixed(3));
+                        document.writeln("<br>El tan() es: ", (Math.tan(radian)).toFixed(3));
+                    </script> -->
                     <br>Si no se ve nada, comprueba que no este comentado.
                 </p>
             </article>
         </section>
 
 
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Toma una entrada con window.prompt() y debe tener un if para que 
+                su valor este entre en el rango (0 y 1) en caso contrario debe dar error 
+                y calcule los siguientes valores
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <script>
+                        
+                    </script>
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
 
 
 
