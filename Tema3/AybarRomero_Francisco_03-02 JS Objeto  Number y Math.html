@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_03-02 JS Objeto  Number y Math</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container bg-light">
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                1º Toma una entrada con window.prompt() y que nos pida la un 
+                radio y debemos calcular la circunferencia (2*PI*Radio) y el área 
+                (PI*Radio2)
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var radio = parseInt(window.prompt("Introduce el radio: "));
+                        var PI = Math.PI;
+                        var circunferencia = Math.round(2 * PI * radio);
+                        var area = Math.round(PI * radio);
+
+                        if (isNaN(radio))
+                        {
+                            document.writeln("ERROR: No es un radio permitido.");
+
+                        } else 
+                        {
+                            document.writeln("<h2>Calcular circunferencia y área de un circulo</h2>");
+                            document.writeln("La circunferencia es: ", circunferencia);
+    
+                            document.writeln("<br>El área es: ", area);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Toma dos entradas con window.prompt() y que nos pida los 
+                dos catetos y debemos calcular la hipotenusa
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var cateto1 = parseInt(window.prompt("Introduce el cateto 1: "));
+                        var cateto2 = parseInt(window.prompt("Introduce el cateto 2: "));
+                        var hipotenusa = Math.round(Math.sqrt(cateto1 ** 2 + cateto2 ** 2));
+
+                        if (isNaN(cateto1) && isNaN(cateto2))
+                        {
+                            document.writeln("ERROR: No es un cateto permitido.");
+
+                        } else 
+                        {
+                            document.writeln("<h2>Calcular la hipotenusa de un triángulo</h2>");
+                            document.writeln("La hipotenusa es: ", hipotenusa);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º Haz un script que nos muestre los siguientes constantes
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <script>
+                        var e = Math.E;
+                        var ln2 = Math.LN2;
+                        var ln10 = Math.LN10;
+                        var log2e = Math.LOG2E
+                        var log10e = Math.LOG10E
+
+                        var mostrar = 
+                        `
+                            <p>e = ${e}<p>
+                            <p>ln2 = ${ln2}<p>
+                            <p>ln10 = ${ln10}<p>
+                            <p>log2e = ${log2e}<p>
+                            <p>log10e = ${log10e}<p>
+                        `;
+
+                        document.writeln(mostrar);
+                    </script>
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Toma una entrada con window.prompt() y que nos pida un 
+                numero y debemos calcular los siguientes valores
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var numero = parseInt(window.prompt("Introduce un número: "));;
+                        
+                        if (isNaN(numero))
+                        {
+                            document.writeln("ERROR: No es un número válido.");
+
+                        } else 
+                        {
+                            var resultado = 
+                            `
+                                <p>El logaritmo neperiano es: ${(Math.log(numero)).toFixed(2)}</p>
+                                <p>El logaritmo de base 2 es: ${(Math.log2(numero)).toFixed(2)}</p>
+                                <p>El logaritmo de base 2 es: ${(Math.log10(numero)).toFixed(2)}</p>
+                            `;
+
+                            document.writeln(resultado);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Toma una entrada con window.prompt() y nos la debe convertir 
+                en radianes (x/180)*PI debe tener un if para que su valor este 
+                entre 0 y 360 en caso contrario debe dar error.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var numero = parseInt(window.prompt("Introduce un número: "));;
+                        var radian = ((numero / 180) * Math.PI);
+
+                        if (isNaN(numero) || numero < 0 || numero > 360)
+                        {
+                            document.writeln("ERROR: No es un número válido.");
+
+                        } else 
+                        {
+                            var resultado = 
+                            `
+                                <p>El radian de ${numero} es: ${radian.toFixed(2)}</p>
+                            `;
+
+                            document.writeln(resultado);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Modifica el anterior script para muestre los siguientes 
+                valores del valor tomado
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var numero = parseInt(window.prompt("Introduce un número: "));;
+                        var radian = ((numero / 180) * Math.PI);
+
+                        if (isNaN(numero) || numero < 0 || numero > 360)
+                        {
+                            document.writeln("ERROR: No es un número válido.");
+
+                        } else 
+                        {
+                            var resultado = 
+                            `
+                                <p>El radian de ${numero} es: ${radian.toFixed(3)}</p>
+                            `;
+
+                            document.writeln(resultado);
+                        }
+
+                        document.writeln("<br>El cos() es: ", (Math.cos(radian)).toFixed(3));
+                        document.writeln("<br>El sin() es: ", (Math.sin(radian)).toFixed(3));
+                        document.writeln("<br>El tan() es: ", (Math.tan(radian)).toFixed(3));
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Toma una entrada con window.prompt() y debe tener un if para que 
+                su valor este entre en el rango (0 y 1) en caso contrario debe dar error 
+                y calcule los siguientes valores
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <script>
+                        
+                    </script>
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>

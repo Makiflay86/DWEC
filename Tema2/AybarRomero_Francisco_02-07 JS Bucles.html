@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_02-07 JS Bucles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-5 p-3 text-center bg-warning bg-opacity-75 rounded shadow">
+            AybarRomero_Francisco_02-07 JS Bucles
+        </h1>
+
+        <div id="ejercicio1" class="bg-info-subtle p-5 rounded shadow">
+            <h2>
+                1º Escribir un programa que pida al usuario una palabra y la muestre 
+                por pantalla 10 veces con for 
+            </h2>
+            <p>
+                <script>
+                    /* var palabra = (prompt("Introduce una palabra: "));
+
+                    var contador = 1;
+                    for (let i = 0; i < 10; i++) 
+                    {
+                        document.writeln(contador + " - " + palabra + "<br>");
+                        contador++;
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio2" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                2º Escribir un programa que pregunte al usuario su edad y muestre 
+                por pantalla todos los años que ha cumplido
+            </h2>
+            <p>
+                <script>
+                    /* var edad = (prompt("Introduce tu edad: "));
+                    var yearNacimiento = 2025 - edad;
+
+                    for (let i = 0; i <= edad; i++) 
+                    {
+                        document.writeln(yearNacimiento + " tienes " + i + " años.<br>");
+                        yearNacimiento++;
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio3" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                3º Escribir un programa que pida al usuario un número entero positivo y muestre 
+                por pantalla todos los números impares desde 1 hasta ese número separados por comas.
+            </h2>
+            <p>
+                <script>
+                    /* var numero = parseInt(prompt("Introduce un número entero positivo(>0): "));
+                    var array;
+
+                    if (isNaN(numero))
+                    {
+                        document.writeln("ERROR: No es un número entero positivo.");   
+
+                    } else 
+                    {
+                        while (numero > 0)
+                        {
+                            if (numero % 2 == 0)
+                            {
+                                array = [document.writeln(numero + ",")];
+                                numero -= 1;
+
+                            } else 
+                            {
+                                if (numero == 1)
+                                {
+                                    array = [document.writeln(numero)];    
+                                    numero -= 2;
+                                } else 
+                                {
+                                    array = [document.writeln(numero + ",")];
+                                    numero -= 2;
+                                }
+                            }
+                        }
+
+                        for (let i = 0; i < (array.length - 1); i++)
+                        {
+                            document.writeln(array[i]);
+                        }
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio4" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                4º Escribir un programa que pida al usuario un número entero positivo y muestre 
+                por pantalla la cuenta atrás desde ese número hasta cero separados por comas.
+            </h2>
+            <p>
+                <script>
+                    /* var numero = parseInt(prompt("Introduce un número entero positivo(>0): "));
+
+                    if (isNaN(numero))
+                    {
+                        document.writeln("ERROR: No es un número entero positivo.");
+
+                    } else 
+                    {
+                        for (let i = numero; i >= 0; i--)
+                        {
+                            if (i == 0)
+                            {
+                                document.writeln(i);
+
+                            } else 
+                            {
+                                document.writeln(i + ", ");
+                            }
+                        }
+
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio5" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                5º Escribir un programa que pregunte al usuario una cantidad a invertir, 
+                el interés anual y el número de años, y muestre por pantalla el capital 
+                obtenido en la inversión cada año que dura la inversión.
+            </h2>
+            <p>
+                <script>
+                    /* var invertir = (prompt("Introduce la cantidad a invertir: "));
+                    var interes = (prompt("Introduce cual es el interes anual(%): "));
+                    interes = interes / 100;
+                    var year = (prompt("Introduce el número de años: "));
+                    
+                    // Capital Final = Capital Inicial x (1 + Tasa de Interés)^Número de Años
+                    var capital = invertir;
+                    
+                    document.writeln("Capital para invertir: " + invertir + "€");
+                    document.writeln("<br>Interes: " + interes*100 + "%");
+                    document.writeln("<br>Años: " + year + " años");
+                    document.writeln("<br><br>");
+
+                    for (let i = 1; i <= year; i++)
+                    {
+                        capital = (capital * (1 + interes)^1);
+                        document.writeln("Año " + i + " - " + capital + "€<br>");
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio6" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                6º Escribir un programa que pida al usuario un número entero y muestre 
+                por pantalla un triángulo rectángulo como el de más abajo, de altura el 
+                número introducido.
+            </h2>
+            <p>
+                <script>
+                    /* var numero = parseInt(prompt("Introduce un número entero: "));
+
+                    if (isNaN(numero))
+                    {
+                        document.writeln("ERROR: No es un número entero.");
+
+                    } else 
+                    {
+                        for (let i = 0; i < numero; i++)
+                        {
+                            for (let j = 0; j < i+1; j++)
+                            {
+                                document.writeln("*");
+                            }
+                            document.writeln("<br>");
+                        }
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio7" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                7º Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al 10.
+            </h2>
+            <p>
+                <script>
+                    document.writeln("<div class='row'>");
+                    for (let i = 1; i <= 10; i++)
+                    {
+                        document.writeln("<div class='col-12 col-md-3 py-3 text-center'>");
+                        document.writeln("Tabla del " + i + "<br>");
+                        document.writeln("---------------------<br>");
+                        for (let j = 0; j <= 10; j++)
+                        {
+                            document.writeln(i + " x " + j + " = " + (i * j) + "<br>");
+                        }
+                        document.writeln("</div>");
+                    }
+                    document.writeln("</div>");
+                </script>
+            </p>
+        </div>
+
+
+        <div id="ejercicio8" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                8º Escribir un programa que pida al usuario un número entero y muestre por 
+                pantalla un triángulo rectángulo como el de más abajo.
+            </h2>
+            <p>
+                <script>
+                    /* var numero = parseInt(prompt("Introduce un número entero: "));
+                    var mostrar = 1;
+
+                    if (isNaN(numero))
+                    {
+                        document.writeln("ERROR: No es un número entero.");
+
+                    } else 
+                    {
+                        for (let i = 0; i < numero; i++)
+                        {
+                            for (let j = 0; j < i+1; j++)
+                            {
+                                if (mostrar > 9)
+                                {
+                                    mostrar = 1;
+                                }
+
+                                document.writeln(mostrar + " ");
+                                mostrar += 2;
+                            }
+                            document.writeln("<br>");
+                        }
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio9" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                9º Escribir un programa que almacene la cadena de caracteres contraseña en 
+                una variable, pregunte al usuario por la contraseña hasta que introduzca la 
+                contraseña correcta.
+            </h2>
+            <p>
+                <script>
+                    /* var passwordCheck = "admin123";
+
+                    do 
+                    {
+                        var password = (prompt("Introduce tu contraseña: "));    
+
+                        if (password == passwordCheck)
+                        {
+                            document.writeln("Contraseña correcta.");
+                            alert("Contraseña correcta.");
+
+                        } else 
+                        {
+                            document.writeln("Contraseña incorrecta, vuelva a intentarlo.");
+                            alert("Contraseña incorrecta, vuelva a intentarlo.");
+                        }
+
+                    } while (password != passwordCheck); */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio10" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                10º Escribir un programa que pida al usuario un número entero y muestre por 
+                pantalla si es un número primo o no.
+            </h2>
+            <p>
+                <script>
+                    /* var numero = parseInt(prompt("Introduce un número entero: "));
+
+                    if (isNaN(numero))
+                    {
+                        document.writeln("ERROR: No es un número entero.");
+
+                    } else 
+                    {
+                        var resultado = "";
+
+                        for (let i = 1; i <= numero; i++)
+                        {
+                            if (numero < 2)
+                            {
+                                resultado = "ERROR: Los números negativos, el 0 y el 1 no se considera primo o no primo.";
+
+                            } else if (numero == 2)
+                            {
+                                resultado = "El número '" + numero + "' es primo.";
+
+                            } else
+                            {
+                                for (let i = 2; i <= Math.sqrt(numero); i++)
+                                {
+                                    if (numero % i === 0)
+                                    {
+                                        resultado = "El número '" + numero + "' no es primo.";
+
+                                    } else 
+                                    {
+                                        resultado = "El número '" + numero + "' es primo.";
+                                    }
+                                }
+                            }
+                        }
+
+                        document.writeln(resultado);
+                    } */
+                </script>
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio11" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                11º Escribir un programa que pida al usuario una palabra y luego 
+                muestre por pantalla una a una las letras de la palabra introducida 
+                empezando por la última.
+            </h2>
+            <p>
+                <!-- <script>
+                    var palabra = window.prompt("Introduce una palabra: ");
+                    var arrayPalabra = palabra.split("").reverse();
+                    document.writeln("La palabra: ", palabra);
+                    document.writeln("<br>");
+                    for (let i = 0; i < arrayPalabra.length; i++)
+                    {
+                        document.writeln(arrayPalabra[i]);
+                    }
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio12" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                12º Escribir un programa en el que se pregunte al usuario por una 
+                frase y una letra, y muestre por pantalla el número de veces que 
+                aparece la letra en la frase.
+            </h2>
+            <p>
+                <!-- <script>
+                    var frase = window.prompt("Introduce una frase: ");
+                    var letra = window.prompt("Introduce una letra: ");
+                    var contador = 0;
+                    var i = 0;
+
+                    while (i != frase.length)
+                    {
+                        if (frase[i] == letra)
+                        {
+                            contador++;
+                        }
+                        i++;
+                    }
+
+                    document.writeln("La frase es: ", frase);
+                    document.writeln("<br>La letra es: ", letra);
+                    
+                    if (contador > 1)
+                    {
+                        document.writeln("<br>Se han encontrado ", contador, " veces la letra ", letra);
+
+                    } else 
+                    {
+                        document.writeln("<br>Se han encontrado ", contador, " vez la letra ", letra);
+                    }
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio13" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                13º Escribir un programa que muestre el eco de todo lo que el 
+                usuario introduzca hasta que el usuario escriba "salir" que terminará.
+            </h2>
+            <p>
+                <!-- <script>
+                    do
+                    {
+                        var texto = prompt("Introduzca un texto: ", texto);
+
+                        if (texto.toLowerCase().slice(texto.length-5, texto.length) == ("salir")) 
+                        {
+                            document.writeln("El texto es: ", texto);
+    
+                        } else 
+                        {
+                            alert("Debes de escribir 'salir' al final para salir.");
+                        }
+
+                    } while (texto.toLowerCase().slice(texto.length-5, texto.length) != ("salir"));
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio14" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                14º Escribir un programa que pregunte al usuario una cantidad a 
+                pedir, el interés anual y el número de años en el que lo amortizara, 
+                y muestre por pantalla las cuotas pagadas durante cada años suponiendo 
+                que actualizan los intereses cada año.
+            </h2>
+            <p>
+                <!-- <script>
+                    var cantidad = window.prompt("Introduce una cantidad a pedir: ");
+                    var interes = window.prompt("Introduce el interés anual: ");
+                    var year = window.prompt("Introduce el número de años: ");
+                    
+                    document.writeln("Cantidad: ", cantidad, "€");
+                    document.writeln("<br>Interés: ", interes, "%");
+                    document.writeln("<br>Años: ", year);
+                    
+                    interes = (interes / 100);
+
+                    var formula = (cantidad * (1 + interes) ^ year);
+                                        
+                    document.writeln("<br><br>")
+
+                    for (var i = 0; i < year; i++)
+                    {
+                        formula += (formula / (year * 12)); 
+                        var devolver = formula-cantidad;
+                        
+                        document.writeln("Año: ", i+1, " - Cantidad a devolver: ", Math.round(devolver), "€");
+                        document.writeln("<br>");
+                    }
+
+                    document.writeln("<br>El último año abrá pagado los: ", cantidad, "(cantidad) + ", Math.round(devolver), "(intereses) = ", Math.round(formula), "€");
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+        <div id="ejercicio15" class="bg-info-subtle p-5 my-5 rounded shadow">
+            <h2>
+                15º Escribir un programa que pregunte al usuario una cantidad a invertir, 
+                el interés anual y el número de años en el que lo invertirá, y muestre por 
+                pantalla el total. 
+            </h2>
+            <p>
+                <!-- <script>
+                    var cantidad = window.prompt("Introduce una cantidad a invertir: ");
+                    var interes = window.prompt("Introduce el interés anual: ");
+                    var year = window.prompt("Introduce el número de años: ");
+                    
+                    document.writeln("Cantidad: ", cantidad, "€");
+                    document.writeln("<br>Interés: ", interes, "%");
+                    document.writeln("<br>Años: ", year);
+                    
+                    interes = (interes / 100);
+
+                    var formula = (cantidad * (1 + interes) ^ year);
+                                        
+                    document.writeln("<br><br>")
+
+                    for (var i = 0; i < year; i++)
+                    {
+                        formula += (formula / (year * 12)); 
+                        var dar = formula-cantidad;
+                        
+                        document.writeln("Año: ", i+1, " - Cantidad a darte: ", Math.round(dar), "€");
+                        document.writeln("<br>");
+                    }
+
+                    document.writeln("<br>El último año te abrán dado: ", cantidad, "(cantidad) + ", Math.round(dar), "(intereses) = ", Math.round(formula), "€");
+                </script> -->
+                <br>Si no se ve nada, comprueba que no este comentado.
+            </p>
+        </div>
+
+
+    </div>
+</body>
+</html>
