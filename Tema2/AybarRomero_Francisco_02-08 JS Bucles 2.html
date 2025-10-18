@@ -220,6 +220,128 @@
             </script>
         </div>
 
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
+            <h2>
+                8º Un bucle para pintar esta figura usando una tabla que ponemos de 
+                fondo el color adecuado la tabla  debe tener estos valores  (pista es 
+                un array 3x3)
+            </h2>
+
+            <div>
+                <script>
+                    var colores = ["blue", "greenyellow", "red"];
+
+                    document.writeln(`<table width='500px' height='500px' border='0' cellpadding=0 cellspacing=0>`);
+                    for (var i = 0; i < 3; i++)
+                    {
+                        document.writeln(`<tr>`);
+                            for (var j = 0; j < 3; j++)
+                            {
+                                document.writeln(`<td style="background-color: ${colores[(j - i + 3) % 3]};"></td>`);
+                            }
+                        document.writeln(`</tr>`);
+                    }
+                    document.writeln("</table>");
+                </script>
+            </div>
+        </div>
+
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
+            <h2>
+                9º Modifica el anterior para crear esta figura  (PISTA: es un array 
+                6x6 y se usan los colores "f0f","ff0", "0ff")
+            </h2>
+
+            <div>
+                <script>
+                    var magenta = "f0f";
+                    var amarillo = "ff0";
+                    var cyan = "0ff";
+
+                    var patron = 
+                    [
+                        // j=0      j=1      j=2      j=3      j=4      j=5
+                        [magenta, magenta, magenta, magenta, magenta, magenta],     // i=0
+                        [amarillo, amarillo, magenta, magenta, amarillo, amarillo], // i=1
+                        [amarillo, cyan, cyan, cyan, cyan, amarillo],               // i=2
+                        [amarillo, cyan, cyan, cyan, cyan, amarillo],               // i=3
+                        [amarillo, amarillo, magenta, magenta, amarillo, amarillo], // i=4
+                        [magenta, magenta, magenta, magenta, magenta, magenta]      // i=5
+                    ];
+   
+                    document.writeln(`<table width='500px' height='500px' border='0' cellpadding=0 cellspacing=0>`);
+
+                    for (var i = 0; i < 6; i++)
+                    {
+                        document.writeln(`<tr>`);
+                        for (var j = 0; j < 6; j++)
+                        {
+                            var colorHex = patron[i][j];
+
+                            document.writeln(`<td style="background-color: #${colorHex};"></td>`);
+                        }
+                        document.writeln(`</tr>`);
+                    }
+                    document.writeln("</table>");
+                </script>
+            </div>
+        </div>
+
+        <div class="my-3 p-5 rounded bg-white shadow-sm">
+            <h2>
+                10º Modifica el anterior para crear esta figura  (PISTA: es un 
+                array 6x8y se usan los colores "f0f","ff0", "0ff")
+            </h2>
+
+            <div>
+                <script>
+                    var magenta = "f0f";
+                    var amarillo = "ff0";
+                    var cyan = "0ff";
+
+                    var patron = 
+                    [
+                        // j=0        j=1       j=2     j=3       j=4      j=5  
+                        [amarillo, amarillo, magenta, magenta, amarillo, amarillo],  // i=0
+                        [amarillo, amarillo, magenta, magenta, amarillo, amarillo],  // i=1
+                        [magenta, magenta, magenta, magenta, magenta, magenta],      // i=2
+                        [amarillo, amarillo, magenta, magenta, amarillo, amarillo],  // i=3
+                        [amarillo, amarillo, magenta, magenta, amarillo, amarillo],  // i=4
+                        [amarillo, magenta, amarillo, amarillo, magenta, amarillo],  // i=5
+                        [magenta, amarillo, amarillo, amarillo, amarillo, magenta],  // i=6
+                        [magenta, amarillo, amarillo, amarillo, amarillo, magenta]   // i=7
+                    ];
+   
+                    document.writeln(`<table width='500px' height='500px' border='0' cellpadding=0 cellspacing=0>`);
+
+                    for (var i = 0; i < 8; i++)
+                    {
+                        document.writeln(`<tr>`);
+                        for (var j = 0; j < 8; j++)
+                        {
+                            var colorHex = patron[i][j];
+
+                            document.writeln(`<td style="background-color: #${colorHex};"></td>`);
+                        }
+                        document.writeln(`</tr>`);
+                    }
+                    document.writeln("</table>");
+                </script>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
     </div>
 </body>
 </html>
