@@ -212,9 +212,309 @@
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
                 <p>
-                    <script>
+                    <!-- <script>
+                        var x = (window.prompt("Introduce un número entre 0 y 1: "));
+                        x = x.replace(",", ".")
+
+                        var acos = Math.acos(x);
+                        var acos_grados = acos * (180 / Math.PI);
+
+                        var asin = Math.asin(x);
+                        var asin_grados = asin * (180 / Math.PI);
+
+                        var atan = Math.atan(x);
+                        var atan_grados = atan * (180 / Math.PI);
+
+                        if (isNaN(acos) || x < 0 || x > 1) 
+                        {
+                            document.writeln("ERROR: Debes introducir un número entre 0 y 1");
+
+                        } else 
+                        {
+                            document.writeln(`El arcocoseno de ${x} es: ${acos.toFixed(4)} radianes ${acos_grados.toFixed(2)} grados`);
+                            document.writeln(`<br>El arcoseno de ${x} es: ${asin.toFixed(4)} radianes ${asin_grados.toFixed(2)} grados`);
+                            document.writeln(`<br>El arcotagente de ${x} es: ${atan.toFixed(4)} radianes ${atan_grados.toFixed(2)} grados`);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                8º Toma un numero con window.prompt() y debe tener un if para que sea 
+                un numero y que calcule su techo, suelo y redondeo.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var numero = parseInt(window.prompt("Introduce un número: "));
+
+                        if (isNaN(numero))
+                        {
+                            document.writeln("ERROR: No es un número entero");
+
+                        } else 
+                        {
+                            /* No tendría sentido calcular esto porque es un entero y no tiene decimales,
+                               sigo las instruciones del ejercicio */
+                            document.writeln("El techo del número es: ", Math.ceil(numero));
+                            document.writeln("<br>El suelo del número es: ", Math.floor(numero));
+                            document.writeln("<br>El redondo del número es: ", Math.round(numero));
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                9º Toma un numero con window.prompt() y debe tener un if para que sea un 
+                numero y que calcule su redondeo con un decimal con esta formula
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var numero = window.prompt("Introduce un número: ");
+                        var redondeo1Decimal = Math.round(numero * 10) / 10;
+
+                        if (isNaN(numero))
+                        {
+                            document.writeln("ERROR: No es un número entero");
+
+                        } else 
+                        {
+                            /* No tendría sentido calcular esto porque es un entero y no tiene decimales,
+                               sigo las instruciones del ejercicio */
+                            document.writeln("El número redondeado es: ", redondeo1Decimal);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                10º Toma numeros con window.prompt() hasta que el numero entrado sea 0 y calcula su máximo y mínimo
+                <br>max(x,y,z,...,n) Devuelve el número más alto de los que se pasan como parámetros. 
+                <br>min(x,y,z,...,n) Devuelve el número más bajo de los que se pasan como parámetros.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var array = [];
+                        var entrada;
+
+                        do
+                        {
+                            entrada = window.prompt("Introduce un número(0 para salir): ");
+                            numero = parseFloat(entrada);
+
+                            if (!isNaN(numero))
+                            {
+                                if (numero !== 0)
+                                {
+                                    array.push(numero);
+                                }
+                            }
+
+                        } while (numero != 0);
+
+                        if (array.length > 0)
+                        {
+                            document.writeln("Números del array (excluyendo el 0 final): " + array.join(", "));
+                            document.writeln("<br>El número menor es: ", Math.min(...array));
+                            document.writeln("<br>El número mayor es: ", Math.max(...array));
+                            
+                        } else
+                        {
+                            document.writeln("No se introdujeron ningún número.");
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                11º Toma una entrada con window.prompt() debes sacar un numero aleatorio 
+                entre 0 y ese numero usando esta formula
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var entrada = parseInt(window.prompt("Introduce un número entero: "));
+                        var entrada2 = parseInt(window.prompt("Introduce otro número entero: "));
+                        var aleatorio1 = Math.round(Math.random() * entrada);
+                        var aleatorio2 = Math.round(Math.random() * (entrada2 - entrada) + entrada);
+
+                        document.writeln(`El número aleatorio entre 0 y ${entrada} es: ${aleatorio1}`);
+                        document.writeln(`<br>El número aleatorio entre ${entrada} y ${entrada2} es: ${aleatorio2}`);
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                12º Toma una entrada con window.prompt() debes mostrarla
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var entrada = parseInt(window.prompt("Introduce un número entero: "), 10);
                         
-                    </script>
+                        var base2 = entrada.toString(2);
+                        var base8 = entrada.toString(8);
+                        var base16 = entrada.toString(16);
+                        document.writeln(`El número en base 2: ${base2}`);
+                        document.writeln(`<br>El número en base 8: ${base8}`);
+                        document.writeln(`<br>El número en base 16: ${base16}`);
+
+                        var exponencial = Math.exp(entrada);
+                        document.writeln(`<br>El número en exponencial: ${exponencial}`);
+
+                        document.writeln(`<br>El número con 10 decimales: ${entrada.toFixed(10)}`);
+                        document.writeln("<br>");
+
+                        var array = entrada.toString();
+
+                        document.writeln("Solo los 8 primeros: ");
+                        for (var i = 0; i < 8 && i < array.length; i++)
+                        {
+                            document.writeln(array[i]);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                13º Toma una entrada con window.prompt() debes mostrarla
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var entrada = parseFloat(window.prompt("Introduce un número: ")); 
+                        
+                        document.writeln("En euros: ", entrada.toLocaleString("es-ES", { style: "currency", currency: "EUR" }));
+                        document.writeln("<br>En yenes: ", entrada.toLocaleString("ja-JP", { style: "currency", currency: "JPY" }));
+                        document.writeln("<br>Tres decimales mínimo: ", entrada.toLocaleString("en-IN", { maximumSignificantDigits: 3 }));
+                        document.writeln("<br>Tres decimales mínimo y máximo: ", entrada.toLocaleString(undefined, {    minimumFractionDigits: 2,    maximumFractionDigits: 2  }));
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                14º Toma una entrada con window.prompt() a b c y resuelve la ecuación
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var a = parseFloat(window.prompt("Introduce un número para 'a': "));
+                        var b = parseFloat(window.prompt("Introduce un número para 'b': "));
+                        var c = parseFloat(window.prompt("Introduce un número para 'c': "));
+                        var dentroRaiz = ((b*b) - 4 * a * c);
+                        
+                        if (dentroRaiz < 0)
+                        {
+                            document.writeln("ERROR: La raíz no es real: ", dentroRaiz);
+
+                        } else if (a === 0)
+                        {
+                            document.writeln("ERROR: 'a' no puede ser 0.");
+
+                        } else 
+                        {
+                            var x1 = (-b + Math.sqrt(dentroRaiz)) / (2 * a);
+                            var x2 = (-b - Math.sqrt(dentroRaiz)) / (2 * a);
+                            
+                            document.writeln("El resultado de la ecuación es: ");
+                            document.writeln(`<br>La raíz x1 es: ${x1.toFixed(4)}`);
+                            document.writeln(`<br>La raíz x2 es: ${x2.toFixed(4)}`);
+                        }
+                    </script> -->
+                    <br>Si no se ve nada, comprueba que no este comentado.
+                </p>
+            </article>
+        </section>
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                15º Toma una entrada con window.prompt() para tomar a1 a2 b1 b2 c1 c2
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    <!-- <script>
+                        var a1 = parseFloat(window.prompt("Introduce el coeficiente a1 (de la primera ecuación):"));
+                        var b1 = parseFloat(window.prompt("Introduce el coeficiente b1 (de la primera ecuación):"));
+                        var c1 = parseFloat(window.prompt("Introduce el coeficiente c1 (de la primera ecuación):"));
+
+                        var a2 = parseFloat(window.prompt("Introduce el coeficiente a2 (de la segunda ecuación):"));
+                        var b2 = parseFloat(window.prompt("Introduce el coeficiente b2 (de la segunda ecuación):"));
+                        var c2 = parseFloat(window.prompt("Introduce el coeficiente c2 (de la segunda ecuación):"));
+
+                        var denominador = (a1 * b2) - (a2 * b1);
+                        var numeradorX = (c1 * b2) - (c2 * b1); 
+                        var numeradorY = (a1 * c2) - (c1 * a2); 
+
+                        if (denominador === 0) 
+                        {
+                            if (numeradorX === 0 && numeradorY === 0) 
+                            {
+                                document.writeln("Tiene infinitas soluciones.");
+
+                            } else 
+                            {
+                                document.writeln("No tiene solución.");
+                            }
+
+                        } else if (isNaN(denominador) || isNaN(numeradorX) || isNaN(numeradorY)) 
+                        {
+                            document.writeln("ERROR: Datos incorrectos.");
+
+                        } 
+                        else 
+                        {
+                            document.writeln("<h4>Desglose de la Regla de Cramer:</h4>");
+                            document.writeln(`Denominador (D): (${a1} * ${b2}) - (${a2} * ${b1}) = ${denominador.toFixed(4)}`);
+                            document.writeln(`<br>Numerador X (Dx): (${c1} * ${b2}) - (${c2} * ${b1}) = ${numeradorX.toFixed(4)}`);
+                            document.writeln(`<br>Numerador Y (Dy): (${a1} * ${c2}) - (${c1} * ${a2}) = ${numeradorY.toFixed(4)}`); 
+                            document.writeln("<hr>");
+
+                            var x = numeradorX / denominador;
+                            var y = numeradorY / denominador;
+
+                            document.writeln("<h4>Solución Final:</h4>");
+                            document.writeln(`El valor de X es: ${numeradorX.toFixed(4)} / ${denominador.toFixed(4)} = ${x.toFixed(4)}`);
+                            document.writeln(`<br>El valor de Y es: ${numeradorY.toFixed(4)} / ${denominador.toFixed(4)} = ${y.toFixed(4)}`);
+                        }
+                    </script> -->
                     <br>Si no se ve nada, comprueba que no este comentado.
                 </p>
             </article>
