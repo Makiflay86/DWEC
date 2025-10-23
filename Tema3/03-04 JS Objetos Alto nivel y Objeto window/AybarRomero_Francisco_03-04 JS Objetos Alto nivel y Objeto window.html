@@ -18,8 +18,8 @@
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                <button onclick="openWindow()">Mostrar Ventana</button>
-                <button onclick="closeWindow()">Ocultar Ventana</button>
+                <button class="btn btn-primary" onclick="openWindow()">Mostrar Ventana</button>
+                <button class="btn btn-primary" onclick="closeWindow()">Ocultar Ventana</button>
                 <div id="ventanaEmergente">Ventana: Cerrada</div>
                 <script>
                     var subVentana;
@@ -54,8 +54,8 @@
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                <button onclick="openURL()">Mostrar página de la URL</button>
-                <button onclick="closeURL()">Cerrar página de la URL</button>
+                <button class="btn btn-primary" onclick="openURL()">Mostrar página de la URL</button>
+                <button class="btn btn-primary" onclick="closeURL()">Cerrar página de la URL</button>
                 <div id="infoURL"></div>
                 <script>
                     /* var URL = window.prompt("Introduce una URL: ", "https://www.w3schools.com/"); */
@@ -99,19 +99,130 @@
                 <script>
                     var ventanaBanco;
                     
-                    setInterval(ventanaBanco, 5000, ventanaBanco.close());
-                    
-                    function alerta()
+                    function alerta() 
                     {
-                        ventanaBanco = window.open("banco.html","banco","height=500,width=500");
+                        ventanaBanco = window.open("banco.html", "banco", "height=500,width=500");
+
+                        setTimeout(function () 
+                        {
+                            ventanaBanco.close();
+                            
+                            setTimeout(function () 
+                            {
+                                var respuesta = confirm("¿Hacer algo?");
+                                if (respuesta) 
+                                {
+                                    alert("JaJaJA, gracias por dejarme robarte.");
+
+                                } else 
+                                {
+                                    alert("Pues vale :D");
+                                }
+                            }, 1000);
+                        }, 3000);
                     }
-                    
-                    
                 </script>
-                <br><br>Si no funciona, comprueba que no esté comentado.
             </article>
         </section>
 
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Usa este código para crear un ejemplo de clearInterval() 
+                Resetea el cronómetro ajustado con setInterval() y setInterval( 
+                funcion, milisegundos)
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <button class="btn btn-primary" onclick="dihola()">Iniciar</button>
+                <button class="btn btn-primary" onclick="diholaParar()">Parar</button>
+                <div id="intervalo"></div>
+                <script>
+                    var intervaloID = null;
+
+                    function dihola() 
+                    {
+                        if (!intervaloID) 
+                        {
+                            intervaloID = setInterval(function () 
+                            {
+                                document.getElementById("intervalo").innerHTML += "Hello ";
+                            }
+                            , 500);
+                        }
+                    }
+
+                    function diholaParar() 
+                    {
+                        if (intervaloID) 
+                        {
+                            clearInterval(intervaloID);
+                            intervaloID = null;
+                            document.getElementById("intervalo").innerHTML += "STOP ";
+                        }
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Modificalo para que te muestre la hora cada segundo
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="hora"></div>
+                <script>
+                    setInterval(function() 
+                    {
+                        const date = new Date();
+                        document.getElementById("hora").innerHTML = date.toLocaleTimeString();
+                    }, 20);
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                8º Usa este código para observar el uso De clearInterval y setInterval
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <button class="btn btn-primary" onclick=" iniciarIntervalo()">Start</button>
+                <button class="btn btn-primary" onclick="stopColor()">Stop</button>
+                <script>
+                    function iniciarIntervalo() 
+                    {
+                        myInterval = setInterval(setColor, 500);
+                    }
+
+                    iniciarIntervalo();
+                    function setColor() 
+                    {
+                        let x = document.body;
+                        
+                        if( x.style.backgroundColor == "yellow") 
+                        {
+                            x.style.backgroundColor = "pink"
+
+                        } else 
+                        {
+                            x.style.backgroundColor = "yellow"
+                        }
+                    }
+                    
+                    function stopColor() 
+                    { 
+                        clearInterval(myInterval);
+                    }
+                </script>
+            </article>
+        </section>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
