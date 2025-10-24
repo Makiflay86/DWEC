@@ -201,7 +201,46 @@
                         myInterval = setInterval(setColor, 500);
                     }
 
-                    iniciarIntervalo();
+                    function setColor() 
+                    {
+                        
+                        let x = document.body;
+                        
+                        if( x.style.backgroundColor == "yellow") 
+                        {
+                            x.style.backgroundColor = "pink"
+
+                        } else 
+                        {
+                            x.style.backgroundColor = "yellow"
+                        }
+                    }
+                    
+                    function stopColor() 
+                    { 
+                        clearInterval(myInterval);
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                9º Modifica este código para que escoja el intervalo de un 
+                prompt que sale cuando se le pulsa start.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <button class="btn btn-primary" onclick=" iniciarIntervalo()">Start</button>
+                <button class="btn btn-primary" onclick="stopColor()">Stop</button>
+                <script>
+                    function iniciarIntervalo() 
+                    {
+                        myInterval = setInterval(setColor, 500);
+                    }
+
                     function setColor() 
                     {
                         let x = document.body;
@@ -223,6 +262,46 @@
                 </script>
             </article>
         </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                10º Modifica este código para que escoja el intervalo y los 
+                colores de un solo prompt que sale cuando se le pulsa start.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <button class="btn btn-primary" onclick=" iniciarIntervalo()">Start</button>
+                <button class="btn btn-primary" onclick="stopColor()">Stop</button>
+                <script>
+                    function iniciarIntervalo() 
+                    {
+                        myInterval = setInterval(setColor, 500);
+                    }
+
+                    function setColor() 
+                    {
+                        let x = document.body;
+                        
+                        if( x.style.backgroundColor == "yellow") 
+                        {
+                            x.style.backgroundColor = "pink"
+
+                        } else 
+                        {
+                            x.style.backgroundColor = "yellow"
+                        }
+                    }
+                    
+                    function stopColor() 
+                    { 
+                        clearInterval(myInterval);
+                    }
+                </script>
+            </article>
+        </section>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
