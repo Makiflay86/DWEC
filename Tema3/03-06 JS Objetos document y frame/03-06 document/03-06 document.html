@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ej1"> </div>
+    <img src="ej111.jpg" width="200" alt="hola1">
+    <img src="ej112.jpg" width="200" alt="hola2">
+    <img src="ej113.jpg" width="200" alt="hola2">
+    <img src="ej114.jpg" width="200" alt="hola2">
+    <img src="ej115.jpg" width="200" alt="hola5">
+
+    <form id="formulario1">
+        <button type="submit"> reset</button>
+        <button type="button" onclick="cambiar()"> Cambiar</button>
+    </form>
+    <form id="formulario2">
+
+    </form>
+
+
+
+    <script>
+        var img = document.images;
+
+        for (element of img) {
+            document.getElementById("ej1").innerHTML += element.src + " -" + element.alt + " <br>";
+        };
+
+        function cambiar() {
+
+            var img = document.images;
+
+            elementoold = document.images[document.images.length - 1].src
+
+            for (element of img) {
+                elementoold2 = element.src;
+                element.src = elementoold;
+                elementoold = elementoold2;
+
+            }
+        };
+
+        //cambiar()
+
+
+
+    </script>
+</body>
+
+</html>
