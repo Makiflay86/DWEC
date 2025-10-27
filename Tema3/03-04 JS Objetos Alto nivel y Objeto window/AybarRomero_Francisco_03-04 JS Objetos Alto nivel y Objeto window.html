@@ -196,9 +196,14 @@
                 <button class="btn btn-primary" onclick=" iniciarIntervalo8()">Start</button>
                 <button class="btn btn-primary" onclick="stopColor8()">Stop</button>
                 <script>
+                    var myInterval8 = null;
+
                     function iniciarIntervalo8() 
                     {
-                        myInterval = setInterval(setColor8, 500);
+                        if (myInterval8 == null)
+                        {
+                            myInterval8 = setInterval(setColor8, 500);
+                        }
                     }
 
                     function setColor8() 
@@ -218,7 +223,9 @@
                     
                     function stopColor8() 
                     { 
-                        clearInterval(myInterval);
+                        clearInterval(myInterval8);
+                        myInterval8 = null;
+                        x.style.backgroundColor = fondoOriginal;
                     }
                 </script>
             </article>
@@ -236,29 +243,37 @@
                 <button class="btn btn-primary" onclick=" iniciarIntervalo9()">Start</button>
                 <button class="btn btn-primary" onclick="stopColor9()">Stop</button>
                 <script>
+                    var myInterval9 = null;
+
                     function iniciarIntervalo9() 
                     {
-                        color = window.prompt("Escribe el color(en ingles): ")
-                        myInterval = setInterval(setColor9(color), 500);
+                        if (myInterval9 == null) 
+                        {
+                            var intervalo9 = window.prompt("Introduce el intervalo de tiempo(en ms, 1000ms = 1s): ", 250);
+                            myInterval9 = setInterval(setColor9, intervalo9);    
+                        }
                     }
 
-                    function setColor9(colour) 
+                    function setColor9() 
                     {
+                        
                         let x = document.body;
                         
-                        if( x.style.backgroundColor == "yellow") 
+                        if( x.style.backgroundColor == "green") 
                         {
-                            x.style.backgroundColor = colour;
+                            x.style.backgroundColor = "purple"
 
                         } else 
                         {
-                            x.style.backgroundColor = "yellow"
+                            x.style.backgroundColor = "green"
                         }
                     }
                     
                     function stopColor9() 
                     { 
-                        clearInterval(myInterval);
+                        clearInterval(myInterval9);
+                        myInterval9 = null;
+                        x.style.backgroundColor = fondoOriginal;
                     }
                 </script>
             </article>
@@ -276,28 +291,42 @@
                 <button class="btn btn-primary" onclick=" iniciarIntervalo10()">Start</button>
                 <button class="btn btn-primary" onclick="stopColor10()">Stop</button>
                 <script>
+                    myInterval10 = null;
+                    
                     function iniciarIntervalo10() 
                     {
-                        myInterval = setInterval(setColor10(), 500);
+                        if (myInterval10 == null)
+                        {
+                            var intervalo10 = window.prompt("Introduce el intervalo de tiempo(en ms, 1000ms = 1s): ", 250);
+                            var color = window.prompt("Escribe el color (en ingles, green, red, etc.): ", "red");
+                            
+                            myInterval10 = setInterval(function() 
+                            {
+                                setColor10(color);
+                            }, intervalo10);
+
+                        }
                     }
 
-                    function setColor10() 
+                    let x = document.body;
+                    let fondoOriginal = document.body.style.backgroundColor;
+                    function setColor10(color) 
                     {
-                        let x = document.body;
-                        
-                        if( x.style.backgroundColor == "yellow") 
+                        if( x.style.backgroundColor == "orange") 
                         {
-                            x.style.backgroundColor = "pink"
+                            x.style.backgroundColor = color
 
                         } else 
                         {
-                            x.style.backgroundColor = "yellow"
+                            x.style.backgroundColor = "orange"
                         }
                     }
                     
                     function stopColor10() 
                     { 
-                        clearInterval(myInterval);
+                        clearInterval(myInterval10);
+                        myInterval10 = null;
+                        x.style.backgroundColor = fondoOriginal;
                     }
                 </script>
             </article>
