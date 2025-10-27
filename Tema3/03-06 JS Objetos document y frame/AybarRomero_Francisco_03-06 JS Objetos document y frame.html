@@ -11,7 +11,8 @@
 
         <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                1º 
+                1º Crea un script que te muestre con bucle los siguientes 
+                htmlCollections (arrays) ojo algunos podrían fallar ya que están deprectated
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
@@ -19,6 +20,142 @@
             </article>
         </section>
 
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Muestra las siguientes Propiedades del objeto Document
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º Ejecuta el siguiente código para observar como podemos 
+                cambiar el titulo de la pagina
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Modifica el código anterior para sustituir los alert por 
+                document.getElementById("idetiqueta").innerHTML = ""
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="etiquetatituloviejo"></div> 
+                <div id="etiquetatitulonuevo"></div> 
+
+                <!-- <script language="JavaScript">
+                    nombre = prompt('Ingrese nuevo titulo:','Bienvenido a Málaga');
+                    document.getElementById("etiquetatituloviejo").innerHTML = "Titulo antiguo " + document.title;
+                    
+                    document.title = nombre;
+                    document.getElementById("etiquetatitulonuevo").innerHTML = "Titulo nuevo " + document.title;
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Ejercicio Usa getElementById() para acceder a un elemento 
+                identificado por el id escrito entre paréntesis.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="etiquetaARellenar"></div>
+
+                <!-- <script language="JavaScript">
+                    nombre = prompt('Ingrese su nombre:','Francisco');
+
+                    document.getElementById("etiquetaARellenar").innerHTML = nombre;
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Ejercicio Usa getElementsByName().InnerElement para acceder 
+                a un elemento identificado por el id escrito entre paréntesis
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <input type="text" name="etiquetaARellenar1"> elemento1<br>
+                <input type="text" name="etiquetaARellenar2"> elemento2
+
+                <!-- <script language="JavaScript">
+                    nombre = prompt('Ingrese su nombre:','Francisco');
+
+                    document.getElementsByName("etiquetaARellenar1")[0].value = nombre;
+                    document.getElementsByName("etiquetaARellenar2")[0].value = `Soy ${nombre}!`;
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Ejecuta el siguiente código para ver como se Usa 
+                getElementsByName().InnerHTML para acceder a un elemento identificado por el id escrito entre paréntesis.
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h4> Objeto Document</h4>
+                <h5>Metodo getElementsByTagName()</h5>
+
+                <p> Una Lista ordenada:</p>
+                <ol>
+                    <li>Torremolinos</li>
+                    <li>Málaga</li>
+                    <li>Granada</li>
+                    <li>Sevilla</li>
+                    <li>Alhaurin</li>
+                    <li>Churriana</li>
+                </ol>
+                <hr>
+                <p id="indice"></p>
+                <h2 id="lista"></h2>
+                <script>
+                numero=prompt('Ingrese el numero que deseas selecionar:','');
+                indice_string= "El "+ numero +"º elemento de la lista es";
+                const collection = document.getElementsByTagName("li");
+                document.getElementById("lista").innerHTML = collection[numero-1].innerHTML;
+                document.getElementById("indice").innerHTML = indice_string;
+                </script>
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                8º 
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                
+            </article>
+        </section>
 
 
     </div>
