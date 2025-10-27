@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_03-04 JS Objetos Alto nivel y Objeto window</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container bg-light">
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                1º Ejecuta el siguiente codigo y explica La estructura 
+                document.getElementById("elementoaCambiar").innerHTML
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="elementoaCambiar"></div>
+                <script >
+                    document.getElementById("elementoaCambiar").innerHTML="texto nuevo";
+                </script>
+                <br>
+                <p>
+                    El div con el id="elementoaCambiar" se usará para luego en el script
+                    usando el getElementById() lo capturemos y usando el innerHTML pondremos
+                    un lo que queramos ahí.
+                </p>
+            </article>
+        </section>
+
+        
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Realiza un script que muestre las siguientes propiedades 
+                del objeto location 
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <ol>
+                    <li>
+                        hash -> 
+                        <span id="hash">
+                            <script>
+                                location.hash = "#home"
+                                document.getElementById("hash").innerHTML = location.hash;
+                            </script>
+                        </span>
+                    </li><br>
+                    
+
+                    <li>
+                        host -> 
+                        <span id="host">
+                            <script>
+                                document.getElementById("host").innerHTML = location.host;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        hostname -> 
+                        <span id="hostname">
+                            <script>
+                                document.getElementById("hostname").innerHTML = location.hostname;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        href -> 
+                        <span id="href">
+                            <script>
+                                document.getElementById("href").innerHTML = location.href;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        pathname -> 
+                        <span id="pathname">
+                            <script>
+                                document.getElementById("pathname").innerHTML = location.pathname;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        port -> 
+                        <span id="port">
+                            <script>
+                                document.getElementById("port").innerHTML = location.port;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        protocolo -> 
+                        <span id="protocolo">
+                            <script>
+                                document.getElementById("protocolo").innerHTML = location.protocol;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        search -> 
+                        <span id="search">
+                            <script>
+                                document.getElementById("search").innerHTML = location.search;
+                            </script>
+                            (No hay nada porque no mandamos ningún dato, es lo que hay detrás
+                            del "?")
+                        </span>
+                    </li>
+
+                </ol>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º Ejecuta el siguiente código y explica que hace assign().
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>The assign Property of Location Object</h2>
+                <button onclick="myFunction()">Load new document</button>
+                <script>
+                    function myFunction() 
+                    {
+                        location.assign("https://www.iesplayamar.es");
+                    }
+                </script>
+            </article>
+        </section>
+        
+        
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Modifica este ejemplo para que cargue el valor que se le pase 
+                desde un input text o un prompt
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Modificado, primero pide la url y luego la carga</h2>
+                <button onclick="myFunction()">Cargar nueva página</button>
+                <script>
+                    function myFunction() 
+                    {
+                        var url = window.prompt("Escribe una url (ejemplo: www.iesplayamar.es): ", "www.iesplayamar.es");
+                        location.assign("https://" + url);
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Haz un ejemplo de window.reload() añadiendo un botón 
+                al anterior ejercicio
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Como antes, pero con más.</h2>
+                <button onclick="myFunction()">Cargar nueva página</button>
+                <button onclick="nuevoBoton()">Nuevo botón</button>
+                <script>
+                    function myFunction() 
+                    {
+                        var url = window.prompt("Escribe una url (ejemplo: www.iesplayamar.es): ", "www.iesplayamar.es");
+                        location.assign("https://" + url);
+                    }
+
+                    function nuevoBoton()
+                    {
+                        window.location.reload();
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Haz un ejemplo de window.replace() añadiendo un botón 
+                al anterior ejercicio 
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Como antes, pero con más.</h2>
+                <button onclick="myFunction()">Cargar nueva página</button>
+                <button onclick="nuevoBoton()">Nuevo botón</button>
+                <button onclick="otroBoton()">Otro botón</button>
+                <script>
+                    function myFunction() 
+                    {
+                        var url = window.prompt("Escribe una url (ejemplo: www.iesplayamar.es): ", "www.iesplayamar.es");
+                        location.assign("https://" + url);
+                    }
+
+                    function nuevoBoton()
+                    {
+                        window.location.reload();
+                    }
+
+                    function otroBoton()
+                    {
+                        window.location.replace("https://www.google.com");
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º ¿Qué diferencia hay entre replace() y assign()?
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p>
+                    replace(); remplaza la url actual por la especificada, en cambio
+                    assign(); carga un nuevo documento.
+                </p>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                8º Realiza un script que muestre las siguientes propiedades 
+                del objeto  Navigator
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <ol>
+                    <li>
+                        appCodeName ->
+                        <span id="appCodeName">
+                            <script>
+                                document.getElementById("appCodeName").innerHTML = navigator.appCodeName;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        appName ->
+                        <span id="appName">
+                            <script>
+                                document.getElementById("appName").innerHTML = navigator.appName;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        appVersion ->
+                        <span id="appVersion">
+                            <script>
+                                document.getElementById("appVersion").innerHTML = navigator.appVersion;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        cookieEnabled ->
+                        <span id="cookieEnabled">
+                            <script>
+                                document.getElementById("cookieEnabled").innerHTML = navigator.cookieEnabled;
+                            </script>
+                        </span>
+                    </li><br>
+                    
+                    <li>
+                        platform ->
+                        <span id="platform">
+                            <script>
+                                document.getElementById("platform").innerHTML = navigator.platform;
+                            </script>
+                        </span>
+                    </li><br>
+
+                    <li>
+                        userAgent ->
+                        <span id="userAgent">
+                            <script>
+                                document.getElementById("userAgent").innerHTML = navigator.userAgent;
+                            </script>
+                        </span>
+                    </li>
+                </ol>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                9º Copia  un script que te  cargue las coordenadas 
+                usadas por muestre las siguientes propiedades del objeto location 
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h1>The Window Navigator Object</h1>
+                <h2>The The geolocation Property</h2>
+
+                <p id="demo"></p>
+
+                <script>
+                    try 
+                    {
+                        if (navigator.geolocation.getCurrentPosition(showPosition).GeolocationPositionError != PERMISSION_DENIED) 
+                        navigator.geolocation.getCurrentPosition(showPosition);      
+
+                    } catch (e) 
+                    {
+                        document.getElementById("demo").innerHTML =
+                        "Geolocation is not supported by this browser2.";
+                    }
+
+                    function showPosition(position) 
+                    {
+                        document.getElementById("demo").innerHTML =
+                        "Latitude: " + position.coords.latitude + "<br>" +
+                        "Longitude: " + position.coords.longitude;
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                10º Modifica dicho script con assign para que te cargue el mapa 
+                de google maps en un iframe
+            </h1>
+            <h3 class="text-center">
+                URL De Google : https://www.google.es/maps/@36.643675,-4.4902875,15z
+            </h3>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="mapa"></div>
+                
+                <script>
+                    var lat = null;
+                    var lon = null;
+
+                    if (navigator.geolocation) 
+                    {
+                        navigator.geolocation.getCurrentPosition(showPosition, showError);
+
+                    } else 
+                    {
+                        document.getElementById("mapa").innerHTML =
+                        "La geolocalización no es compatible con este navegador.";
+                    }
+
+                    function showPosition(position) 
+                    {
+                        lat = position.coords.latitude;
+                        lon = position.coords.longitude;
+                        renderMap();
+                    }
+
+                    function renderMap() 
+                    {
+                        document.getElementById("mapa").innerHTML = 
+                        `<iframe 
+                            src="https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed"
+                            style="border:0;" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>`;
+                    }
+
+                    function showError(error) 
+                    {
+                        let mensaje = "";
+                        switch (error.code) 
+                        {
+                            case error.PERMISSION_DENIED:
+                                mensaje = "Permiso de geolocalización denegado.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                mensaje = "Información de ubicación no disponible.";
+                                break;
+                            case error.TIMEOUT:
+                                mensaje = "La solicitud de ubicación ha expirado.";
+                                break;
+                            default:
+                                mensaje = "Error desconocido.";
+                                break;
+                        }
+                        document.getElementById("mapa").innerHTML = mensaje;
+                    }
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                11º Modifica dicho script Para poner un boton que aumente o 
+                minimice el zoom del iframe modificando el valor de ,15z
+            </h1>
+            <h3 class="text-center">
+                URL De Google : https://www.google.es/maps/@36.643675,-4.4902875,15z
+            </h3>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="mapa2"></div>
+                <button onclick="zoomIn()">Zoom in</button>
+                <button onclick="zoomOut()">Zoom out</button>
+
+                <script>
+                    var zoom = 15;
+                    var lat11 = null;
+                    var lon11 = null;
+
+                    if (navigator.geolocation) 
+                    {
+                        navigator.geolocation.getCurrentPosition(showPosition11, showError11);
+
+                    } else 
+                    {
+                        document.getElementById("mapa2").innerHTML =
+                        "La geolocalización no es compatible con este navegador.";
+                    }
+
+                    function showPosition11(position) 
+                    {
+                        lat11 = position.coords.latitude;
+                        lon11 = position.coords.longitude;
+                        renderMap11();
+                    }
+
+                    function renderMap11() 
+                    {
+                        document.getElementById("mapa2").innerHTML = 
+                        `<iframe 
+                            src="https://maps.google.com/maps?q=${lat11},${lon11}&z=${zoom}&output=embed"
+                            style="border:0;" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>`;
+                    }
+
+                    function zoomIn() 
+                    {
+                        if (zoom < 21) zoom++;
+                        renderMap11();
+                    }
+
+                    function zoomOut() 
+                    {
+                        if (zoom > 1) zoom--;
+                        renderMap11();
+                    }
+
+                    function showError11(error) 
+                    {
+                        let mensaje = "";
+                        switch (error.code) 
+                        {
+                            case error.PERMISSION_DENIED:
+                                mensaje = "Permiso de geolocalización denegado.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                mensaje = "Información de ubicación no disponible.";
+                                break;
+                            case error.TIMEOUT:
+                                mensaje = "La solicitud de ubicación ha expirado.";
+                                break;
+                            default:
+                                mensaje = "Error desconocido.";
+                                break;
+                        }
+                        document.getElementById("mapa2").innerHTML = mensaje;
+                    }
+                </script>
+            </article>
+        </section>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
