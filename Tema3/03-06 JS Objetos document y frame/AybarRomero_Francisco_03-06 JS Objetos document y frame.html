@@ -16,7 +16,82 @@
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                
+                <ol>
+                    <li>
+                        anchors[] -> deprecated
+                        <span id="anchors"></span>
+                    </li><br>
+
+                    <li>
+                        applets[] -> deprecated
+                        <span id="applets"></span>
+                    </li><br>
+
+                    <li>
+                        links[] -> 
+                        <span id="links"></span>
+                    </li><br>
+
+                    <li>
+                        forms[] -> 
+                        <span id="forms"></span>
+                    </li><br>
+
+                    <li>
+                        images[] -> 
+                        <span id="images"></span>
+                    </li><br>
+
+                    <li>
+                        Document.scripts[] -> 
+                        <span id="scripts"></span>
+                    </li><br>
+
+                    <li>
+                        Document.styleSheets[] -> 
+                        <span id="stylesheets"></span>
+                    </li><br>
+                    
+                    <li>
+                        cookie[] -> 
+                        <span id="cookies"></span>
+                    </li><br>
+                </ol>
+
+                <script>
+                    function showCollection(id, collection, formatter = (item) => item) 
+                    {
+                        const span = document.getElementById(id);
+                        let html = "";
+
+                        for (let i = 0; i < collection.length; i++) 
+                        {
+                            html += `<div>${formatter(collection[i])}</div>`;
+                        }
+                        span.innerHTML = html || "<em>(vacío)</em>";
+                    }
+
+                    showCollection("anchors", document.anchors, (a) => a.href);
+                    showCollection("applets", document.applets, (a) => a);
+                    showCollection("links", document.links, (l) => l.href);
+                    showCollection("forms", document.forms, (f) => f.outerHTML);
+                    showCollection("images", document.images, (img) => img.src);
+                    showCollection("scripts", document.scripts, (s) => s.src || "Inline script");
+                    showCollection("stylesheets", document.styleSheets, (s) => s.href || "Inline stylesheet");
+
+
+                    const cookieSpan = document.getElementById("cookies");
+                    const rawCookies = document.cookie;
+                    if (rawCookies.trim() === "") 
+                    {
+                        cookieSpan.innerHTML = "<em>(sin cookies)</em>";
+
+                    } else 
+                    {
+                        const cookies = rawCookies.split("; ");
+                        cookieSpan.innerHTML = cookies.map(c => `<div>${c}</div>`).join("");
+                    }
+                </script>
             </article>
         </section>
 
@@ -28,7 +103,45 @@
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                
+                <ol>
+                    <li>
+                        domain -> 
+                        <span id="domain"></span>
+                    </li><br>
+                    
+                    <li>
+                        lastModified -> 
+                        <span id="lastModified"></span>
+                    </li><br>
+
+                    <li>
+                        readyState -> 
+                        <span id="readyState"></span>
+                    </li><br>
+
+                    <li>
+                        referrer -> 
+                        <span id="referrer"></span>
+                    </li><br>
+
+                    <li>
+                        title  -> 
+                        <span id="title"></span>
+                    </li><br>
+
+                    <li>
+                        URL   -> 
+                        <span id="URL"></span>
+                    </li><br>
+                </ol>
+                <script>
+                    var domain = document.getElementById("domain").innerHTML = document.domain;
+                    var lastModified = document.getElementById("lastModified").innerHTML = document.lastModified;
+                    var readyState = document.getElementById("readyState").innerHTML = document.readyState;
+                    var referrer = document.getElementById("referrer").innerHTML = document.referrer;
+                    var title = document.getElementById("title").innerHTML = document.title;
+                    var URL = document.getElementById("URL").innerHTML = document.URL;
+                </script>
             </article>
         </section>
 
@@ -41,7 +154,14 @@
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                
+                <!-- <script language="JavaScript">
+                    nombre = prompt('Ingrese su nombre:','');
+                    alert("Titulo antiguo " + document.title); // displays "Hello World!"
+
+                    document.title = nombre;
+                    alert("Titulo nuevo " + document.title); // displays "Goodbye World!"
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
             </article>
         </section>
 
@@ -134,14 +254,15 @@
                 <hr>
                 <p id="indice"></p>
                 <h2 id="lista"></h2>
-                <script>
-                numero=prompt('Ingrese el numero que deseas selecionar:','');
-                indice_string= "El "+ numero +"º elemento de la lista es";
-                const collection = document.getElementsByTagName("li");
-                document.getElementById("lista").innerHTML = collection[numero-1].innerHTML;
-                document.getElementById("indice").innerHTML = indice_string;
-                </script>
+                <!-- <script>
+                    numero = prompt('Ingrese el numero que deseas selecionar:','');
+                    indice_string = "El "+ numero +"º elemento de la lista es";
+                    const collection = document.getElementsByTagName("li");
 
+                    document.getElementById("lista").innerHTML = collection[numero-1].innerHTML;
+                    document.getElementById("indice").innerHTML = indice_string;
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
             </article>
         </section>
 
@@ -149,14 +270,57 @@
 
         <section class="bg-info-subtle mt-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                8º 
+                8º Modifica el siguiente código para ver el contenido de la 
+                etiqueta que se le indique
             </h1>
 
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                
+                <h1>Una cabecera h1</h1>
+                <h2>Una cabecera h2</h2>
+                <p>Un parrafo</p>
+                <span>Torremolinos</span>
+                <p id="explica"></p>
+                <h2 id="elemento"></h2>
+
+                <!-- <script>
+                    etiqueta = prompt('Ingrese el contenido que deseas conocer (p,h1,h2,span) \n¿Qué deseas seleccionar?:','');
+                    
+                    const collection = document.getElementsByTagName(etiqueta);
+                    document.getElementById("explica").innerHTML = "El contenido de la etiqueta " +  etiqueta  + " es: "; 
+                    document.getElementById("elemento").innerHTML = collection[0].innerHTML; ;
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
             </article>
         </section>
 
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                9º Modifica el siguiente código para ver el contenido 
+                de la etiqueta que se le indique
+            </h1>
+
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <p> etiqueta1     <input type="text" name="etiqueta1" value ="Guadalajara"> </p>
+                <p> etiqueta2     <input type="text" name="etiqueta2" value ="Toledo">  </p>
+                <p> etiqueta3     <input type="text" name="etiqueta3" value ="Cuenca">  </p>
+                <hr>
+                <p id="explica1"></p>
+                <h2 id="elemento1"></h2>
+
+                <!-- <script language="JavaScript">
+                    numero = prompt('Ingresa el numero de la etiqueta:','');
+                    valorDeEtiqueta = document.getElementsByName(numero).value;
+                    elements = document.getElementsByName("etiqueta" + numero);
+                    valorDeEtiqueta = elements[0].value;
+
+                    document.getElementById("explica1").innerHTML = "El contenido de la etiqueta " + numero  + " es: "; 
+                    document.getElementById("elemento1").innerHTML = valorDeEtiqueta ;
+                </script> -->
+                <br><br><p>Si no ves nada o no funciona, comprueba que no este comentado</p>
+            </article>
+        </section>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
