@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_04-01 JS Arrays.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                1º Realiza un ejercicio que te cree un array con 50 números 
+                random (Math.random) con un bucle y que te calcule el mayor 
+                menor, media.
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h4>Números del array</h4>
+                <div id="res1"></div>
+                <script>
+                    let vueltas1 = 50;
+                    let array1 = [];
+                    let mayor1 = Number.MIN_VALUE;
+                    let menor1 = Number.MAX_VALUE;
+                    let media1 = 0;
+
+                    res1 = document.getElementById("res1");
+
+                    for (let i = 0; i < vueltas1; i++)
+                    {
+                        array1[i] = Math.round(Math.random() * 100);
+                    }
+
+                    array1.sort((a, b) => a - b);
+
+                    // Mostramos el array de 50 números randoms entre 0 y 100
+                    for (let i = 0; i < vueltas1; i++)
+                    {
+                        res1.innerHTML += array1[i] + " - ";
+                    }
+
+                    // Mostramos el valor mayor, menor y medio del array1
+                    res1.innerHTML += "<br><br>";
+                    res1.innerHTML += "<h4>Mayor, menor y medio</h4>";
+                    for (let i = 0; i < vueltas1; i++)
+                    {
+                        var a1 = array1[i];
+
+                        mayor1 = (mayor1 > a1) ? mayor1 : a1;
+                        menor1 = (menor1 < a1) ? menor1 : a1;
+                        media1 = array1[(array1.length / 2)];
+                    }
+
+                    res1.innerHTML += "Mayor: " + mayor1 + "<br>";
+                    res1.innerHTML += "Menor: " + menor1 + "<br>";
+                    res1.innerHTML += "Media: " + media1 + "<br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
+            <h1 class="text-center">
+                2º Realiza un ejercicio que te cree un array con 50 números 
+                random (Math.random) enteros del uno al 10 con un bucle y que 
+                te los ordene de mayor a menor y te calcule la moda (elemento 
+                que mas se repite) y la mediana
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h4>Números del array</h4>
+                <div id="res2"></div>
+                <script>
+                    let vueltas2 = 50;
+                    let array2 = [];
+
+                    res2 = document.getElementById("res2");
+
+                    for (let i = 0; i < vueltas2; i++)
+                    {
+                        array2[i] = 1 + Math.round(Math.random() * 9);
+                    }
+
+                    array2.sort((a, b) => a - b).reverse();
+
+                    // Mostramos el array de 50 números randoms entre 1 y 10
+                    for (let i = 0; i < vueltas2; i++)
+                    {
+                        res2.innerHTML += array2[i] + "-";
+                    }
+
+                    res2.innerHTML += "<br><br>";
+                    res2.innerHTML += "<h4>Moda</h4>";
+
+                    // Calcular la moda
+                    let modanum = array2[0];
+                    let modanumMax = 1;
+                    let moda = 1;
+                    let numAnt = array2[0];
+
+
+                    for (let i = 0; i < 20; i++)
+                    {
+                        num = array2[i];
+                        if (num == numAnt) 
+                        {
+                            moda++;
+
+                        } else 
+                        {
+                            if (moda > modanumMax) 
+                            {
+                                modanumMax = moda;
+                                modanum = numAnt;
+                            }
+                            moda = 1;
+                        }
+                        numAnt = num;
+                    }
+
+                    res2.innerHTML += "La moda es: " + modanum + "<br><br>";
+                    
+                    
+                    // Calcular la mediana
+                    let mediana;
+                    if (array2.length % 2 === 0) 
+                    {
+                        let mid1 = array2.length / 2 - 1;
+                        let mid2 = array2.length / 2;
+                        mediana = (array2[mid1] + array2[mid2]) / 2;
+
+                    } else 
+                    {
+                        mediana = array2[Math.floor(array2.length / 2)];
+                    }
+
+                    res2.innerHTML += "<h4>Mediana</h4>";
+                    res2.innerHTML += "La mediana es: " + mediana;
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
+            <h1 class="text-center">
+                4º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
+            <h1 class="text-center">
+                6º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
+            <h1 class="text-center">
+                8º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                9º 
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
+
+
+
+
+
+    </div>
+
+
+
+    <!-- <h4>Números del array</h4>
+    <div id="res2"></div>
+    <script>
+        let vueltas2 = 50;
+        let array2 = [];
+
+        let res2 = document.getElementById("res2");
+
+        // Generar 50 números aleatorios entre 1 y 10
+        for (let i = 0; i < vueltas2; i++) {
+            array2[i] = 1 + Math.round(Math.random() * 9);
+        }
+
+        // Mostrar el array original
+        res2.innerHTML += array2.join("-") + "<br><br>";
+
+        // Ordenar el array para calcular moda y mediana
+        array2.sort((a, b) => a - b);
+
+        // Calcular la moda
+        let modanum = array2[0];
+        let modanumMax = 1;
+        let moda = 1;
+        let numAnt = array2[0];
+
+        for (let i = 1; i < array2.length; i++) {
+            let num = array2[i];
+            if (num === numAnt) {
+                moda++;
+            } else {
+                if (moda > modanumMax) {
+                    modanumMax = moda;
+                    modanum = numAnt;
+                }
+                moda = 1;
+            }
+            numAnt = num;
+        }
+
+        // Verificar el último grupo
+        if (moda > modanumMax) {
+            modanum = numAnt;
+        }
+
+        res2.innerHTML += "<h4>Moda</h4>";
+        res2.innerHTML += "La moda es: " + modanum + "<br><br>";
+
+        // Calcular la mediana
+        let mediana;
+        if (array2.length % 2 === 0) {
+            let mid1 = array2.length / 2 - 1;
+            let mid2 = array2.length / 2;
+            mediana = (array2[mid1] + array2[mid2]) / 2;
+        } else {
+            mediana = array2[Math.floor(array2.length / 2)];
+        }
+
+        res2.innerHTML += "<h4>Mediana</h4>";
+        res2.innerHTML += "La mediana es: " + mediana;
+    </script> -->
+
+
+
+    <!-- <div id="res"></div>
+    <script>
+        res1 = document.getElementById('res');
+
+        
+        let array1 = [1,2,3,4,5,6,7];
+        array1.sort();
+
+        let array2 = 50 + Math.round(Math.random()*50);
+        
+        for (let i = 0; i < 20; i++)
+        {
+            res1.innerHTML += array2[i] + " - ";
+        }
+
+        let modanum = array2[0];
+        let modanumMax = 1;
+
+        let moda = 1;
+        let numAnt = array2[0];
+
+        for (let i = 0; i < 20; i++)
+        {
+            num = array2[i];
+            if (num == numAnt)
+            {
+                moda++;
+
+            }else 
+            {
+                modanumMax = (modanumMax > moda) ? modanumMax : moda;
+                modanum = (modanumMax > moda) ? modanum : num;
+                moda = 1;
+            }
+            numAnt = num;
+        }
+        
+    </script> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
