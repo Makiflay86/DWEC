@@ -145,10 +145,33 @@
 
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                3º 
+                3º Ejecuta este código y observa qué hace
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2> Ejercicio Arrays </h2>
+                <p> Array X    <input type="text" size ="60" name="caja1" value ="X1,X2,X3,X4,X5">   </p>        
+                <p>   <input type="button" name="button" value="Add Array" onclick="addArrays();" >  </p>
+                <hr>        <p id="explica"></p>     <h2 id="tamano"></h2>
+                <br>
+                <script language="JavaScript">
+                    var arrayX= new Array();
+                    var arraymix= new Array();
+                    
+                    function addArrays()  
+                    {
+                        arrayXstr = document.getElementsByName("caja1")[0].value;                  
+                        arrayX=arrayXstr.split(',');           
+                        lX =arrayX.length;
 
+                        for (var i=0; i< lX;i++ ) {  arraymix.push(arrayX[i]);}
+
+                        contenidostr = "El contenido del array es " + arraymix.join('-');
+                        tamanostr =  "El tamano del array es " + arraymix.length;          
+                        //alert(contenidostr);
+                        document.getElementById("explica").innerHTML=contenidostr   ; 
+                        document.getElementById("tamano").innerHTML=tamanostr;        
+                    }       
+                </script>
             </article>
         </section>
 
@@ -156,10 +179,40 @@
 
         <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
             <h1 class="text-center">
-                4º 
+                4º Realiza un ejercicio que te añada los datos de un campo 
+                text a un array pulsando en un botón y te los muestre debajo
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Ejercicio Arrays</h2><br>
 
+                <label for="input_ej4">etiqueta1 </label>
+                <input type="text" name="input_ej4" id="input_ej4" value="A5,S5,RS5">
+                <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej4()">Add</button>
+                
+                <hr>
+
+                <p id="explica_ej4"></p>     
+                <h2 id="tamano_ej4"></h2>
+
+                <script>
+                    var array_ej4 = new Array();
+                    var arraymix_ej4 = new Array();
+
+                    function addArrays_ej4()  
+                    {
+                        input_ej4 = document.getElementsByName("input_ej4")[0].value;
+                        array_ej4 = input_ej4.split(',');
+                        lX = array_ej4.length;
+
+                        for (var i = 0; i < lX; i++ ) {  arraymix_ej4.push(array_ej4[i]);}
+
+                        contenidostr_ej4 = "El contenido del array es " + arraymix_ej4.join('-');
+                        tamanostr_ej4 =  "El tamano del array es " + arraymix_ej4.length;
+                        
+                        document.getElementById("explica_ej4").innerHTML = contenidostr_ej4;
+                        document.getElementById("tamano_ej4").innerHTML = tamanostr_ej4;
+                    }       
+                </script>
             </article>
         </section>
 
@@ -167,10 +220,51 @@
 
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                5º 
+                5º Modifica el ejercicio anterior para que pulsando en un 
+                botón y te los ordene y muestre
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Ejercicio Arrays</h2><br>
 
+                <label for="input_ej5">etiqueta1 </label>
+                <input type="text" name="input_ej5" id="input_ej5" value="A5,S5,RS5">
+                <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej5()">Add</button>
+                <button type="button" class="btn btn-warning btn-sm" onclick="ordenar_ej5()">Ordenar</button>
+                
+                <hr>
+
+                <p id="explica_ej5"></p>     
+                <h2 id="tamano_ej5"></h2>
+
+                <script>
+                    var array_ej5 = new Array();
+                    var arraymix_ej5 = new Array();
+
+                    function addArrays_ej5()  
+                    {
+                        input_ej5 = document.getElementsByName("input_ej5")[0].value;
+                        array_ej5 = input_ej5.split(',');
+                        lX = array_ej5.length;
+
+                        for (var i = 0; i < lX; i++ ) {  arraymix_ej5.push(array_ej5[i]);}
+
+                        contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
+                        tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
+                        
+                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
+                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                    }       
+
+                    function ordenar_ej5()
+                    {
+                        arraymix_ej5.sort();
+                        contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
+                        tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
+                        
+                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
+                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                    }
+                </script>
             </article>
         </section>
 
@@ -178,10 +272,99 @@
 
         <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
             <h1 class="text-center">
-                6º 
+                No esta echo
+                6º Dado un vector de enteros, comprobar el mayor, el menor 
+                y por último la media de todos.
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Introduce los enteros separados por comas</h2><br>
 
+                <label for="input_ej6">etiqueta1 </label>
+                <input type="text" name="input_ej6" id="input_ej6" value="33,22,11">
+                <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej5()">Add</button>
+                <button type="button" class="btn btn-warning btn-sm" onclick="ordenar_ej5()">Ordenar</button>
+                
+                <hr>
+
+                <p id="explica_ej5"></p>     
+                <h2 id="tamano_ej5"></h2>
+
+                <script>
+                    var array_ej5 = new Array();
+                    var arraymix_ej5 = new Array();
+
+                    function addArrays_ej5()  
+                    {
+                        input_ej5 = document.getElementsByName("input_ej5")[0].value;
+                        array_ej5 = input_ej5.split(',');
+                        lX = array_ej5.length;
+
+                        for (var i = 0; i < lX; i++ ) {  arraymix_ej5.push(array_ej5[i]);}
+
+                        contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
+                        tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
+                        
+                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
+                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                    }       
+
+                    function ordenar_ej5()
+                    {
+                        arraymix_ej5.sort();
+                        contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
+                        tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
+                        
+                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
+                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                    }
+
+
+
+
+
+
+                    // Propuesta de alfonso
+
+                    function calcular_ej6()
+                    {
+                        let mayor = Number.MIN_VALUE;
+                        let menor = Number.MAX_VALUE;
+                        let suma = 0;
+                        let total = 0;
+                        let arrayOk = [];
+    
+                        for (var i = 0; i < lX; i++)
+                        {
+                            valor = parseInt(arrayX[i]);
+    
+                            if (!isNaN(valor))
+                            {
+                                if (mayor < valor)
+                                {
+                                    mayor = valor;
+                                }
+                                if (menor > valor)
+                                {
+                                    menor = valor;
+                                }
+    
+                                suma = suma + valor;
+                                total++;
+    
+                                arrayOk.push(valor);
+                            }
+                        }
+    
+                        let contenidostr_ej6 = "El contenido correcto del array es " + arrayOk.join('-');
+                        let tamanostr_ej6 =  "El tamano del array es " + arrayOk.length;
+                        let maxStr_ej6 =  "El mayor del array es " + mayor;
+                        let minStr_ej6 =  "El menor del array es " + menor;
+                        let mediaStr_ej6 =  "La media del array es " + (suma/total);
+    
+                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej6 + tamanostr_ej6 + maxStr_ej6 + minStr_ej6 + mediaStr_ej6;
+                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                    }
+                </script>
             </article>
         </section>
 
@@ -189,10 +372,49 @@
 
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                7º 
+                No esta echo
+                7º Concatenar dos arrays A y B de la siguiente forma: 
+                A0, B0, A1, B1, A2, B2, …, An, Bn. Los vectores tendrán la misma longitud.
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Ejercicio Arrays</h2><br>
 
+                <label for="input_ej4">etiqueta1 </label>
+                <input type="text" name="input_ej4" id="input_ej4" value="A5,S5,RS5">
+                <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej4()">Add</button>
+                
+                <hr>
+
+                <p id="explica_ej4"></p>     
+                <h2 id="tamano_ej4"></h2>
+
+                <script>
+                    var array_ej4 = new Array();
+                    var arraymix_ej4 = new Array();
+
+                    function addArrays_ej4()  
+                    {
+                        input_ej7 = document.getElementsByName("input_ej7")[0].value;
+                        input2_ej7 = document.getElementsByName("input2_ej7")[0].value;
+                        array_ej7 = input_ej7.split(',');
+                        array2_ej7 = input2_ej7.split(',');
+
+                        lX = array_ej4.length;
+
+                        for (var i = 0; i < lX; i++ ) 
+                        {  
+                            arraymix_ej7.push(array_ej7[i]);
+                            arraymix_ej7.push(array2_ej7[i]);
+
+                        }
+
+                        contenidostr_ej4 = "El contenido del array es " + arraymix_ej4.join('-');
+                        tamanostr_ej4 =  "El tamano del array es " + arraymix_ej4.length;
+                        
+                        document.getElementById("explica_ej4").innerHTML = contenidostr_ej4;
+                        document.getElementById("tamano_ej4").innerHTML = tamanostr_ej4;
+                    }       
+                </script>
             </article>
         </section>
 
@@ -200,10 +422,136 @@
 
         <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
             <h1 class="text-center">
-                8º 
+                No esta echo
+                8º Modifica el anterior para Concatenar tres arraysX, ArrayY, 
+                arraysZ  de la siguiente forma:
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <h2>Ejercicio Arrays</h2><br>
 
+                <label for="input_ej8">etiqueta1 </label>
+                <input type="text" name="input_ej8" id="input_ej8" value="A1,A2,A3"><br>
+
+                <label for="input2_ej8">etiqueta2 </label>
+                <input type="text" name="input2_ej8" id="input2_ej8" value="B1,B2,B3,B4"><br>
+
+                <label for="input3_ej8">etiqueta3 </label>
+                <input type="text" name="input3_ej8" id="input3_ej8" value="C1,C2,C3,C4,C5"><br>
+                
+                <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej8()">Add</button>
+                
+                <hr>
+
+                <p id="explica_ej8"></p>     
+                <h2 id="tamano_ej8"></h2>
+
+                <script>
+                    var array_ej8 = new Array();
+                    var arraymix_ej8 = new Array();
+
+                    function addArrays_ej8()  
+                    {
+                        let input_ej8 = document.getElementsByName("input_ej8")[0].value;
+                        let input2_ej8 = document.getElementsByName("input2_ej8")[0].value;
+                        let input3_ej8 = document.getElementsByName("input3_ej8")[0].value;
+
+                        let array_ej8 = input_ej8.split(',');
+                        let array2_ej8 = input2_ej8.split(',');
+                        let array3_ej8 = input3_ej8.split(',');
+
+                        let lX = array_ej8.length;
+                        let lY = array2_ej8.length;
+                        let lZ = array3_ej8.length;
+
+                        if (lX < lY)
+                        {
+                            if (lX < lZ) 
+                            {
+                                if (lY < lZ)
+                                {
+                                    menor = array_ej8;
+                                    medio = array2_ej8;
+                                    mayor = array3_ej8;   
+
+                                } else
+                                {
+                                    menor = array_ej8;
+                                    medio = array3_ej8;
+                                    mayor = array2_ej8;
+                                }
+                            } else // (lZ < lX)
+                            {
+                                if (lY < lX)
+                                {
+                                    menor = array3_ej8;
+                                    medio = array2_ej8;
+                                    mayor = array_ej8;
+
+                                } else
+                                {
+                                    menor = array3_ej8;
+                                    medio = array_ej8;
+                                    mayor = array2_ej8; 
+                                }  
+                            }
+                        } else // (lY < lX)
+                        {
+                            if (lX < lZ)
+                                {
+                                    menor = array3_ej8;
+                                    medio = array_ej8;
+                                    mayor = array3_ej8;  
+
+                                } else // (lZ < lX)
+                                {
+                                    if (lY < lZ) // (lY < lX) (lZ < lX)
+                                    {
+                                        menor = array2_ej8;
+                                        medio = array3_ej8;
+                                        mayor = array_ej8;  
+
+                                    } else
+                                    {
+                                        menor = array3_ej8;
+                                        medio = array2_ej8;
+                                        mayor = array_ej8;
+                                    }    
+                                } 
+                        }
+
+
+                        let lmenor = menor.length;
+                        let lmayor = mayor.length;
+                        let lmedio = medio.length;
+
+
+
+                        for (var i = 0; i < lmenor; i++ ) 
+                        {  
+                            arraymix_ej8.push(menor[i]);
+                            arraymix_ej8.push(mayor[i]);
+                            arraymix_ej8.push(medio[i]);
+                        }
+
+                        for (var i = lmenor; i < lmedia; i++ ) 
+                        {  
+                            arraymix_ej8.push(mayor[i]);
+                            arraymix_ej8.push(medio[i]);
+                        }
+
+                        for (var i = lmedio; i < lmayor; i++ ) 
+                        {  
+                            arraymix_ej8.push(mayor[i]);
+                        }
+                        
+
+                        contenidostr_ej8 = "El contenido del array es " + arraymix_ej8.join('-');
+                        tamanostr_ej8 =  "El tamano del array es " + arraymix_ej8.length;
+                        
+                        document.getElementById("explica_ej8").innerHTML = contenidostr_ej8;
+                        document.getElementById("tamano_ej8").innerHTML = tamanostr_ej8;
+                    }       
+                </script>
             </article>
         </section>
 
@@ -211,10 +559,128 @@
 
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                9º 
+                No esta echo
+                9º Para una Gestionar el personal de una empresa hay que 
+                crear un formulario que tome 5 entradas id, nombre, apellido, 
+                fecha de nacimiento y  Puesto
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <form class="form" method="post">
+                    <label class="form-label" for="idEmpleado">ID: </label>
+                    <input class="form-input" type="text" id="idEmpleado"><br>
+                    
+                    <label class="form-label" for="nombreEmpleado">Nombre: </label>
+                    <input class="form-label" type="text" id="nombreEmpleado" value="Pepe"><br>
 
+                    <label class="form-label" for="apellidoEmpleado">Apellidos: </label>
+                    <input class="form-label" type="text" id="apellidoEmpleado" value="Gómez"><br>
+
+                    <label class="form-label" for="fechaEmpleado">Fecha: </label>
+                    <input class="form-label" type="text" id="fechaEmpleado" value="1999"><br>
+
+                    <label class="form-label" for="puestoEmpleado">Puesto: </label>
+                    <input class="form-label" type="text" id="puestoEmpleado" value="Programador"><br>
+
+                    <input type="button" class="btn btn-primary" value="Insertar" onclick="insertarEmpleado()">
+                    <input type="button" class="btn btn-primary" value="Mostrar" onclick="mostrarDatos()">
+                    <div id="resultado1_ej9"></div>
+
+                    
+                    <br><br><br>
+                    <hr>
+                    <br><br><br>
+
+
+                    <label class="form-label" for="registro">Registro: </label>
+                    <input class="form-label" type="text" id="registro" value="Pepe"><br>
+                    <input type="button" class="btn btn-primary" value="Ver Registro" onclick="verRegistro()">
+                    <div id="resultado2_ej9"></div>
+
+
+                    <br><br><br>
+                    <hr>
+                    <br><br><br>
+
+
+                    <input type="button" class="btn btn-primary" value="Ver Jubilación" onclick="mostrarJubilacion()">
+                    <div id="resultado3_ej9"></div>
+                </form>
+
+
+                <script>
+                    let contadorDeClave = 0;
+                    let almacen = [];
+                    document.getElementById("idEmpleado").value = contadorDeClave;
+
+
+
+                    function insertarEmpleado()
+                    {
+                        let registro = [];
+
+                        registro.push(contadorDeClave);
+                        contadorDeClave++;
+
+                        registro.push(document.getElementById("nombreEmpleado").value);
+                        registro.push(document.getElementById("apellidoEmpleado").value);
+                        registro.push(document.getElementById("fechaEmpleado").value);
+                        registro.push(document.getElementById("puestoEmpleado").value);
+
+                        almacen.push(registro);
+
+                        document.getElementById("resultado1_ej9").innerHTML = "Registro Correcto<br>";
+                    }
+
+
+
+                    function mostrarDatos()
+                    {
+                        let cadena = "<ol>";
+
+                        for (registro of almacen)
+                        {
+                            cadena += "<li>" + registro.join("-") + "</li>";
+                        }
+                        cadena += "</ol>";
+
+                        document.getElementById("resultado1_ej9").innerHTML += "Registro: " + cadena;   
+                    }
+
+
+
+                    function verRegistro()
+                    {
+                        let clave = document.getElementById("registro").value;
+                        cadena = "";
+
+                        for (registro of almacen)
+                        {
+                            if (registro[0] == clave)
+                            {
+                                cadena = registro.join(" - ") + "<br>";
+                                break;
+                            }
+
+                        }
+
+                        document.getElementById("resultado2_ej9").innerHTML += "Registro: " + cadena;   
+                    }
+
+
+
+                    function mostrarJubilacion()
+                    {
+                        cadena = "<ol>";
+
+                        for (registro of almacen)
+                        {
+                            let añoJubilacioni = (registro[3]+67);
+                            cadena += "<li>" + registro.join(" - ") + " -> Año Jubilación: " + añoJubilacioni;
+                        }
+
+                        document.getElementById("resultado3_ej9").innerHTML += cadena;   
+                    }
+                </script>
             </article>
         </section>
 
@@ -224,109 +690,6 @@
 
     </div>
 
-
-
-    <!-- <h4>Números del array</h4>
-    <div id="res2"></div>
-    <script>
-        let vueltas2 = 50;
-        let array2 = [];
-
-        let res2 = document.getElementById("res2");
-
-        // Generar 50 números aleatorios entre 1 y 10
-        for (let i = 0; i < vueltas2; i++) {
-            array2[i] = 1 + Math.round(Math.random() * 9);
-        }
-
-        // Mostrar el array original
-        res2.innerHTML += array2.join("-") + "<br><br>";
-
-        // Ordenar el array para calcular moda y mediana
-        array2.sort((a, b) => a - b);
-
-        // Calcular la moda
-        let modanum = array2[0];
-        let modanumMax = 1;
-        let moda = 1;
-        let numAnt = array2[0];
-
-        for (let i = 1; i < array2.length; i++) {
-            let num = array2[i];
-            if (num === numAnt) {
-                moda++;
-            } else {
-                if (moda > modanumMax) {
-                    modanumMax = moda;
-                    modanum = numAnt;
-                }
-                moda = 1;
-            }
-            numAnt = num;
-        }
-
-        // Verificar el último grupo
-        if (moda > modanumMax) {
-            modanum = numAnt;
-        }
-
-        res2.innerHTML += "<h4>Moda</h4>";
-        res2.innerHTML += "La moda es: " + modanum + "<br><br>";
-
-        // Calcular la mediana
-        let mediana;
-        if (array2.length % 2 === 0) {
-            let mid1 = array2.length / 2 - 1;
-            let mid2 = array2.length / 2;
-            mediana = (array2[mid1] + array2[mid2]) / 2;
-        } else {
-            mediana = array2[Math.floor(array2.length / 2)];
-        }
-
-        res2.innerHTML += "<h4>Mediana</h4>";
-        res2.innerHTML += "La mediana es: " + mediana;
-    </script> -->
-
-
-
-    <!-- <div id="res"></div>
-    <script>
-        res1 = document.getElementById('res');
-
-        
-        let array1 = [1,2,3,4,5,6,7];
-        array1.sort();
-
-        let array2 = 50 + Math.round(Math.random()*50);
-        
-        for (let i = 0; i < 20; i++)
-        {
-            res1.innerHTML += array2[i] + " - ";
-        }
-
-        let modanum = array2[0];
-        let modanumMax = 1;
-
-        let moda = 1;
-        let numAnt = array2[0];
-
-        for (let i = 0; i < 20; i++)
-        {
-            num = array2[i];
-            if (num == numAnt)
-            {
-                moda++;
-
-            }else 
-            {
-                modanumMax = (modanumMax > moda) ? modanumMax : moda;
-                modanum = (modanumMax > moda) ? modanum : num;
-                moda = 1;
-            }
-            numAnt = num;
-        }
-        
-    </script> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
