@@ -11,21 +11,130 @@
         
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                1º 
+                1º Copia este codigo para crear un array multidimensional y 
+                añádele un código para mostrar solo los nombres en una lista ordenada
             </h1>
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                
+                <script>
+                    var datos = new Array();
+                    datos[0] = new Array("Cristina","Seguridad",24);
+                    datos[1] = new Array("Catalina","Bases de Datos",17);
+                    datos[2] = new Array("Vieites","Sistemas Informáticos",28);
+                    datos[3] = new Array("Benjamin","Redes",26);
+
+                    document.writeln("<ol>");
+                    for(let i = 0; i < datos.length; i++)
+                    {
+                        document.writeln(`<li>${datos[i][0]}</li>`);
+                    }
+                    document.writeln("</ol>");
+                </script>
             </article>
         </section>
 
 
 
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Escribe un programa que genere al azar 20 números 
+                enteros comprendidos entre 0 y 9. Estos números se deben 
+                introducir en un array de 4 filas por 5 columnas.
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+
+            </article>
+        </section>
 
 
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center"><!-- DIFICIL -->
+                9º Crear una función en JavaScript que resuelva un sistema de 
+                ecuaciones lineales representado por matrices. Para un sistema 
+                de ecuaciones Ax=B Ax=B, donde A es una matriz 3x3 y B es una 
+                matriz 3x1 puedes usar el método de inversión de matrices si A 
+                es invertible. Aquí hay una función que puedes utilizar:
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <input type="text" size="5" name="x1" id="x1" value="5"> X +
+                <input type="text" size="5" name="y1" id="y1" value="-1"> Y +
+                <input type="text" size="5" name="z1" id="z1" value="3"> Z =
+                <input type="text" size="5" name="v1" id="v1" value="2">
+                
+                <br>
+
+                <input type="text" size="5" name="x2" id="x2" value="2"> X +
+                <input type="text" size="5" name="y2" id="y2" value="-10"> Y +
+                <input type="text" size="5" name="z2" id="z2" value="3"> Z =
+                <input type="text" size="5" name="v2" id="v2" value="6">
+
+                <br>
+
+                <input type="text" size="5" name="x3" id="x3" value="3"> X +
+                <input type="text" size="5" name="y3" id="y3" value="-1"> Y +
+                <input type="text" size="5" name="z3" id="z3" value="7"> Z =
+                <input type="text" size="5" name="v3" id="v3" value="2"><br><br>
+
+                <input class="btn btn-primary" type="button" name="resolver" id="resolver" value="Resolver" onclick="crearArray()"><br><br>
+
+                <h2 id="explica">Solución</h2>
+
+                <script>
+                    function crearArray()
+                    {
+                        let x1 = parseInt(document.getElementById("x1").value);
+                        let y1 = parseInt(document.getElementById("y1").value);
+                        let z1 = parseInt(document.getElementById("z1").value);
+                        let v1 = parseInt(document.getElementById("v1").value);
+
+                        let x2 = parseInt(document.getElementById("x2").value);
+                        let y2 = parseInt(document.getElementById("y2").value);
+                        let z2 = parseInt(document.getElementById("z2").value);
+                        let v2 = parseInt(document.getElementById("v2").value);
+
+                        let x3 = parseInt(document.getElementById("x3").value);
+                        let y3 = parseInt(document.getElementById("y3").value);
+                        let z3 = parseInt(document.getElementById("z3").value);
+                        let v3 = parseInt(document.getElementById("v3").value);
+
+                        let array1 = [[x1,y1,z1], [x2,y2,z2], [x3,y3,z3]];
+                        let arrayX = [[v1,y1,z1], [v2,y2,z2], [v3,y3,z3]];
+                        let arrayY = [[x1,v1,z1], [x2,v2,z2], [x3,v3,z3]];
+                        let arrayZ = [[x1,y1,v1], [x2,y2,v2], [x3,y3,v3]];
+                        
+                        let det1 = crearDeterminante(array1);
+                        let detX = crearDeterminante(arrayX);
+                        let detY = crearDeterminante(arrayY);
+                        let detZ = crearDeterminante(arrayZ);
+                        
+                        let solucionX = detX / det1;
+                        let solucionY = detY / det1;
+                        let solucionZ = detZ / det1;
+
+                        document.getElementById("explica").innerHTML = `La solución es X = ${solucionX}<br> Y = ${solucionY}<br> Z = ${solucionZ}`
+                    }
+
+                    function crearDeterminante(a)
+                    {
+                        /* array a
+                            a11 a12 a13
+                            a21 a22 a23
+                            a31 a32 a33
+                        */
+
+                        return  (a[0][0]*a[1][1]*a[2][2] + 
+                                a[0][1]*a[1][2]*a[2][0] + 
+                                a[0][2]*a[1][0]*a[2][1]) -
+
+                                (a[0][0]*a[1][2]*a[2][1] + 
+                                a[0][1]*a[1][0]*a[2][2] + 
+                                a[0][2]*a[1][1]*a[2][0])
+                    }
+                </script>
+            </article>
+        </section>
 
     </div>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
