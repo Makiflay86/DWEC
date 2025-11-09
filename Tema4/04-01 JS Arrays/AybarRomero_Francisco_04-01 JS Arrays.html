@@ -395,7 +395,6 @@
 
         <section class="bg-warning-subtle my-5 p-5 border border-black rounded shadow">
             <h1 class="text-center">
-                No esta echo
                 8º Modifica el anterior para Concatenar tres arraysX, ArrayY, 
                 arraysZ  de la siguiente forma:
             </h1>
@@ -436,6 +435,7 @@
                         let lY = array2_ej8.length;
                         let lZ = array3_ej8.length;
 
+                        /* Comprobar cual input es el más grande para pillar su lenght */
                         if (lX < lY)
                         {
                             if (lX < lZ) 
@@ -501,9 +501,9 @@
 
                         for (var i = 0; i < lmenor; i++ ) 
                         {  
-                            arraymix_ej8.push(menor[i]);
                             arraymix_ej8.push(mayor[i]);
                             arraymix_ej8.push(medio[i]);
+                            arraymix_ej8.push(menor[i]);
                         }
 
                         for (var i = lmenor; i < lmedio; i++ ) 
