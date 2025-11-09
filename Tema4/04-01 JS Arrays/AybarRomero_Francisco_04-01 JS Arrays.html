@@ -281,50 +281,15 @@
 
                 <label for="input_ej6">etiqueta1 </label>
                 <input type="text" name="input_ej6" id="input_ej6" value="33,22,11">
-                <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej5()">Add</button>
-                <button type="button" class="btn btn-warning btn-sm" onclick="ordenar_ej5()">Ordenar</button>
-                
+                <!-- <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej6()">Add</button>
+                <button type="button" class="btn btn-warning btn-sm" onclick="ordenar_ej6()">Ordenar</button> -->
+                <button type="button" class="btn btn-success btn-sm" onclick="calcular_ej6()">Calcular</button>
                 <hr>
 
-                <p id="explica_ej5"></p>     
-                <h2 id="tamano_ej5"></h2>
+                <p id="explica_ej6"></p>     
+                <h2 id="tamano_ej6"></h2>
 
                 <script>
-                    var array_ej5 = new Array();
-                    var arraymix_ej5 = new Array();
-
-                    function addArrays_ej5()  
-                    {
-                        input_ej5 = document.getElementsByName("input_ej5")[0].value;
-                        array_ej5 = input_ej5.split(',');
-                        lX = array_ej5.length;
-
-                        for (var i = 0; i < lX; i++ ) {  arraymix_ej5.push(array_ej5[i]);}
-
-                        contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
-                        tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
-                        
-                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
-                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
-                    }       
-
-                    function ordenar_ej5()
-                    {
-                        arraymix_ej5.sort();
-                        contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
-                        tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
-                        
-                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
-                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
-                    }
-
-
-
-
-
-
-                    // Propuesta de alfonso
-
                     function calcular_ej6()
                     {
                         let mayor = Number.MIN_VALUE;
@@ -332,10 +297,15 @@
                         let suma = 0;
                         let total = 0;
                         let arrayOk = [];
+
+                        input_ej6 = document.getElementsByName("input_ej6")[0].value;
+                        array_ej6 = input_ej6.split(',');
+                        lX = array_ej6.length;
+                        
     
                         for (var i = 0; i < lX; i++)
                         {
-                            valor = parseInt(arrayX[i]);
+                            valor = parseInt(array_ej6[i]);
     
                             if (!isNaN(valor))
                             {
@@ -361,8 +331,8 @@
                         let minStr_ej6 =  "El menor del array es " + menor;
                         let mediaStr_ej6 =  "La media del array es " + (suma/total);
     
-                        document.getElementById("explica_ej5").innerHTML = contenidostr_ej6 + tamanostr_ej6 + maxStr_ej6 + minStr_ej6 + mediaStr_ej6;
-                        document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                        document.getElementById("explica_ej6").innerHTML = contenidostr_ej6 + "<br>" + tamanostr_ej6 + "<br>" + maxStr_ej6 + "<br>" + minStr_ej6 + "<br>" + mediaStr_ej6;
+                        document.getElementById("tamano_ej6").innerHTML = tamanostr_ej6;
                     }
                 </script>
             </article>
