@@ -532,7 +532,6 @@
 
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
             <h1 class="text-center">
-                No esta echo
                 9º Para una Gestionar el personal de una empresa hay que 
                 crear un formulario que tome 5 entradas id, nombre, apellido, 
                 fecha de nacimiento y  Puesto
@@ -561,9 +560,7 @@
                     
                     <br><br><br>
                     <hr>
-                    <br><br><br>
-
-
+                    
                     <label class="form-label" for="registro">Registro: </label>
                     <input class="form-label" type="text" id="registro" value="Pepe"><br>
                     <input type="button" class="btn btn-primary" value="Ver Registro" onclick="verRegistro()">
@@ -572,9 +569,7 @@
 
                     <br><br><br>
                     <hr>
-                    <br><br><br>
-
-
+                    
                     <input type="button" class="btn btn-primary" value="Ver Jubilación" onclick="mostrarJubilacion()">
                     <div id="resultado3_ej9"></div>
                 </form>
@@ -616,7 +611,7 @@
                         }
                         cadena += "</ol>";
 
-                        document.getElementById("resultado1_ej9").innerHTML += "Registro: " + cadena;   
+                        document.getElementById("resultado1_ej9").innerHTML = "Registro: " + cadena;   
                     }
 
 
@@ -628,15 +623,18 @@
 
                         for (registro of almacen)
                         {
-                            if (registro[0] == clave)
+                            if (registro[1] == clave)
                             {
                                 cadena = registro.join(" - ") + "<br>";
                                 break;
+                            }else 
+                            {
+                                cadena = "No existe<br>";
                             }
 
-                        }
+                        } 
 
-                        document.getElementById("resultado2_ej9").innerHTML += "Registro: " + cadena;   
+                        document.getElementById("resultado2_ej9").innerHTML = "Registro: " + cadena;   
                     }
 
 
@@ -647,11 +645,11 @@
 
                         for (registro of almacen)
                         {
-                            let añoJubilacioni = (registro[3]+67);
+                            let añoJubilacioni = (parseInt(registro[3]) + 67);
                             cadena += "<li>" + registro.join(" - ") + " -> Año Jubilación: " + añoJubilacioni;
                         }
 
-                        document.getElementById("resultado3_ej9").innerHTML += cadena;   
+                        document.getElementById("resultado3_ej9").innerHTML = cadena;   
                     }
                 </script>
             </article>
