@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcular el cuadrado de un número</title>
+    <title>Cuadrado Mágico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <section class="m-5">
-            <h1>Calcular el cuadrado de un número</h1>
-            <div class="mt-3" id="ej5"></div> 
-            <script> 
-                let numero = 5;
-                let cadena = document.getElementById("ej5");
-                
-                cadena.innerHTML = "El número: " + numero + "<br>";
-                ((numero) => {cadena.innerHTML += numero*numero}) (numero);
-            </script> 
+            <h1>Función que cree una tabla con números aleatorios entre 0 - 9</h1>
+            <div id="ej8"></div>
+            <script>
+                let ej8tabla = function() 
+                {
+                    let cadena = "<table class='table table-bordered table-primary my-5'>";
 
+                    for (let i = 0; i < 4; i++)
+                    {
+                        cadena += "<tr>";
+
+                        for (let j = 0; j < 5; j++)
+                        {
+                            cadena += "<td>" + Math.round(Math.random() * 9) + "</td>";
+                        }
+
+                        cadena += "</tr>";
+                    }
+                    cadena += "</table>";
+                    return cadena;
+                }
+                document.getElementById("ej8").innerHTML = ej8tabla();
+            </script>
         </section>
 
     </div>
