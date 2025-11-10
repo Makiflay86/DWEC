@@ -5,20 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio1</title>
+    <title>Exámen T3 - Francisco Aybar Romero</title>
+    <script type="text/javascript" src="datejs/date.js"></script>
 </head>
 
 <body>
     <h1> Examen Javascript Tema 3</h1>
-    <strong> Nombre: </strong>
+    <strong> Nombre: Francisco Aybar Romero</strong>
 
     <!-- *************** -->
     <h2>Ejercicio1</h2>
     <div> Fechas En un documento html crea un formulario con 3 controles numero que sean año mes y dia que cree una
         fecha y te indique cuantos dias han pasado desde el dia 01/02/1970 </div>
+    <br><br>
+    <form>
+        <label for="year">Año: </label>
+        <input type="number" id="year" name="year" value="2006" required> <br>  <br> 
+
+        <label for="mes">Mes: </label>
+        <input type="number" id="mes" name="mes" value="08" required>  <br>  <br>
+
+        <label for="dia">Dia: </label>
+        <input type="number" id="dia" name="dia" value="24" required>   <br> <br>
+
+        <input type="button" value="Mostrar" onclick="mostrarDias ()">
+    </form><br><br>
+    <div id="ej_1"></div>
+
     <script>
         /* ejercicio1
         */
+        function mostrarDias ()
+        {
+            let year = parseInt(document.getElementById("year").value);
+            let mes = parseInt(document.getElementById("mes").value);
+            let dia = parseInt(document.getElementById("dia").value);
+            let ej_1 = document.getElementById("ej_1");
+            
+            let fechaInicial = new Date(1970, 2, 1);
+            let hoy = new Date(year,mes-1,dia);
+            
+            let tiempoTranscurrido = Date.now();
+            
+            ej_1.innerHTML = fechaInicial + "<br>";
+            ej_1.innerHTML += hoy;
+
+            ej_1.innerHTML += "<br><br><br>Tiempo transcurrido: ";
+            ej_1.innerHTML += tiempoTranscurrido;
+            ej_1.innerHTML += "<br>Dias : " + Math.floor(tiempoTranscurrido/(1000*60*60*24));
+        }
+
     </script>
     <hr />
     <!-- *************** -->
@@ -28,9 +64,46 @@
         (Deben aparecer en un div los decimas de segundo) hasta que vuelvas a pulsarlo para pararlo y te cuente el
         numero de segundo y milisegundos transacurridos. Debes usar el algun metodo para actualizar el cronometro cada
         segundo. </div>
+
+    <button class="btn btn-primary" onclick=" iniciarIntervalo8()">Start</button>
+    <button class="btn btn-primary" onclick="stopContador()">Stop</button>
+    <button class="btn btn-primary" onclick="reset()">Reset</button>
+    <br>
+
+    <div id="ej_2"></div>
+
     <script>
         /* ejercicio2
         */
+        var myInterval8 = null;
+        
+
+        function iniciarIntervalo8() 
+        {
+            if (myInterval8 == null)
+            {
+                myInterval8 = setInterval(setContador, 500);
+            }
+        }
+
+        let x = document.body;
+        let ej_2 = document.getElementById("ej_2");
+        let contador = 0;
+        function setContador() 
+        {
+            ej_2.innerHTML = contador++;
+        }
+        
+        function stopContador() 
+        { 
+            clearInterval(myInterval8);
+            myInterval8 = null;
+        }
+
+        function reset()
+        {
+            contador = 0;
+        }
     </script>
     <hr />
     <!-- *************** -->
@@ -39,9 +112,48 @@
     <div> Number. Location Navigator. Crea un script que tome dos datos latitud y longitud de un formulario y los
         valores latitud y longitud del objeto navigator. Con el teorema de pitagoras Distancia = raiz (Lat2 +Long2) y
         Asumiendo que un grado terrestre es aproximadamente 111 km calcula la distancia a ese lugar. </div>
+
+    <form>
+        <label for="lat">Latitud: </label>
+        <input type="text" id="lat" name="lat" value="36.643675" required>  <br>  <br>
+
+        <label for="lon">Longitud: </label>
+        <input type="text" id="lon" name="lon" value="-4.4902875" required>  <br>  <br>
+
+        <input type="button" value="Mostrar" onclick="mostrarMapa()">
+    </form>
+
+
+    <br><br>
+    <div id="ej_3"></div>
     <script>
         /* ejercicio3
         */
+
+        var lat = parseFloat(document.getElementById("lat").value);
+        var lon = parseFloat(document.getElementById("lon").value);
+
+        function mostrarMapa()
+        {
+            if (lat != null || lon != null)
+            {
+                function renderMap() 
+                {
+                    document.getElementById("ej_3").innerHTML = 
+                    `<iframe 
+                        src="https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed"
+                        style="border:0;" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>`;
+                }
+    
+            } else 
+            {
+                document.getElementById("ej_3").innerHTML = "ERROR: Latitud y longitud deben de tener un valor.";
+            }
+        }
+
     </script>
     <hr />
     <!-- *************** -->
@@ -56,9 +168,33 @@
         5. la fecha dentro de dos años<br>
         6. la fecha de mañana a las 18:30 p. m.<br>
     </div>
+    <br><br>
+    <ol>
+        <li id="ej_4_1"></li>
+        <li id="ej_4_2"></li>
+        <li id="ej_4_3"></li>
+        <li id="ej_4_4"></li>
+        <li id="ej_4_5"></li>
+        <li id="ej_4_6"></li>
+    </ol>
+
     <script>
         /* ejercicio 4
         */
+        let ej_4_1 = document.getElementById("ej_4_1");
+        let ej_4_2 = document.getElementById("ej_4_2");
+        let ej_4_3 = document.getElementById("ej_4_3");
+        let ej_4_4 = document.getElementById("ej_4_4");
+        let ej_4_5 = document.getElementById("ej_4_5");
+        let ej_4_6 = document.getElementById("ej_4_6");
+
+
+        ej_4_1.innerHTML = Date.today().addDays(-1);
+        ej_4_2.innerHTML = Date.today().add(-1).months().second().tuesday();
+        ej_4_3.innerHTML = Date.october().final().sunday();
+        ej_4_4.innerHTML = Date.january().year().add(1);
+        ej_4_5.innerHTML = Date.today().next().year().next().year();
+        ej_4_6.innerHTML = Date.today().next().at("18:30pm");
     </script>
     <hr />
     <!-- *************** -->
@@ -69,9 +205,86 @@
         separados por coma de un control texto lo convierta<br>
         una array y lo recorra para pintar con los numeros<br>
         proporcionados como imagenes de la carpeta numbers.<br> </div>
+
+    <br><br>
+
+    <p> Array X    <input type="text" size ="60" name="caja1" value ="1,2,3"></p>        
+    <p><input type="button" name="button" value="Add Array" onclick="addArrays()"></p>  
+    <h2 id="tamano"></h2>
+    <br>
+    <div id="img"></div>
+
     <script>
         /* ejercicio 5
         */
+        var arrayX= new Array();
+        var arraymix= new Array();
+        
+        function addArrays()  
+        {
+            let arrayXstr = document.getElementsByName("caja1")[0].value;                  
+            let arrayX = arrayXstr.split(',');           
+            let lX = arrayX.length;
+            let numerosImg = [];
+
+            /* Guardar las imagenes en un array */
+            for (let i = 0; i <= 9; i++)
+            {
+                numerosImg[i] = `<img src="./numeros2/${i}.jpg">`;
+            }
+
+            for (let i = 0; i < lX; i++) 
+            {
+                arraymix.push(arrayX[i]);
+            }
+            
+            /* arraymix.join('') */
+            
+            let contenidostr;
+            for (let i = 0; i < lX; i++) 
+            {
+                switch (i+1)
+                {
+                    case 0:
+                        contenidostr += numerosImg[0];
+                        break;
+                    case 1:
+                        contenidostr += numerosImg[1];
+                        break;
+                    case 2: 
+                        contenidostr += numerosImg[2];
+                        break;
+                    case 3:
+                        contenidostr += numerosImg[3];
+                        break;
+                    case 4:
+                        contenidostr += numerosImg[4];
+                        break;
+                    case 5:
+                        contenidostr += numerosImg[5];
+                        break;
+                    case 6:
+                        contenidostr += numerosImg[6];
+                        break;
+                    case 7:
+                        contenidostr += numerosImg[7];
+                        break;
+                    case 8: 
+                        contenidostr += numerosImg[8];
+                        break;
+                    case 9:
+                        contenidostr += numerosImg[9];
+                        break;
+                }
+            }
+            
+            let tamanostr =  "El tamano del array es " + arraymix.length;          
+            
+            document.getElementById("img").innerHTML += contenidostr; 
+            document.getElementById("tamano").innerHTML = tamanostr;
+        } 
+
+
     </script>
     <hr />
     <!-- *************** -->
@@ -106,9 +319,20 @@
         rotar a la izquierda<br>
         Crea un ejemplo en el que se inserten varias imagenes aleatorias de la carpeta number y las puedas probar.<br>
     </div>
+
+    <div id="ej_7"></div>
     <script>
         /* ejercicio7
         */
+
+        let ej_7 = document.getElementById("ej_7");
+
+
+        function rotar()
+        {
+
+        }
+
     </script>
     <hr />
     <!-- *************** -->
