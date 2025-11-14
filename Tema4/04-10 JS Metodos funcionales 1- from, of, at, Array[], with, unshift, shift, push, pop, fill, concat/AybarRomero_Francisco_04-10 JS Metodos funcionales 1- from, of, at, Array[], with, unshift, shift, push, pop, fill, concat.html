@@ -85,8 +85,74 @@
                     let precio = [100, 200, 300, 400];
 
                     precio.push(500, 600);
+                    precio.shift();
+                    precio = precio.with(2, 999);
+                    precio = precio.concat([700,800,900]);
 
                     ej_4.innerHTML += "[" + precio.join(", ") + "]";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Modificación de texto en una base de datos
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_5"></div>
+                <script>
+                    let ej_5 = document.getElementById("ej_5");
+                    let string_ej_5 = "hello world";
+                    let caracteres = Array.from(string_ej_5);
+
+                    let quinto = caracteres.at(4);
+                    let ultimo = caracteres.at(-1);
+
+                    if(!/[a-zA-Z]/.test(quinto)) 
+                    {
+                        quinto = "";
+                    }
+
+                    caracteres.unshift("#");
+
+                    for(let i = 0; i < caracteres.length; i++) 
+                    {
+                        if(caracteres[i] == " ") 
+                        {
+                            caracteres[i] = "*";
+                        }
+                    }
+
+                    caracteres = caracteres.concat(['!', '!', '!']);
+
+                    ej_5.innerHTML += "[" + caracteres.join(", ") + "]";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Gestión de pedidos
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_6"></div>
+                <script>
+                    let ej_6 = document.getElementById("ej_6");
+                    let pedidos = [1, 2, 3, 4, 5, 6];
+                    pedidos.at(2);
+                    pedidos.at(-1);
+                    
+                    pedidos.with(0, 0);
+                    pedidos.fill(8, 1, 4);
+                    pedidos.shift();
+                    pedidos.pop();
+                    pedidos.push(7,8,9);
+
+                    ej_6.innerHTML += "[" + pedidos.join(", ") + "]";
                 </script>
             </article>
         </section>
