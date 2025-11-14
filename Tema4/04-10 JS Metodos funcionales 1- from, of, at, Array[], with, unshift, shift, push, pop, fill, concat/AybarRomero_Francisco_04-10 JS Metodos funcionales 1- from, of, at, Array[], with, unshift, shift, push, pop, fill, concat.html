@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_04-10 JS Metodos funcionales 1- from, of, at, Array[], with, unshift, shift, push, pop, fill, concat.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                1º Inventario de productos en una tienda
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_1"></div>
+                <script>
+                    let tienda = Array.of(1,2,3,4,5);
+                    tienda.fill(7,2,4);
+                    tienda.unshift(0, 0);
+                    tienda.pop();
+                    tienda = tienda.concat([10, 20, 30])
+
+                    document.getElementById("ej_1").innerHTML = "[" + tienda.join(", ") + "]";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Lista de empleados
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_2"></div>
+                <script>
+                    let ej_2 = document.getElementById("ej_2");
+                    let string_ej_2 = "abcdef";
+                    let empleados = Array.from(string_ej_2); 
+
+                    empleados = empleados.with(1, "X");
+                    empleados.shift();
+                    empleados.unshift("b");
+                    empleados.push("Y","Z");
+
+                    ej_2.innerHTML += "[" + empleados.join(", ") + "]";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º Gestión de calificaciones
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_3"></div>
+                <script>
+                    let ej_3 = document.getElementById("ej_3");
+                    let calificaciones = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+                    
+                    calificaciones.fill(99, 2, 6);
+                    calificaciones.unshift(5,6,7);
+                    calificaciones.pop();
+                    calificaciones.shift()
+
+                    ej_3.innerHTML += "[" + calificaciones.join(", ") + "]";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Precio de productos
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_4"></div>
+                <script>
+                    let ej_4 = document.getElementById("ej_4");
+                    let precio = [100, 200, 300, 400];
+
+                    precio.push(500, 600);
+
+                    ej_4.innerHTML += "[" + precio.join(", ") + "]";
+                </script>
+            </article>
+        </section>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
