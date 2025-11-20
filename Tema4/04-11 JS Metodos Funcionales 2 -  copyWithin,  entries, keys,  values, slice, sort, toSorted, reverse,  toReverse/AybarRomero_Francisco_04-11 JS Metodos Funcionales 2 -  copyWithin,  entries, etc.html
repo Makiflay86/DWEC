@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_04-11 JS Metodos Funcionales 2 -  copyWithin,  entries, keys,  values, slice, sort, toSorted, reverse,  toReverse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                1º Reorganización de datos en una tabla
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_1"></div>
+                <script>
+                    let idFilas = [10, 20, 30, 40, 50];
+                    let ej_1 = document.getElementById("ej_1");
+
+
+                    ej_1.innerHTML += "Original -> " + idFilas.join(" - ") + "<br><br>";
+
+
+                    idFilas.copyWithin(0,2,4);
+                    ej_1.innerHTML += "copyWithin() -> " + idFilas.join(" - ") + "<br><br>";
+
+
+                    idFilas.reverse();
+                    ej_1.innerHTML += "reverse() -> " + idFilas.join(" - ") + "<br><br>";
+
+
+                    let idFilas2 = idFilas.slice(0,3);
+                    ej_1.innerHTML += "slice() -> " + idFilas2.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Nombres de productos en un catálogo
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_2"></div>
+                <script>
+                    let productos = ["manzana", "naranja", "plátano"];
+                    let ej2 = document.getElementById("ej_2");
+
+
+                    ej_2.innerHTML += "Original -> " + productos.join(" - ") + "<br><br>";
+
+
+                    let ej_2_it1 = productos.entries();
+                    ej_2.innerHTML += "entries() -> ";
+                    for (let e of ej_2_it1) 
+                    {
+                        ej_2.innerHTML += "Producto: " + e + " ";
+                    }
+                    ej_2.innerHTML += "<br><br>";
+
+
+                    let ej_2_it2 = productos.keys();
+                    ej_2.innerHTML += "keys() -> Claves de productos: [ ";
+                    for (let e of ej_2_it2) 
+                    {
+                        ej_2.innerHTML += e + " ";
+                    }
+                    ej_2.innerHTML += "]<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º Filtrar y ordenar un registro de estudiantes
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_3"></div>
+                <script>
+                    let calificaciones = [85, 75, 95, 65, 90];
+                    let ej3 = document.getElementById("ej_3");
+
+
+                    ej_3.innerHTML += "Original -> " + calificaciones.join(" - ") + "<br><br>";
+
+
+                    let ej_3_it1 = calificaciones.values();
+                    ej_3.innerHTML += "values() -> ";
+                    for (let e of ej_3_it1) 
+                    {
+                        ej_3.innerHTML += "Valor: " + e + " ";
+                    }
+                    ej_3.innerHTML += "<br><br>";
+
+
+                    calificaciones.sort( (a,b) => (b-a) ); /* Ordena de mayor a menor */
+                    ej_3.innerHTML += "sort() -> " + calificaciones.join(" - ") + "<br><br>";
+
+
+                    let ej_3_slice = calificaciones.slice(0,3);
+                    ej_3.innerHTML += "slice() -> " + ej_3_slice.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Gestión de pedidos en una tienda en línea
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_4"></div>
+                <script>
+                    let pedidos = [1003, 1001, 1002, 1005, 1004];
+                    let ej_4 = document.getElementById("ej_4");
+
+
+                    ej_4.innerHTML += "Original -> " + pedidos.join(" - ") + "<br><br>";
+
+
+                    pedidos.sort( (a,b) => (a-b) ); /* Ordena de mayor a menor */
+                    ej_4.innerHTML += "sort() -> " + pedidos.join(" - ") + "<br><br>";
+
+
+                    pedidos.reverse();
+                    ej_4.innerHTML += "reverse() -> " + pedidos.join(" - ") + "<br><br>";
+
+
+                    let ej_4_slice = pedidos.slice(0,3);
+                    ej_4.innerHTML += "slice() -> " + ej_4_slice.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Reorganizar y filtrar una lista de empleados
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_5"></div>
+                <script>
+                    let empleados  = [300, 200, 400, 100];
+                    let ej_5 = document.getElementById("ej_5");
+
+
+                    ej_5.innerHTML += "Original -> " + empleados.join(" - ") + "<br><br>";
+
+
+                    let ej_5_toSorted = empleados.toSorted( (a,b) => (a-b) ); /* Ordena de menor a mayor */
+                    ej_5.innerHTML += "toSorted() -> " + ej_5_toSorted.join(" - ") + "<br><br>";
+
+
+                    let ej_5_toReversed = ej_5_toSorted.toReversed();
+                    ej_5.innerHTML += "toReversed() -> " + ej_5_toReversed.join(" - ") + "<br><br>";
+
+
+                    let ej_5_slice = ej_5_toReversed.slice(0,2);
+                    ej_5.innerHTML += "slice() -> " + ej_5_slice.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Selección de artículos destacados en una tienda
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_6"></div>
+                <script>
+                    let article  = [50, 30, 20, 10, 40];
+                    let ej_6 = document.getElementById("ej_6");
+
+
+                    ej_6.innerHTML += "Original -> " + article.join(" - ") + "<br><br>";
+
+
+                    article.copyWithin(3,1,2);
+                    ej_6.innerHTML += "copyWithin() -> " + article.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
