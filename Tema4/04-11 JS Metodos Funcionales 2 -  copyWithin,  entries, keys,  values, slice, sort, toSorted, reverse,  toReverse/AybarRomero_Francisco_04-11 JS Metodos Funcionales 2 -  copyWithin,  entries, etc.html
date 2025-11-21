@@ -212,17 +212,64 @@
 
 
                     ej_7.innerHTML += "Original -> " + config.join(" - ") + "<br><br>";                    
+
+
+                    let ej_7_it1 = config.keys();
+                    ej_7.innerHTML += "keys() -> Claves de productos: [ ";
+                    for (let e of ej_7_it1) 
+                    {
+                        ej_7.innerHTML += e + " ";
+                    }
+                    ej_7.innerHTML += "]<br><br>";
+
+
+                    let ej_7_it2 = config.values();
+                    ej_7.innerHTML += "values() -> ";
+                    for (let e of ej_7_it2) 
+                    {
+                        ej_7.innerHTML += "Valor: " + e + " ";
+                    }
+                    ej_7.innerHTML += "<br><br>";
+
+
+                    let ej_7_it3 = config.entries();
+                    for (let [clave, valor] of ej_7_it3)
+                    {
+                        ej_7.innerHTML += `Clave ${clave}: ${valor}<br>`;
+                    }
                 </script>
             </article>
         </section>
 
 
 
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                8º Reorganizar comentarios de un blog
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_8"></div>
+                <script>
+                    let idComentarios  = [5003, 5001, 5002, 5005, 5004];
+                    let ej_8 = document.getElementById("ej_8");
 
 
+                    ej_8.innerHTML += "Original -> " + idComentarios.join(" - ") + "<br><br>";                    
 
 
+                    let ej_8_toSorted = idComentarios.toSorted( (a,b) => (a-b) ); /* Ordena de menor a mayor */
+                    ej_8.innerHTML += "toSorted() -> " + ej_8_toSorted.join(" - ") + "<br><br>";
 
+
+                    let ej_8_toReversed = ej_8_toSorted.toReversed();
+                    ej_8.innerHTML += "toReversed() -> " + ej_8_toReversed.join(" - ") + "<br><br>";
+
+
+                    let ej_8_slice = ej_8_toReversed.slice(0,2);
+                    ej_8.innerHTML += "slice() -> " + ej_8_slice.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
 
 
     </div>
