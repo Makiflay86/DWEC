@@ -184,12 +184,37 @@
                     ej_6.innerHTML += "Original -> " + article.join(" - ") + "<br><br>";
 
 
-                    article.copyWithin(3,1,2);
+                    article.copyWithin(4,2,3);
                     ej_6.innerHTML += "copyWithin() -> " + article.join(" - ") + "<br><br>";
+
+
+                    article.sort( (a,b) => (a-b) ); /* Ordena de menor a mayor */
+                    ej_6.innerHTML += "sort() -> " + article.join(" - ") + "<br><br>";
+
+
+                    let ej_6_slice = article.slice(0,3);
+                    ej_6.innerHTML += "slice() -> " + ej_6_slice.join(" - ") + "<br><br>";
                 </script>
             </article>
         </section>
 
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Mostrar claves y valores de configuraciones del sistema
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_7"></div>
+                <script>
+                    let config  = ["pantalla completa", "sonido activado", "modo oscuro"];
+                    let ej_7 = document.getElementById("ej_7");
+
+
+                    ej_7.innerHTML += "Original -> " + config.join(" - ") + "<br><br>";                    
+                </script>
+            </article>
+        </section>
 
 
 
