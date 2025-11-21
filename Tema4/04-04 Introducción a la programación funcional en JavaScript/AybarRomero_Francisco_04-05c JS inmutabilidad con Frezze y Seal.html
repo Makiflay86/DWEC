@@ -171,11 +171,49 @@
                     Object.freeze(state); /* Congelo el objeto state */
 
                     state.loggedIn = false; /* No cambia */
-                    ej_5.innerHTML += "state.user.loggedIn: " + state.user.loggedIn;
+                    ej_5.innerHTML += "state.user.loggedIn = false -> " + state.user.loggedIn + "<br><br>";
+
+                    state.settings.theme = "blue"; /* Si cambia */
+                    ej_5.innerHTML += "state.settings.theme = 'blue' -> " + state.settings.theme + "<br><br>";
                 </script>
             </article>
         </section>
+        
 
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Sellar un modelo
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_6"></div>
+                <script>
+                    let ej_6 = document.getElementById("ej_6");
+                    const book = 
+                    { 
+                        id: 1, 
+                        title: "1984", 
+                        author: "Orwell" 
+                    };
+
+
+                    Object.seal(book); /* Sello el objeto */
+                    
+
+                    function updateBook(obj, newTitle) 
+                    {
+                        obj.title = newTitle; /* Se cambia el titulo */
+                        obj.pages = 300; /* No se puede añadir las paginas */
+                        delete obj.author; /* No se puede borrar el autor */
+
+                        ej_6.innerHTML += "obj.title = newTitle -> " + obj.title + "<br><br>";
+                        ej_6.innerHTML += "obj.pages = 300 -> " + obj.pages + "<br><br>";
+                        ej_6.innerHTML += "delete obj.author -> " + obj.author + "<br><br>";
+                    }
+                    updateBook(book, "La reencarnación");
+                </script>
+            </article>
+        </section>
 
 
     </div>
