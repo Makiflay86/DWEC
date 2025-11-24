@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AybarRomero_Francisco_04-13 JS Metodos Funcionales 4 - filter,flat,flatMap,forEach,map</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                1º Filtrar productos con precios menores a un valor
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_1"></div>
+                <script>
+                    const precios = [100, 45, 30, 70, 25];
+                    const enOferta = precios.filter(precio => precio < 50); 
+                    let ej_1 = document.getElementById("ej_1");
+
+
+                    ej_1.innerHTML += "Original -> " + precios.join(" - ") + "<br><br>";
+                    
+
+                    ej_1.innerHTML += "precios.filter(precio => precio < 50) -> " + enOferta.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                2º Desanidar listas de comentarios en un foro
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_2"></div>
+                <script>
+                    const comentarios = 
+                    [
+                        ["Buen post", "Gracias"],
+                        ["Interesante"],
+                        ["No estoy de acuerdo", ["Muy cierto", "Concuerdo"]]
+                    ];
+                    const todosComentarios = comentarios.flat(2); 
+                    let ej_2 = document.getElementById("ej_2");
+
+
+                    ej_2.innerHTML += "Original -> " + comentarios.join(" - ") + "<br><br>";
+                    
+
+                    ej_2.innerHTML += "comentarios.flat(2) -> " + todosComentarios.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                3º Procesamiento de datos de usuarios y asignación de etiquetas
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_3"></div>
+                <script>
+                    const usuarios = 
+                    [
+                        { nombre: "Juan", roles: ["admin", "editor"] },
+                        { nombre: "María", roles: ["usuario"] },
+                        { nombre: "Pedro", roles: ["moderador", "editor"] }
+                    ];
+                    const rolesPlanos = usuarios.flatMap(usuario => usuario.roles);
+                    let ej_3 = document.getElementById("ej_3");
+
+
+                    ej_3.innerHTML += "Original -> " + usuarios.map((a) => " " + a.nombre + " - " + a.roles) + "<br><br>";
+                    
+
+                    ej_3.innerHTML += "usuarios.flatMap(usuario => usuario.roles) -> " + rolesPlanos.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                4º Imprimir una lista de tareas pendientes
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_4"></div>
+                <script>
+                    let ej_4 = document.getElementById("ej_4");
+                    const tareas = ["Lavar platos", "Comprar comida", "Hacer ejercicio"];
+                        tareas.forEach((tarea, index) => {
+                        ej_4.innerHTML += (`${index + 1}. ${tarea}`) + "<br>";
+                    });
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Generar una lista de precios con IVA aplicado
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_5"></div>
+                <script>
+                    const precios2 = [100, 200, 300];
+                    const preciosConIVA = precios2.map(precio => precio * 1.21);
+                    let ej_5 = document.getElementById("ej_5");
+
+
+                    ej_5.innerHTML += "Original -> " + precios2.join(" - ") + "<br><br>";
+                    
+
+                    ej_5.innerHTML += "precios2.map(precio => precio * 1.21) -> " + preciosConIVA.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Filtrar usuarios activos en un sistema
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_6"></div>
+                <script>
+                    const usuarios2 = 
+                    [
+                        { nombre: "Juan", activo: true },
+                        { nombre: "María", activo: false },
+                        { nombre: "Pedro", activo: true }
+                    ];
+                    const usuariosActivos = usuarios2.filter(usuario => usuario.activo);
+                    let ej_6 = document.getElementById("ej_6");
+
+
+                    ej_6.innerHTML += "Original -> " + usuarios2.map((a) => " " + a.nombre + " - " + a.activo) + "<br><br>";
+                    
+
+                    ej_6.innerHTML += "usuarios2.filter(usuario => usuario.activo) -> " + usuariosActivos.map((a) => " " + a.nombre + " - " + a.activo) + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Simplificación de listas de categorías de productos
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_7"></div>
+                <script>
+                    const categorias = ["Electrónica", ["Teléfonos", "Computadoras"], "Ropa"];
+                    const categoriasPlanas = categorias.flat();
+                    let ej_7 = document.getElementById("ej_7");
+
+
+                    ej_7.innerHTML += "Original -> " + categorias.join(" - ") + "<br><br>";
+                    
+
+                    ej_7.innerHTML += "categorias.flat() -> " + categoriasPlanas.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                8º Crear una lista de nombres en mayúsculas
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_8"></div>
+                <script>
+                    const nombres = ["juan", "maría", "pedro"];
+                    const nombresMayus = nombres.map(nombre => nombre.toUpperCase());
+                    let ej_8 = document.getElementById("ej_8");
+
+
+                    ej_8.innerHTML += "Original -> " + nombres.join(" - ") + "<br><br>";
+                    
+
+                    ej_8.innerHTML += "nombres.map(nombre => nombre.toUpperCase()) -> " + nombresMayus.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                9º Imprimir las cantidades de productos vendidos
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_9"></div>
+                <script>
+                    let ej_9 = document.getElementById("ej_9");
+                    const cantidades = [10, 20, 30, 40];
+                    
+                    
+                    ej_9.innerHTML += "Original -> " + cantidades.join(" - ") + "<br><br>";
+                    
+
+                    cantidades.forEach(cantidad => {
+                        ej_9.innerHTML += (`Se vendieron ${cantidad} productos.`) + "<br>";
+                    });
+                </script>
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                10º Calcular el precio total de productos con descuento
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_10"></div>
+                <script>
+                    const precios3 = [50, 100, 150];
+                    const preciosConDescuento = precios3.map(precio => precio * 0.9);
+                    let ej_10 = document.getElementById("ej_10");
+                    
+                    
+                    ej_10.innerHTML += "Original -> " + precios3.join(" - ") + "<br><br>";
+
+                    
+                    ej_10.innerHTML += "precios3.map(precio => precio * 0.9) -> " + preciosConDescuento.join(" - ") + "<br><br>";
+                </script>
+            </article>
+        </section>
+
+
+
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
