@@ -18,10 +18,10 @@
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
                 <div id="ej_1"></div>
                 <script>
-                    let personaje = new Set(["Frodo", "Gandalf", "Sauron", "Gimli", "Legolas"]);
+                    let personajesSet = new Set(["Frodo", "Gandalf", "Sauron", "Gimli", "Legolas"]);
                     let ej_1 = document.getElementById("ej_1");
 
-                    if (personaje.size > 0)
+                    if (personajesSet.size > 0)
                     {
                         ej_1.innerHTML += "Set personaje creado.";
 
@@ -46,7 +46,7 @@
                     let ej_2 = document.getElementById("ej_2");
 
                     ej_2.innerHTML += "<ol>";
-                    for (p of personaje)
+                    for (p of personajesSet)
                     {
                         ej_2.innerHTML += "<li>" + p + "</li>";
                     }
@@ -73,7 +73,7 @@
 
                     for(e of estaEste) 
                     {
-                        encontrado = encontrado && personaje.has(e);
+                        encontrado = encontrado && personajesSet.has(e);
                     }
                     
                     ej_3.innerHTML += `¿Esta `;
@@ -81,7 +81,7 @@
                     {
                         ej_3.innerHTML += p;
                     }
-                    ej_3.innerHTML += `en el set? -> `;
+                    ej_3.innerHTML += ` en el set? -> `;
                     ej_3.innerHTML += encontrado ? "Si" : "No";
                 </script>
             </article>
@@ -98,17 +98,124 @@
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
                 <div id="ej_4"></div> 
                 <script>  
-                    let ej_4 = document.getElementById("ej_4");
-                    
-                    function numPersonaje()
-                    { 
-                        let n = 0;
- 
+                    function obtenerNumeroPersonajes(set) 
+                    {
+                        return set.size;
+                    }
 
-                    } 
+                    let ej_4 = document.getElementById("ej_4");
+                    let numTotal = obtenerNumeroPersonajes(personajesSet);
+                    ej_4.innerHTML += `El número total de personajes en el Set es: ${numTotal}`;
                 </script>   
             </article>
         </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                5º Agregar Personajes Únicos Escribe una función que tome 
+                el conjunto personajesSet y un nuevo personaje como argumentos, 
+                y añada el nuevo personaje al conjunto solo si no está presente. 
+                Devuelve el conjunto actualizado.
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_5"></div> 
+                <script>  
+                    function agregarPersonajeUnico(set, nuevoPersonaje) 
+                    {
+                        const tamañoInicial = set.size;
+                        set.add(nuevoPersonaje);
+                        
+                        let mensaje;
+                        if (set.size > tamañoInicial) 
+                        {
+                            mensaje = `${nuevoPersonaje} añadido exitosamente.`;
+
+                        } else 
+                        {
+                            mensaje = `${nuevoPersonaje} ya estaba en el Set. No se añadió.`;
+                        }
+                        
+                        let ej_5 = document.getElementById("ej_5");
+                        ej_5.innerHTML += `<p>${mensaje}</p>`;
+                        ej_5.innerHTML += `<p>Set actualizado: ${Array.from(set).join(' - ')}</p>`;
+                        
+                        return set;
+                    }
+
+                    personajesSet = agregarPersonajeUnico(personajesSet, "Aragorn");
+                    personajesSet = agregarPersonajeUnico(personajesSet, "Frodo");
+                </script>   
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                6º Eliminar Personaje Escribe una función que tome el conjunto 
+                personajesSet y un personaje como argumentos, y elimine el personaje 
+                del conjunto si está presente. Imprime un mensaje indicando si el 
+                personaje fue eliminado o si no estaba en el conjunto.
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_6"></div> 
+                <script>  
+                    function eliminarPersonaje(set, personajeAEliminar) 
+                    {
+                        let ej_6 = document.getElementById("ej_6");
+                        
+                        if (set.delete(personajeAEliminar)) 
+                        {
+                            ej_6.innerHTML += `<p>Personaje ${personajeAEliminar} ha sido eliminado del Set.</p>`;
+
+                        } else 
+                        {
+                            ej_6.innerHTML += `<p>Personaje ${personajeAEliminar} no estaba en el Set. No se pudo eliminar.</p>`;
+                        }
+                        
+                        ej_6.innerHTML += `<p>Set actualizado: ${Array.from(set).join(' - ')}</p>`;
+                        return set;
+                    }
+
+                    personajesSet = eliminarPersonaje(personajesSet, "Sauron");
+                    personajesSet = eliminarPersonaje(personajesSet, "Boromir");
+                </script>   
+            </article>
+        </section>
+
+
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">
+                7º Combinar dos Sets de Personajes Crea dos conjuntos de 
+                personajes, set1 y set2, y luego escribe una función que 
+                combine ambos conjuntos en uno solo. Asegúrate de que no 
+                haya elementos duplicados en el nuevo conjunto.
+            </h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej_7"></div> 
+                <script>  
+                    function combinarSets(set1, set2) 
+                    {
+                        const setCombinado = new Set([...set1, ...set2]);
+                        return setCombinado;
+                    }
+
+                    let set1 = personajesSet;
+                    let set2 = new Set(["Sam", "Meriadoc", "Pippin", "Aragorn", "Frodo"]);
+
+                    let setCombinado = combinarSets(set1, set2);
+
+                    let ej_7 = document.getElementById("ej_7");
+                    ej_7.innerHTML += `<p>Set 1: ${Array.from(set1).join(' - ')}</p>`;
+                    ej_7.innerHTML += `<p>Set 2: ${Array.from(set2).join(' - ')}</p>`;
+                    ej_7.innerHTML += `<p>Set Combinado (sin duplicados): ${Array.from(setCombinado).join(' - ')}</p>`;
+                </script>   
+            </article>
+        </section>
+
 
  
     </div>
