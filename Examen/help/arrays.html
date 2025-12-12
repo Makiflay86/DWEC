@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="es-ES">
+    <head>
+        <title>arrays - tema 4</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        
+        <div class="container-fluid w-50">
+
+
+            <hr>
+
+
+            <h1 class="text-center mb-3">Math.random, mayor, menor, media</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <div id="res1"></div>
+                    <script>
+                        let vueltas1 = 50;
+                        let array1 = [];
+                        let mayor1 = Number.MIN_VALUE;
+                        let menor1 = Number.MAX_VALUE;
+                        let media1 = 0;
+
+                        res1 = document.getElementById("res1");
+
+                        for (let i = 0; i < vueltas1; i++)
+                        {
+                            array1[i] = Math.round(Math.random() * 100);
+                        }
+
+                        array1.sort((a, b) => a - b);
+
+                        // Mostramos el array de 50 números randoms entre 0 y 100
+                        for (let i = 0; i < vueltas1; i++)
+                        {
+                            res1.innerHTML += array1[i] + " - ";
+                        }
+
+                        // Mostramos el valor mayor, menor y medio del array1
+                        res1.innerHTML += "<br><br>";
+                        res1.innerHTML += "<h4>Mayor, menor y medio</h4>";
+                        for (let i = 0; i < vueltas1; i++)
+                        {
+                            var a1 = array1[i];
+
+                            mayor1 = (mayor1 > a1) ? mayor1 : a1;
+                            menor1 = (menor1 < a1) ? menor1 : a1;
+                            media1 = array1[(array1.length / 2)];
+                        }
+
+                        res1.innerHTML += "Mayor: " + mayor1 + "<br>";
+                        res1.innerHTML += "Menor: " + menor1 + "<br>";
+                        res1.innerHTML += "Media: " + media1 + "<br>";
+                    </script>
+                </div>
+            </div>
+
+
+            <hr>
+
+
+            <h1 class="text-center mb-3">Math.random, moda, mediana</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <div id="res2"></div>
+                    <script>
+                        let vueltas2 = 50;
+                        let array2 = [];
+
+                        res2 = document.getElementById("res2");
+
+                        for (let i = 0; i < vueltas2; i++)
+                        {
+                            array2[i] = 1 + Math.round(Math.random() * 9);
+                        }
+
+                        array2.sort((a, b) => a - b).reverse();
+
+                        // Mostramos el array de 50 números randoms entre 1 y 10
+                        for (let i = 0; i < vueltas2; i++)
+                        {
+                            res2.innerHTML += array2[i] + "-";
+                        }
+
+                        res2.innerHTML += "<br><br>";
+                        res2.innerHTML += "<h4>Moda</h4>";
+
+                        // Calcular la moda
+                        let modanum = array2[0];
+                        let modanumMax = 1;
+                        let moda = 1;
+                        let numAnt = array2[0];
+
+
+                        for (let i = 0; i < 20; i++)
+                        {
+                            num = array2[i];
+                            if (num == numAnt) 
+                            {
+                                moda++;
+
+                            } else 
+                            {
+                                if (moda > modanumMax) 
+                                {
+                                    modanumMax = moda;
+                                    modanum = numAnt;
+                                }
+                                moda = 1;
+                            }
+                            numAnt = num;
+                        }
+
+                        res2.innerHTML += "La moda es: " + modanum + "<br><br>";
+                        
+                        
+                        // Calcular la mediana
+                        let mediana;
+                        if (array2.length % 2 === 0) 
+                        {
+                            let mid1 = array2.length / 2 - 1;
+                            let mid2 = array2.length / 2;
+                            mediana = (array2[mid1] + array2[mid2]) / 2;
+
+                        } else 
+                        {
+                            mediana = array2[Math.floor(array2.length / 2)];
+                        }
+
+                        res2.innerHTML += "<h4>Mediana</h4>";
+                        res2.innerHTML += "La mediana es: " + mediana;
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+            <h1 class="text-center mb-3">añadir al array lo del input y ordenarlo con un botón</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <label for="input_ej5">etiqueta1 </label>
+                    <input type="text" name="input_ej5" id="input_ej5" value="A5,S5,RS5">
+                    <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej5()">Add</button>
+                    <button type="button" class="btn btn-warning btn-sm" onclick="ordenar_ej5()">Ordenar</button>
+                    
+                    <hr>
+
+                    <p id="explica_ej5"></p>     
+                    <h2 id="tamano_ej5"></h2>
+
+                    <script>
+                        var array_ej5 = new Array();
+                        var arraymix_ej5 = new Array();
+
+                        function addArrays_ej5()  
+                        {
+                            input_ej5 = document.getElementsByName("input_ej5")[0].value;
+                            array_ej5 = input_ej5.split(',');
+                            lX = array_ej5.length;
+
+                            for (var i = 0; i < lX; i++ ) {  arraymix_ej5.push(array_ej5[i]);}
+
+                            contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
+                            tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
+                            
+                            document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
+                            document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                        }       
+
+                        function ordenar_ej5()
+                        {
+                            arraymix_ej5.sort();
+                            contenidostr_ej5 = "El contenido del array es " + arraymix_ej5.join('-');
+                            tamanostr_ej5 =  "El tamano del array es " + arraymix_ej5.length;
+                            
+                            document.getElementById("explica_ej5").innerHTML = contenidostr_ej5;
+                            document.getElementById("tamano_ej5").innerHTML = tamanostr_ej5;
+                        }
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+            <h1 class="text-center mb-3">array comprobar mayor, menor y media de todos</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <h2>Introduce los enteros separados por comas</h2><br>
+
+                    <label for="input_ej6">etiqueta1 </label>
+                    <input type="text" name="input_ej6" id="input_ej6" value="33,22,11">
+                    <button type="button" class="btn btn-success btn-sm" onclick="calcular_ej6()">Calcular</button>
+                    <hr>
+
+                    <p id="explica_ej6"></p>     
+                    <h2 id="tamano_ej6"></h2>
+
+                    <script>
+                        function calcular_ej6()
+                        {
+                            let mayor = Number.MIN_VALUE;
+                            let menor = Number.MAX_VALUE;
+                            let suma = 0;
+                            let total = 0;
+                            let arrayOk = [];
+
+                            let input_ej6 = document.getElementsByName("input_ej6")[0].value;
+                            let array_ej6 = input_ej6.split(',');
+                            let lX = array_ej6.length;
+                            
+        
+                            for (var i = 0; i < lX; i++)
+                            {
+                                valor = parseInt(array_ej6[i]);
+        
+                                if (!isNaN(valor))
+                                {
+                                    if (mayor < valor)
+                                    {
+                                        mayor = valor;
+                                    }
+                                    if (menor > valor)
+                                    {
+                                        menor = valor;
+                                    }
+        
+                                    suma = suma + valor;
+                                    total++;
+        
+                                    arrayOk.push(valor);
+                                }
+                            }
+        
+                            let contenidostr_ej6 = "El contenido correcto del array es " + arrayOk.join('-');
+                            let tamanostr_ej6 =  "El tamano del array es " + arrayOk.length;
+                            let maxStr_ej6 =  "El mayor del array es " + mayor;
+                            let minStr_ej6 =  "El menor del array es " + menor;
+                            let mediaStr_ej6 =  "La media del array es " + (suma/total);
+        
+                            document.getElementById("explica_ej6").innerHTML = contenidostr_ej6 + "<br>" + tamanostr_ej6 + "<br>" + maxStr_ej6 + "<br>" + minStr_ej6 + "<br>" + mediaStr_ej6;
+                            document.getElementById("tamano_ej6").innerHTML = tamanostr_ej6;
+                        }
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+            <h1 class="text-center mb-3">concatenar 2 arrays</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <h2>Ejercicio Arrays</h2><br>
+
+                    <label for="input_ej7">etiqueta1 </label>
+                    <input type="text" name="input_ej7" id="input_ej7" value="A5,S5,RS5"><br>
+
+                    <label for="input2_ej7">etiqueta2 </label>
+                    <input type="text" name="input2_ej7" id="input2_ej7" value="A5,S5,RS5"><br>
+
+                    <button type="button" class="btn btn-success btn-sm mt-2" onclick="addArrays_ej7()">Concatenar</button>
+                    
+                    <hr>
+
+                    <p id="explica_ej7"></p>     
+                    <h2 id="tamano_ej7"></h2>
+
+                    <script>
+                        var array_ej7 = new Array();
+                        var arraymix_ej7 = new Array();
+
+                        function addArrays_ej7()  
+                        {
+                            let input_ej7 = document.getElementsByName("input_ej7")[0].value;
+                            let input2_ej7 = document.getElementsByName("input2_ej7")[0].value;
+                            
+                            let array_ej7 = input_ej7.split(',');
+                            let array2_ej7 = input2_ej7.split(',');
+
+                            let lX = array_ej7.length;
+
+                            for (var i = 0; i < lX; i++ ) 
+                            {  
+                                arraymix_ej7.push(array_ej7[i]);
+                                arraymix_ej7.push(array2_ej7[i]);
+
+                            }
+
+                            let contenidostr_ej7 = "El contenido del array es " + arraymix_ej7.join('-');
+                            let tamanostr_ej7 =  "El tamano del array es " + arraymix_ej7.length;
+                            
+                            document.getElementById("explica_ej7").innerHTML = contenidostr_ej7;
+                            document.getElementById("tamano_ej7").innerHTML = tamanostr_ej7;
+                        }       
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+            <h1 class="text-center mb-3">concatenar 3 arrays</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <h2>Ejercicio Arrays</h2><br>
+
+                    <label for="input_ej8">etiqueta1 </label>
+                    <input type="text" name="input_ej8" id="input_ej8" value="A1,A2,A3"><br>
+
+                    <label for="input2_ej8">etiqueta2 </label>
+                    <input type="text" name="input2_ej8" id="input2_ej8" value="B1,B2,B3,B4"><br>
+
+                    <label for="input3_ej8">etiqueta3 </label>
+                    <input type="text" name="input3_ej8" id="input3_ej8" value="C1,C2,C3,C4,C5"><br>
+                    
+                    <button type="button" class="btn btn-success btn-sm" onclick="addArrays_ej8()">Add</button>
+                    
+                    <hr>
+
+                    <p id="explica_ej8"></p>     
+                    <h2 id="tamano_ej8"></h2>
+
+                    <script>
+                        var array_ej8 = new Array();
+                        var arraymix_ej8 = new Array();
+
+                        function addArrays_ej8()  
+                        {
+                            let input_ej8 = document.getElementsByName("input_ej8")[0].value;
+                            let input2_ej8 = document.getElementsByName("input2_ej8")[0].value;
+                            let input3_ej8 = document.getElementsByName("input3_ej8")[0].value;
+
+                            let array_ej8 = input_ej8.split(',');
+                            let array2_ej8 = input2_ej8.split(',');
+                            let array3_ej8 = input3_ej8.split(',');
+
+                            let lX = array_ej8.length;
+                            let lY = array2_ej8.length;
+                            let lZ = array3_ej8.length;
+
+                            /* Comprobar cual input es el más grande para pillar su lenght */
+                            if (lX < lY)
+                            {
+                                if (lX < lZ) 
+                                {
+                                    if (lY < lZ)
+                                    {
+                                        menor = array_ej8;
+                                        medio = array2_ej8;
+                                        mayor = array3_ej8;   
+
+                                    } else
+                                    {
+                                        menor = array_ej8;
+                                        medio = array3_ej8;
+                                        mayor = array2_ej8;
+                                    }
+                                } else // (lZ < lX)
+                                {
+                                    if (lY < lX)
+                                    {
+                                        menor = array3_ej8;
+                                        medio = array2_ej8;
+                                        mayor = array_ej8;
+
+                                    } else
+                                    {
+                                        menor = array3_ej8;
+                                        medio = array_ej8;
+                                        mayor = array2_ej8; 
+                                    }  
+                                }
+                            } else // (lY < lX)
+                            {
+                                if (lX < lZ)
+                                    {
+                                        menor = array3_ej8;
+                                        medio = array_ej8;
+                                        mayor = array3_ej8;  
+
+                                    } else // (lZ < lX)
+                                    {
+                                        if (lY < lZ) // (lY < lX) (lZ < lX)
+                                        {
+                                            menor = array2_ej8;
+                                            medio = array3_ej8;
+                                            mayor = array_ej8;  
+
+                                        } else
+                                        {
+                                            menor = array3_ej8;
+                                            medio = array2_ej8;
+                                            mayor = array_ej8;
+                                        }    
+                                    } 
+                            }
+
+
+                            let lmenor = menor.length;
+                            let lmayor = mayor.length;
+                            let lmedio = medio.length;
+
+
+
+                            for (var i = 0; i < lmenor; i++ ) 
+                            {  
+                                arraymix_ej8.push(mayor[i]);
+                                arraymix_ej8.push(medio[i]);
+                                arraymix_ej8.push(menor[i]);
+                            }
+
+                            for (var i = lmenor; i < lmedio; i++ ) 
+                            {  
+                                arraymix_ej8.push(mayor[i]);
+                                arraymix_ej8.push(medio[i]);
+                            }
+
+                            for (var i = lmedio; i < lmayor; i++ ) 
+                            {  
+                                arraymix_ej8.push(mayor[i]);
+                            }
+                            
+
+                            contenidostr_ej8 = "El contenido del array es " + arraymix_ej8.join('-');
+                            tamanostr_ej8 =  "El tamano del array es " + arraymix_ej8.length;
+                            
+                            document.getElementById("explica_ej8").innerHTML = contenidostr_ej8;
+                            document.getElementById("tamano_ej8").innerHTML = tamanostr_ej8;
+                        }       
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+            <h1 class="text-center mb-3">formulario 5 entradas y relizar acciones</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <form class="form" method="post">
+                        <label class="form-label" for="idEmpleado">ID: </label>
+                        <input class="form-input" type="text" id="idEmpleado"><br>
+                        
+                        <label class="form-label" for="nombreEmpleado">Nombre: </label>
+                        <input class="form-label" type="text" id="nombreEmpleado" value="Pepe"><br>
+
+                        <label class="form-label" for="apellidoEmpleado">Apellidos: </label>
+                        <input class="form-label" type="text" id="apellidoEmpleado" value="Gómez"><br>
+
+                        <label class="form-label" for="fechaEmpleado">Fecha: </label>
+                        <input class="form-label" type="text" id="fechaEmpleado" value="1999"><br>
+
+                        <label class="form-label" for="puestoEmpleado">Puesto: </label>
+                        <input class="form-label" type="text" id="puestoEmpleado" value="Programador"><br>
+
+                        <input type="button" class="btn btn-primary" value="Insertar" onclick="insertarEmpleado()">
+                        <input type="button" class="btn btn-primary" value="Mostrar" onclick="mostrarDatos()">
+                        <div id="resultado1_ej9"></div>
+
+                        
+                        <br><br><br>
+                        <hr>
+                        
+                        <label class="form-label" for="registro">Registro: </label>
+                        <input class="form-label" type="text" id="registro" value="Pepe"><br>
+                        <input type="button" class="btn btn-primary" value="Ver Registro" onclick="verRegistro()">
+                        <div id="resultado2_ej9"></div>
+
+
+                        <br><br><br>
+                        <hr>
+                        
+                        <input type="button" class="btn btn-primary" value="Ver Jubilación" onclick="mostrarJubilacion()">
+                        <div id="resultado3_ej9"></div>
+                    </form>
+
+
+                    <script>
+                        let contadorDeClave = 0;
+                        let almacen = [];
+                        document.getElementById("idEmpleado").value = contadorDeClave;
+
+
+
+                        function insertarEmpleado()
+                        {
+                            let registro = [];
+
+                            registro.push(contadorDeClave);
+                            contadorDeClave++;
+
+                            registro.push(document.getElementById("nombreEmpleado").value);
+                            registro.push(document.getElementById("apellidoEmpleado").value);
+                            registro.push(document.getElementById("fechaEmpleado").value);
+                            registro.push(document.getElementById("puestoEmpleado").value);
+
+                            almacen.push(registro);
+
+                            document.getElementById("resultado1_ej9").innerHTML = "Registro Correcto<br>";
+                        }
+
+
+
+                        function mostrarDatos()
+                        {
+                            let cadena = "<ol>";
+
+                            for (registro of almacen)
+                            {
+                                cadena += "<li>" + registro.join("-") + "</li>";
+                            }
+                            cadena += "</ol>";
+
+                            document.getElementById("resultado1_ej9").innerHTML = "Registro: " + cadena;   
+                        }
+
+
+
+                        function verRegistro()
+                        {
+                            let clave = document.getElementById("registro").value;
+                            cadena = "";
+
+                            for (registro of almacen)
+                            {
+                                if (registro[1] == clave)
+                                {
+                                    cadena = registro.join(" - ") + "<br>";
+                                    break;
+                                }else 
+                                {
+                                    cadena = "No existe<br>";
+                                }
+
+                            } 
+
+                            document.getElementById("resultado2_ej9").innerHTML = "Registro: " + cadena;   
+                        }
+
+
+
+                        function mostrarJubilacion()
+                        {
+                            cadena = "<ol>";
+
+                            for (registro of almacen)
+                            {
+                                let añoJubilacioni = (parseInt(registro[3]) + 67);
+                                cadena += "<li>" + registro.join(" - ") + " -> Año Jubilación: " + añoJubilacioni;
+                            }
+
+                            document.getElementById("resultado3_ej9").innerHTML = cadena;   
+                        }
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+            <h1 class="text-center mb-3">sistema de ecuaciones lineales</h1>
+            <div class="row g-1 justify-content-center">
+                <div class="col-auto">
+                    <input type="text" size="5" name="x1" id="x1" value="5"> X +
+                    <input type="text" size="5" name="y1" id="y1" value="-1"> Y +
+                    <input type="text" size="5" name="z1" id="z1" value="3"> Z =
+                    <input type="text" size="5" name="v1" id="v1" value="2">
+                    
+                    <br>
+
+                    <input type="text" size="5" name="x2" id="x2" value="2"> X +
+                    <input type="text" size="5" name="y2" id="y2" value="-10"> Y +
+                    <input type="text" size="5" name="z2" id="z2" value="3"> Z =
+                    <input type="text" size="5" name="v2" id="v2" value="6">
+
+                    <br>
+
+                    <input type="text" size="5" name="x3" id="x3" value="3"> X +
+                    <input type="text" size="5" name="y3" id="y3" value="-1"> Y +
+                    <input type="text" size="5" name="z3" id="z3" value="7"> Z =
+                    <input type="text" size="5" name="v3" id="v3" value="2"><br><br>
+
+                    <input class="btn btn-primary" type="button" name="resolver" id="resolver" value="Resolver" onclick="crearArray()"><br><br>
+
+                    <h2 id="explica">Solución</h2>
+
+                    <script>
+                        function crearArray()
+                        {
+                            let x1 = parseInt(document.getElementById("x1").value);
+                            let y1 = parseInt(document.getElementById("y1").value);
+                            let z1 = parseInt(document.getElementById("z1").value);
+                            let v1 = parseInt(document.getElementById("v1").value);
+
+                            let x2 = parseInt(document.getElementById("x2").value);
+                            let y2 = parseInt(document.getElementById("y2").value);
+                            let z2 = parseInt(document.getElementById("z2").value);
+                            let v2 = parseInt(document.getElementById("v2").value);
+
+                            let x3 = parseInt(document.getElementById("x3").value);
+                            let y3 = parseInt(document.getElementById("y3").value);
+                            let z3 = parseInt(document.getElementById("z3").value);
+                            let v3 = parseInt(document.getElementById("v3").value);
+
+                            let array1 = [[x1,y1,z1], [x2,y2,z2], [x3,y3,z3]];
+                            let arrayX = [[v1,y1,z1], [v2,y2,z2], [v3,y3,z3]];
+                            let arrayY = [[x1,v1,z1], [x2,v2,z2], [x3,v3,z3]];
+                            let arrayZ = [[x1,y1,v1], [x2,y2,v2], [x3,y3,v3]];
+                            
+                            let det1 = crearDeterminante(array1);
+                            let detX = crearDeterminante(arrayX);
+                            let detY = crearDeterminante(arrayY);
+                            let detZ = crearDeterminante(arrayZ);
+                            
+                            let solucionX = detX / det1;
+                            let solucionY = detY / det1;
+                            let solucionZ = detZ / det1;
+
+                            document.getElementById("explica").innerHTML = `La solución es X = ${solucionX}<br> Y = ${solucionY}<br> Z = ${solucionZ}`
+                        }
+
+                        function crearDeterminante(a)
+                        {
+                            /* array a
+                                a11 a12 a13
+                                a21 a22 a23
+                                a31 a32 a33
+                            */
+
+                            return  (a[0][0]*a[1][1]*a[2][2] + 
+                                    a[0][1]*a[1][2]*a[2][0] + 
+                                    a[0][2]*a[1][0]*a[2][1]) -
+
+                                    (a[0][0]*a[1][2]*a[2][1] + 
+                                    a[0][1]*a[1][0]*a[2][2] + 
+                                    a[0][2]*a[1][1]*a[2][0])
+                        }
+                    </script>
+                </div>
+            </div>
+
+            
+            <hr>
+
+
+
+
+
+        </div>
+        
+        
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
