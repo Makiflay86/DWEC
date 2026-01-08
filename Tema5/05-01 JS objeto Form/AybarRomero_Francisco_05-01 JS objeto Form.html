@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es-ES">
+<head>
+    <title>AybarRomero_Francisco_05-01 JS objeto Form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .output { 
+            background-color: #f8f9fa; 
+            padding: 15px; 
+            border-left: 5px solid #0dcaf0; 
+            font-family: monospace; 
+            border-radius: 4px; 
+        }
+        h5 { 
+            color: #084298; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+        }
+        section { 
+            margin-bottom: 3rem; 
+        }
+        legend {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #084298;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid w-75 py-5">
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Formulario de Datos</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <form action="#" method="post" id="idformulario" name="nameformulario">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset class="border p-3 rounded mb-3">
+                                <legend class="w-auto px-2">Datos Personales</legend>
+                                <p>Nombre: <input id="nombre" type="text" name="name_control" class="form-control" autofocus required value="Francisco" /></p>
+                                <p>Contraseña: <input id="password" type="password" name="pass_control" class="form-control" required value="1234" /></p>
+                                <p>Correo: <input id="email" type="email" name="email_control" class="form-control" required value="test@test.com" /></p>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset class="border p-3 rounded mb-3">
+                                <legend class="w-auto px-2">Preferencias</legend>
+                                <p>S.O.: 
+                                    <select name="sistema_control" class="form-select">
+                                        <option value="windows">Windows</option>
+                                        <option value="linux">Linux</option>
+                                        <option value="macos">Macos</option>
+                                    </select>
+                                </p>
+                                <p>Lenguajes: 
+                                    <input name="lenguaje_control" type="checkbox" value="html5" checked /> Html5
+                                    <input name="lenguaje_control" type="checkbox" value="ccs3" checked /> Css3
+                                </p>
+                                <p>¿Sabe Python?: 
+                                    <input name="python_control" type="radio" value="si" /> Sí 
+                                    <input name="python_control" type="radio" value="no" checked /> No
+                                </p>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <p>Comentarios: <textarea name="comentario_control" class="form-control" rows="2"></textarea></p>
+                    <button type="submit" class="btn btn-primary w-100">Enviar Formulario</button>
+                </form>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 2: Colección forms[] (Método 3)</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                <div id="Ejercicio2" class="mb-3"></div>
+                <input type="button" class="btn btn-outline-info" value="Ver Contenido" onclick="verEj1FormularioMetodo3()"/>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 3: getElementsByTagName (Método 2)</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                <div id="Ejercicio3" class="mb-3"></div>
+                <input type="button" class="btn btn-outline-info" value="Ver Contenido" onclick="verEj3FormularioMetodo2()"/>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 4: getElementById (Método 1)</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                <div id="Ejercicio4" class="mb-3"></div>
+                <input type="button" class="btn btn-outline-info" value="Ver Contenido" onclick="verEj4FormularioMetodo1()"/>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 5 y 6: Acciones y Validación</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                <div id="Ejercicio56" class="mb-3"></div>
+                <div class="btn-group">
+                    <input type="button" class="btn btn-warning" value="Rellenar Datos" onclick="verEj5Rellenar()"/>
+                    <input type="button" class="btn btn-danger" value="Comprobar No Vacío" onclick="ej6Comprobar()"/>
+                </div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 7: Resumen de Sintaxis</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="Ejercicio7"></div>
+            </article>
+        </section>
+
+        <script>
+            // Función auxiliar para imprimir
+            function printIn(id, titulo, contenido) {
+                const target = document.getElementById(id);
+                target.innerHTML = `<h5>${titulo}</h5><div class="output">${contenido}</div>`;
+            }
+
+            // Ejercicio 2
+            function verEj1FormularioMetodo3() {
+                let miformulario = document.forms[0];
+                let cadena = "";
+                for (let i = 0; i < miformulario.length; i++) {
+                    if (miformulario[i].name) {
+                        cadena += `<b>${miformulario[i].name}:</b> ${miformulario[i].value}<br>`;
+                    }
+                }
+                printIn("Ejercicio2", "Datos vía forms[]", cadena);
+            }
+
+            // Ejercicio 3
+            function verEj3FormularioMetodo2() {
+                let miformulario = document.getElementsByTagName("form")[0];
+                let cadena = "";
+                for (let i = 0; i < miformulario.length; i++) {
+                    if (miformulario[i].name) {
+                        cadena += `<b>${miformulario[i].name}:</b> ${miformulario[i].value}<br>`;
+                    }
+                }
+                printIn("Ejercicio3", "Datos vía TagName", cadena);
+            }
+
+            // Ejercicio 4
+            function verEj4FormularioMetodo1() {
+                let cadena = `nombre (Nombre): ${document.getElementById('nombre').value}<br>` +
+                             `password (Pass): ${document.getElementById('password').value}<br>` +
+                             `email (Email): ${document.getElementById('email').value}`;
+                printIn("Ejercicio4", "Datos vía ID", cadena);
+            }
+
+            // Ejercicio 5
+            function verEj5Rellenar() {
+                document.getElementById('nombre').value = "Pepe pepillo";
+                document.getElementById('password').value = "PepePass123";
+                document.getElementById('email').value = "pepe@pepillo.com";
+                printIn("Ejercicio56", "Rellenar datos", "Datos actualizados.");
+            }
+
+            // Ejercicio 6
+            function ej6Comprobar() {
+                let misElementos = document.forms[0].elements;
+                let errores = "";
+                for (let i = 0; i < misElementos.length; i++) {
+                    if (misElementos[i].type !== "submit" && misElementos[i].value === "") {
+                        errores += `Elemento vacío: ${misElementos[i].name || misElementos[i].id}<br>`;
+                    }
+                }
+                printIn("Ejercicio56", "Estado de Validación", errores || "Todo correcto");
+            }
+
+            // Ejercicio 7
+            window.onload = function() {
+                let res7 = document.getElementById("Ejercicio7");
+                let contenido = `<b>Acceso por Name:</b> ${document.nameformulario.name_control.value}<br>`;
+                contenido += `<b>Acceso por ID en elements:</b> ${document.forms["idformulario"].elements["nombre"].value}`;
+                printIn("Ejercicio7", "Sintaxis Directa", contenido);
+            };
+        </script>
+    </div>
+</body>
+</html>
