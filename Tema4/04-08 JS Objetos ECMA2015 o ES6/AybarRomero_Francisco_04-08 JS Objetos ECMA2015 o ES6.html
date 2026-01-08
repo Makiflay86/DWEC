@@ -1,241 +1,178 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <title>AybarRomero_Francisco_04-08 JS Objetos ECMA2015 o ES6</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<html lang="es-ES">
+<head>
+    <title>AybarRomero_Francisco_04-08 JS Objetos ES6</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div class="container-fluid w-75">
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-    </head>
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">1º y 2º Ejercicio: Clase Alumno y Propiedades</h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej-1-2"></div>
+                <script>
+                    const out1 = document.getElementById("ej-1-2");
 
-    <body>
-        
-        <div class="container-fluid w-50">
-
-            <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
-                <h1 class="text-center">
-                    1º Modifica el ejercicio anterior para usar las propiedades class y extend
-                </h1>
-                <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                    
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
-                <h1 class="text-center">
-                    2º Crea una alumno con los siguientes valores metodos y propiedades
-                </h1>
-                <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                    <div id="ej-2"></div>
-                    <script>
-                        let scanner = document.getElementById("ej-2");
-                        /* 
-                            Propiedades: 
-                            X   nombre, apellidos, id, NombreModulos, notasModulos (estos dos son dos arrays paralelos) 
-                                
-                            Metodos: 
-                            X   set y get de las propiedades nombre, apellidos, id 
-                                Mostrar modulos(id): muestra el nombre de los modulos : devuelve un string con los modulos
-                                nota(nombremodulo) :devuelve un string  con la nota del modulo 
-                                media(id) te muestra su media
-                                suspensas(id): te muestra las notas suspensas
-                                Aprobadas(id): te muestra las notas aprobadas
-                        */
-
-                        class Alumno
-                        {
-                            /* -- CONSTRUCTOR -- */
-                            constructor(nombre, apellidos, id, nombresModulos, notasModulos)
-                            {
-                                this._nombre = nombre;
-                                this._apellidos = apellidos;
-                                this._id = id;
-                                this.nombresModulos = nombresModulos;
-                                this.notasModulos = notasModulos;
-                            }
-
-
-
-                            /* -- GETTERS -- */
-                            /* Nombre */
-                            get nombre()
-                            {
-                                return this._nombre;
-                            }
-
-                            /* Apellidos */
-                            get apellidos()
-                            {
-                                return this._apellidos;
-                            }
-
-                            /* ID */
-                            get id()
-                            {
-                                return this._id;
-                            }
-
-
-
-                            /* -- SETTERS -- */
-                            /* Nombre */
-                            set nombre(nuevoNombre)
-                            {
-                                this._nombre = nuevoNombre;
-                            }
-
-                            /* Apellidos */
-                            set apellidos(nuevoApellidos)
-                            {
-                                this._apellidos = nuevoApellidos;
-                            }
-
-                            /* ID */
-                            set id(nuevoId)
-                            {
-                                this._id = nuevoId;
-                            }
-
-
-
-                            /* -- FUNCIONES -- */
-                            /* Mostrar el nombre de los modulos */
-                            mostrarModulos(id) 
-                            {
-                                let modulos = this.nombresModulos;
-                                let arr = [];
-
-                                for (let clave in modulos) 
-                                { 
-                                    console.log(clave, modulos[clave]);
-                                    arr.push(modulos[clave]); 
-                                }
-
-                                let salida = arr.join(", ");
-                                return salida;
-                            }
-
-
-
-
-
-                            /* Devuelve un string  con la nota del modulo  */
-                            nota(nombremodulo)
-                            {
-                                let notas = this.notasModulos;
-                                let arr = [];
-
-                                for (let clave in notas) 
-                                { 
-                                    console.log(clave, notas[clave]);
-                                    arr.push(notas[clave]); 
-                                }
-
-                                let salida = arr.join(", ");
-                                return salida;
-                            }
-
-
-
-                            /* Mostrar la media de las notas */
-                            media(id)
-                            {
-                                return "Aquí se muestran la nota media";
-                            }
-
-
-
-                            /* Mostrar las notas suspensas */
-                            suspensas(id)
-                            {
-                                return "Aquí se muestran las notas suspensas";
-                            }
-
-
-
-                            /* Mostrar las notas aprobadas */
-                            aprobadas(id)
-                            {
-                                return "Aquí se muestran las notas aprobadas";
-                            }
-
-
-
+                    class Alumno {
+                        constructor(nombre, apellidos, id, nombresModulos, notasModulos) {
+                            this._nombre = nombre;
+                            this._apellidos = apellidos;
+                            this._id = id;
+                            this.nombresModulos = nombresModulos;
+                            this.notasModulos = notasModulos;
                         }
-                        
-                        /* nombre, apellidos, id, NombreModulos, notasModulos */
-                        a1 = new Alumno("Francisco", "Aybar Romero", "far", ["DIW", "DWEC"], [8,5]);
-                        scanner.innerHTML += "Modulos -> " + a1.mostrarModulos("far");
-                        scanner.innerHTML += "Modulos -> " + a1.notasModulos("far");
 
-                    </script>
+                        // 2.1 Getters y Setters
+                        get nombre() { return this._nombre; }
+                        set nombre(v) { this._nombre = v; }
+                        get apellidos() { return this._apellidos; }
+                        set apellidos(v) { this._apellidos = v; }
+                        get id() { return this._id; }
+                        set id(v) { this._id = v; }
 
-                </article>
-            </section>
+                        // 2.2 Mostrar modulos
+                        mostrarModulos(idDestino) {
+                            const res = this.nombresModulos.join(", ");
+                            document.getElementById(idDestino).innerHTML += `<p><strong>Módulos:</strong> ${res}</p>`;
+                            return res;
+                        }
 
+                        // 2.3 Nota por nombre
+                        nota(nombreModulo) {
+                            const i = this.nombresModulos.indexOf(nombreModulo);
+                            return i !== -1 ? `La nota en ${nombreModulo} es ${this.notasModulos[i]}` : "Módulo no encontrado";
+                        }
 
+                        // 2.4 Media
+                        media(idDestino) {
+                            const m = (this.notasModulos.reduce((a, b) => a + b, 0) / this.notasModulos.length).toFixed(2);
+                            document.getElementById(idDestino).innerHTML += `<p><strong>Media:</strong> ${m}</p>`;
+                            return m;
+                        }
 
-            <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
-                <h1 class="text-center">
-                    3º Crea un objeto clase que sea un array de alumnos con los 
-                    metodos (con notacion  anonima)
-                </h1>
-                <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                        // 2.5 Suspensas
+                        suspensas(idDestino) {
+                            const s = this.notasModulos.filter(n => n < 5);
+                            document.getElementById(idDestino).innerHTML += `<p><strong>Notas Suspensas:</strong> ${s.length ? s.join(", ") : "Ninguna"}</p>`;
+                        }
+
+                        // 2.6 Aprobadas
+                        aprobadas(idDestino) {
+                            const a = this.notasModulos.filter(n => n >= 5);
+                            document.getElementById(idDestino).innerHTML += `<p><strong>Notas Aprobadas:</strong> ${a.join(", ")}</p>`;
+                        }
+                    }
+
+                    // EJECUCIÓN COMPLETA EJERCICIO 2
+                    const alu1 = new Alumno("Francisco", "Aybar", "far-01", ["DIW", "DWEC", "DWES"], [8, 4, 7]);
+                    out1.innerHTML += `<h3>Pruebas Alumno: ${alu1.nombre} ${alu1.apellidos} (ID: ${alu1.id})</h3>`;
+                    alu1.mostrarModulos("ej-1-2");
+                    out1.innerHTML += `<p><strong>Consulta nota individual (DIW):</strong> ${alu1.nota("DIW")}</p>`;
+                    alu1.media("ej-1-2");
+                    alu1.suspensas("ej-1-2");
+                    alu1.aprobadas("ej-1-2");
+                </script>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">3º Ejercicio: Objeto Clase (Array de Alumnos)</h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej-3"></div>
+                <script>
+                    const outClase = document.getElementById("ej-3");
+                    // 3. Objeto clase con notación anónima (arrow functions)
+                    const GestionClase = {
+                        alumnos: [],
+                        matricular: (alu) => GestionClase.alumnos.push(alu),
+                        eliminar: (alu) => {
+                            GestionClase.alumnos = GestionClase.alumnos.filter(a => a.id !== alu.id);
+                        },
+                        numero: () => GestionClase.alumnos.length,
+                        mostrar: (id) => {
+                            let lista = GestionClase.alumnos.map(a => `${a.nombre} (ID: ${a.id})`).join(" | ");
+                            document.getElementById(id).innerHTML += `<p><strong>Lista de Alumnos:</strong> ${lista || "Vacía"}</p>`;
+                        }
+                    };
+
+                    // EJECUCIÓN COMPLETA EJERCICIO 3
+                    GestionClase.matricular(alu1);
+                    outClase.innerHTML += `<p><strong>Alumnos tras matricular:</strong> ${GestionClase.numero()}</p>`;
+                    GestionClase.mostrar("ej-3");
+                    GestionClase.eliminar(alu1);
+                    outClase.innerHTML += `<p><strong>Alumnos tras eliminar:</strong> ${GestionClase.numero()}</p>`;
+                    GestionClase.mostrar("ej-3");
+                </script>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">4º Ejercicio: Herencia (AlumnoFP y Dual)</h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej-4"></div>
+                <script>
+                    const out4 = document.getElementById("ej-4");
+
+                    class AlumnoFP extends Alumno {
+                        constructor(nombre, apellidos, id, modulos, notas, empresaFct) {
+                            super(nombre, apellidos, id, modulos, notas);
+                            this.empresaFct = empresaFct;
+                        }
+                        hacerFCT(empresa) { 
+                            this.empresaFct = empresa; 
+                            return `El alumno ${this.nombre} está haciendo las FCT en ${this.empresaFct}`; 
+                        }
+                    }
+
+                    class AlumnoFPDual extends AlumnoFP {
+                        constructor(nombre, apellidos, id, modulos, notas, empresaFct, empresaDual) {
+                            super(nombre, apellidos, id, modulos, notas, empresaFct);
+                            this.empresaFctDual = empresaDual;
+                        }
+                        hacerFCTDual(empresaDual) { 
+                            this.empresaFctDual = empresaDual; 
+                            return `El alumno ${this.nombre} está haciendo la Dual en ${this.empresaFctDual}`; 
+                        }
+                    }
+
+                    // EJECUCIÓN COMPLETA EJERCICIO 4
+                    const aluDual = new AlumnoFPDual("Juan", "Pérez", "jp-02", ["DWES"], [10], "Indra", "Google");
+                    out4.innerHTML += `<p><strong>Atributo Empresa FCT:</strong> ${aluDual.empresaFct}</p>`;
+                    out4.innerHTML += `<p><strong>Método hacerFCT:</strong> ${aluDual.hacerFCT("Microsoft")}</p>`;
+                    out4.innerHTML += `<p><strong>Atributo Empresa Dual:</strong> ${aluDual.empresaFctDual}</p>`;
+                    out4.innerHTML += `<p><strong>Método hacerFCTDual:</strong> ${aluDual.hacerFCTDual("Amazon")}</p>`;
+                </script>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
+            <h1 class="text-center">5º Ejercicio: Mixin Matricular</h1>
+            <article class="bg-white mt-5 p-5 border border-black rounded shadow">
+                <div id="ej-5"></div>
+                <script>
+                    // 5. Definición del Mixin
+                    let matricularMixin = {
+                        matricula() { return `[MIXIN] El alumno ${this.nombre} ha ejecutado el proceso de matriculación oficial.`; }
+                    };
+
+                    // Asignación a las tres clases
+                    Object.assign(Alumno.prototype, matricularMixin);
+                    Object.assign(AlumnoFP.prototype, matricularMixin);
+                    Object.assign(AlumnoFPDual.prototype, matricularMixin);
+
+                    // EJECUCIÓN COMPLETA EJERCICIO 5
+                    const aluNormal = new Alumno("Ana", "Soto", "as-04", [], []);
+                    const aluDualMix = new AlumnoFPDual("Luis", "Gómez", "lg-05", [], [], "", "");
                     
-                </article>
-            </section>
+                    document.getElementById("ej-5").innerHTML += `<p><strong>Desde Alumno:</strong> ${aluNormal.matricula()}</p>`;
+                    document.getElementById("ej-5").innerHTML += `<p><strong>Desde AlumnoFPDual:</strong> ${aluDualMix.matricula()}</p>`;
+                </script>
+            </article>
+        </section>
 
-
-
-            <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
-                <h1 class="text-center">
-                    4º Crea dos clases que hereden de alumno y se llamen alumnofp 
-                    (debe tener un atributo)
-                </h1>
-                <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                    
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
-                <h1 class="text-center">
-                    5º Crea una clase mixin llamada matricular con un metodo matricula 
-                    y asignala las tres clases anteriores. 
-                </h1>
-                <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                    
-                </article>
-            </section>
-
-        </div>
-
-
-
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+    </div>
+</body>
 </html>
