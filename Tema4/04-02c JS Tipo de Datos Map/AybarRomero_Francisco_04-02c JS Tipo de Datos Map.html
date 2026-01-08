@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es-ES">
+<head>
+    <title>AybarRomero_Francisco_04-02c JS Map Sections</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <style>
+        .output { 
+            background-color: #f8f9fa; 
+            padding: 15px; 
+            border-left: 5px solid #0dcaf0; 
+            font-family: monospace; 
+            border-radius: 4px; 
+        }
+        h5 { 
+            color: #084298; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+        }
+        section { 
+            margin-bottom: 3rem; 
+        }
+    </style>
+    
+</head>
+<body class="bg-light">
+    <div class="container-fluid w-75 py-5">
+        
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 0: Ejemplos de Map</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-0"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 1: Crear Map de Personajes</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-1"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 2: Imprimir Ocupaciones</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-2"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 3: Encontrar por Ocupación</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-3"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 4: Modificar Ocupación</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-4"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 5: Ocupaciones Únicas</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-5"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 6: Eliminar Personaje</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-6"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 7: Combinar Maps</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-7"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Ejercicio 8: Eliminar Repetidos</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-8"></div>
+            </article>
+        </section>
+
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h2 class="text-center">Resultado Final</h2>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <div id="res-Final"></div>
+            </article>
+        </section>
+
+        <script>
+            // Función auxiliar para imprimir en un ID específico
+            function printIn(id, titulo, contenido) {
+                const target = document.getElementById(id);
+                target.innerHTML += `<h5>${titulo}</h5>
+                                     <div class="output">${contenido}</div>`;
+            }
+
+            // --- EJERCICIO 0: EJEMPLOS ---
+            let map1 = new Map([['1', 'str1'], [1, 'num1'], [true, 'bool1']]);
+            let john = { name: "John" };
+            let visits = new Map().set(john, 123);
+            let recipeMap = new Map([['pepino', 500], ['tomates', 350]]);
+            
+            printIn("res-0", "Tipos de claves", `Clave '1': ${map1.get('1')} | Clave 1: ${map1.get(1)}`);
+            printIn("res-0", "Objeto como clave", `Visitas de John: ${visits.get(john)}`);
+            printIn("res-0", "Map a Objeto", JSON.stringify(Object.fromEntries(recipeMap)));
+
+            // --- EJERCICIO 1 ---
+            let personajes = new Map([
+                ["Homer", "Seguridad Nuclear"], ["Marge", "Ama de casa"],
+                ["Bart", "Estudiante"], ["Lisa", "Estudiante"],
+                ["Maggie", "Bebé"], ["Ned Flanders", "Vecinito"]
+            ]);
+            printIn("res-1", "Map de Simpsons", `Tamaño del mapa: ${personajes.size} personajes.`);
+
+            // --- EJERCICIO 2 ---
+            let listado = "";
+            personajes.forEach((o, n) => listado += `${n}: ${o}<br>`);
+            printIn("res-2", "Listado Total", listado);
+
+            // --- EJERCICIO 3 ---
+            function buscarPorOcupacion(mapa, busca) {
+                return Array.from(mapa.entries()).filter(e => e[1] === busca).map(e => e[0]);
+            }
+            printIn("res-3", "Búsqueda de 'Estudiante'", buscarPorOcupacion(personajes, "Estudiante").join(", "));
+
+            // --- EJERCICIO 4 ---
+            function modificarOcupacion(mapa, nombre, nueva) {
+                if(mapa.has(nombre)) mapa.set(nombre, nueva);
+            }
+            modificarOcupacion(personajes, "Homer", "Degustador de colchones");
+            printIn("res-4", "Homer modificado", `Homer ahora es: ${personajes.get("Homer")}`);
+
+            // --- EJERCICIO 5 ---
+            function contarUnicas(mapa) {
+                return new Set(mapa.values()).size;
+            }
+            printIn("res-5", "Conteo de profesiones", `Hay ${contarUnicas(personajes)} ocupaciones distintas.`);
+
+            // --- EJERCICIO 6 ---
+            personajes.delete("Maggie");
+            printIn("res-6", "Eliminar a Maggie", `¿Está Maggie?: ${personajes.has("Maggie")} | Tamaño: ${personajes.size}`);
+
+            // --- EJERCICIO 7 ---
+            let personajesExtra = new Map([["Moe", "Barman"], ["Bart", "Gamberro"]]);
+            function combinar(m1, m2) {
+                let comb = new Map(m1);
+                m2.forEach((v, k) => comb.has(k) ? comb.set(k, comb.get(k) + " / " + v) : comb.set(k, v));
+                return comb;
+            }
+            let todos = combinar(personajes, personajesExtra);
+            printIn("res-7", "Maps combinados", `Bart ahora es: ${todos.get("Bart")}`);
+
+            // --- EJERCICIO 8 ---
+            let repetidos = [["Otto", "Bus"], ["Otto", "Bus"], ["Krusty", "Payaso"]];
+            let limpio = new Map(repetidos);
+            printIn("res-8", "Limpieza automática", `Entradas procesadas: ${limpio.size} (Otto solo aparece una vez).`);
+
+
+            /* --- RESULTADO FINAL --- */
+            limpio.forEach((o, n) => todos.set(n, o));
+            let listadoFinal = "";
+            todos.forEach((o, n) => listadoFinal += `${n}: ${o}<br>`);
+            printIn("res-Final", "Listado Final", listadoFinal);
+        </script>
+    </div>
+</body>
+</html>
