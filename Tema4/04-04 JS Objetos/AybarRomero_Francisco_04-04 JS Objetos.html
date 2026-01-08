@@ -2,172 +2,141 @@
 <html lang="es-ES">
     <head>
         <title>AybarRomero_Francisco_04-04 JS Objetos</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     </head>
 
     <body class="container-fluid w-75">
         
         <section class="bg-info-subtle my-5 p-5 border border-info rounded shadow">
-            <h1 class="text-center">
-                1º Crea un objeto alumno con los siguientes valores metodos y propiedades
-            </h1>
+            <h1 class="text-center">AybarRomero_Francisco_04-04 JS Objetos</h1>
+            
             <article class="bg-white mt-5 p-5 border border-black rounded shadow">
-                <div id="ej-1"></div>
+                <h3>Resultados Alumnos e Instituto</h3>
+                <div id="ej-display" class="font-monospace"></div>
+                <div id="msg"></div> <div id="ej-santa"></div> <script>
+                    const display = document.getElementById("ej-display");
 
-                <script>
-                    let mostrar = document.getElementById("ej-1");
-
-
-                    function Alumno(nombre, apellidos, id, nombresModulos, notasModulos)
-                    {
+                    // --- EJERCICIO 1 y 2: Objeto Alumno con funciones flecha ---
+                    function Alumno(nombre, apellidos, id, nombresModulos, notasModulos) {
                         this._nombre = nombre;
                         this._apellidos = apellidos;
                         this._id = id;
                         this._nombresModulos = nombresModulos;
                         this._notasModulos = notasModulos;
 
-                        /* Getters y Setters */
                         Object.defineProperties(this, {
-                            nombre: {
-                                get: function() { return this._nombre; },
-                                set: function(nuevoNombre){
-                                    try 
-                                    {
-                                        if (!nuevoNombre || nuevoNombre.trim().length === 0) 
-                                        {
-                                            throw new Error("El nombre no puede estar vacío.");
-                                        }
-                                        this._nombre = nuevoNombre;
-                                    } catch (error) 
-                                    {
-                                        console.error(error.message);
-                                    }
-                                }
-                            },
-                            apellidos: {
-                                get: function() { return this._apellidos; },
-                                set: function(nuevosApellidos) {
-                                    try {
-                                        if (!nuevosApellidos || nuevosApellidos.trim().length === 0) {
-                                            throw new Error("Los apellidos no pueden estar vacíos.");
-                                        }
-                                        this._apellidos = nuevosApellidos;
-                                    } catch (error) {
-                                        console.error(error.message);
-                                    }
-                                }
-                            },
-                            id: {
-                                get: function() { return this._id; },
-                                set: function(nuevoId) {
-                                    try 
-                                    {
-                                        if (!Number.isInteger(nuevoId)) 
-                                        {
-                                            throw new Error("El ID debe ser un número entero.");
-                                        }
-                                        this._id = nuevoId;
-                                    } catch (error) 
-                                    {
-                                        console.error(error.message);
-                                    }
-                                }
-                            }
+                            nombre: { get: () => this._nombre, set: (v) => this._nombre = v },
+                            apellidos: { get: () => this._apellidos, set: (v) => this._apellidos = v },
+                            id: { get: () => this._id, set: (v) => this._id = v }
                         });
 
-                        
+                        this.mostrarModulos = (idDestino) => {
+                            document.getElementById(idDestino).innerHTML += `<br>Módulos: ${this._nombresModulos.join(", ")}`;
+                        };
 
+                        this.nota = (nombreModulo) => {
+                            const index = this._nombresModulos.indexOf(nombreModulo);
+                            return index !== -1 ? this._notasModulos[index] : "No encontrado";
+                        };
+
+                        this.media = (idDestino) => {
+                            let suma = this._notasModulos.reduce((a, b) => a + b, 0);
+                            let promedio = (suma / this._notasModulos.length).toFixed(2);
+                            document.getElementById(idDestino).innerHTML += `<br>Media: ${promedio}`;
+                        };
+
+                        this.suspensas = (idDestino) => {
+                            let fallidas = this._notasModulos.filter(n => n < 5);
+                            document.getElementById(idDestino).innerHTML += `<br>Suspensas: ${fallidas.length > 0 ? fallidas.join(", ") : "Ninguna"}`;
+                        };
+
+                        this.aprobadas = (idDestino) => {
+                            let ok = this._notasModulos.filter(n => n >= 5);
+                            document.getElementById(idDestino).innerHTML += `<br>Aprobadas: ${ok.join(", ")}`;
+                        };
                     }
 
+                    // --- EJERCICIO 3: Ejemplo de uso ---
+                    const a1 = new Alumno("Francisco", "Aybar", "far", ["DIW", "DWEC", "DWES"], [8, 4, 7]);
+                    display.innerHTML = `<strong>Alumno 1:</strong> ${a1.nombre}`;
+                    a1.mostrarModulos("ej-display");
+                    a1.media("ej-display");
+                    a1.suspensas("ej-display");
 
-                    
-                    /* Funciones */
-
-                    Alumno.prototype.toString = function() 
-                    {
-                        return `Alumno: ${this._nombre} ${this._apellidos} (ID: ${this._id})\n` +
-                            `Módulos: (${this._nombresModulos.join(", ")})\n` +
-                            `Notas: (${this._notasModulos.join(", ")})`;
-                    };
-
-
-                    Alumno.prototype.modulos = function(id)
-                    {
-                        modulos = this._nombresModulos;
-                        arr = [];
-
-                        for (let clave in modulos) 
-                        { 
-                            console.log(clave, modulos[clave]);
-                            arr = modulos[clave];
+                    // --- EJERCICIO 4: Objeto Clase ---
+                    const Clase = {
+                        alumnos: [],
+                        matricular: (alu) => Clase.alumnos.push(alu),
+                        eliminar: (alu) => Clase.alumnos = Clase.alumnos.filter(a => a.id !== alu.id),
+                        numero: () => Clase.alumnos.length,
+                        mostrar: (idDestino) => {
+                            let nombres = Clase.alumnos.map(a => a.nombre).join(" | ");
+                            document.getElementById(idDestino).innerHTML += `<br><strong>Clase:</strong> ${nombres}`;
                         }
+                    };
+                    Clase.matricular(a1);
+                    Clase.mostrar("ej-display");
 
-                        return arr; /* No así */
+                    // --- EJERCICIO 5, 6 y 7: Instituto ---
+                    const instituto = {
+                        nombre: "IES PLAYAMAR",
+                        direccion: "Rda. Alta de Benyamina, 17, 29620 Torremolinos, Málaga",
+                        id: "inst-01",
+                        // Ej 6: Anónima
+                        cambiarNombre: function(nueva) { this.direccion = nueva; },
+                        // Ej 7: Flecha
+                        mostrar: (idDestino) => {
+                            document.getElementById(idDestino).innerHTML += `<br><strong>Inst:</strong> ${instituto.nombre} (${instituto.direccion})`;
+                        }
+                    };
+                    instituto.mostrar("ej-display");
+
+                    // --- EJERCICIO 8: Contexto de 'this' ---
+                    window.age = 10;
+                    function Person1() {
+                        this.age = 41;
+                        setTimeout(function () { 
+                            document.getElementById('msg').innerHTML += "<br>Anon. this.age: " + this.age; // 10 (Window)
+                        }, 100); 
+                    }
+                    function Person2() {
+                        this.age = 42;
+                        setTimeout(() => { 
+                            document.getElementById('msg').innerHTML += "<br>Flecha this.age: " + this.age; // 42 (Person2)
+                        }, 100); 
+                    }
+                    new Person1();
+                    new Person2();
+
+                    // --- EJERCICIO 9: Prototype dinámico ---
+                    Alumno.prototype.saludar = function() { return `Hola, soy ${this._nombre}`; };
+                    display.innerHTML += `<br>${a1.saludar()}`;
+
+                    // --- EJERCICIO 10: Santa Claus ---
+                    function organizeInventory(inventory) {
+                        return inventory.reduce((acc, { name, quantity, category }) => {
+                            if (!acc[category]) acc[category] = {};
+                            acc[category][name] = (acc[category][name] || 0) + quantity;
+                            return acc;
+                        }, {});
                     }
 
-                    this.nota = function(nombreModulo)
-                    {
+                    const inventory = [
+                        { name: 'doll', quantity: 5, category: 'toys' },
+                        { name: 'car', quantity: 3, category: 'toys' },
+                        { name: 'ball', quantity: 2, category: 'sports' },
+                        { name: 'car', quantity: 2, category: 'toys' },
+                        { name: 'racket', quantity: 11, category: 'sports' }
+                    ];
 
-                    }
-
-                    this.media = function(id)
-                    {
-
-                    }
-
-                    this.suspensas = function(id)
-                    {
-
-                    }
-
-                    this.aprobadas = function(id)
-                    {
-
-                    }
-
-                    
-                    /* function Alumno(nombre, apellidos, id, nombresModulos, notasModulos) */
-                    a1 = new Alumno("Francisss", "Aybar Romero", "far", ["diw", "dwec", "dwes"], [8,5,5]);
-                    mostrar.innerHTML += a1.toString() + "<br><br>";
-
-                    a1.nombre = "Francisco";
-                    mostrar.innerHTML += a1.toString() + "<br><br>";
-
-                    arr = a1.modulos("far");
-                    mostrar.innerHTML += arr.join(", "); /* No así */
+                    const resSanta = organizeInventory(inventory);
+                    document.getElementById("ej-santa").innerHTML = `<hr><strong>Inventario Santa:</strong><pre>${JSON.stringify(resSanta, null, 2)}</pre>`;
                 </script>
             </article>
         </section>
 
-
-
-
-
-
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
