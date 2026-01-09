@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es-ES">
+    <head>
+        <title>AybarRomero_Francisco_05-02b - Modelo de nodos DOM childNodes</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <style>
+            .output { 
+                background-color: #f8f9fa; 
+                padding: 15px; 
+                border-left: 5px solid #0dcaf0; 
+                font-family: monospace; 
+                border-radius: 4px; 
+            }
+            h5 { 
+                color: #084298; 
+                margin-bottom: 15px; 
+                font-weight: bold; 
+            }
+        </style>
+
+    </head>
+
+    <body>
+        
+        <div class="container-fluid w-75 py-5">
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 1: Crear elementos simples con  createElement(), createTextNode() y appendChild()</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <button type="button" onclick="add_ej1()" class="btn btn-primary border-black">Añadir párrafo</button>
+                    <div id="ejercicio1" class="output"><div> 
+                    <script>
+                        function add_ej1() 
+                        {
+                            let texto = "Este párrafo fue creado dinámicamente";
+
+                            let caja = document.getElementById("ejercicio1");
+                            let elementop_ej1 = document.createElement("p");
+                            let output = document.createTextNode(texto);
+
+                            elementop_ej1.appendChild(output);
+                            caja.appendChild(elementop_ej1);
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 2: Lista dinámica</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <button type="button" onclick="crearLista_ej2()" class="btn btn-primary border-black">Crear lista dinámica</button>
+                    <div id="ejercicio2" class="output"></div>
+                    <script>
+                        function crearLista_ej2()
+                        {
+                            let count_ej2 = 1;
+                            function actualizarLista() 
+                            {
+                                let lista = document.getElementById('ejercicio2');
+                                let nuevoElemento = document.createElement('li');
+                                nuevoElemento.textContent = "Elemento " + count_ej2;
+                                lista.appendChild(nuevoElemento);
+                                count_ej2++;
+
+                                if (count_ej2 > 5) 
+                                {
+                                    clearInterval(miIntervalo);
+                                }
+                            }
+                        
+                            let miIntervalo = setInterval(actualizarLista, 1000);
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 3: Lista dinámica</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <button type="button" onclick="crearOption_ej3()" class="btn btn-primary border-black">Crear lista dinámica</button>
+                    <div class="output">
+                        <select name="ejercicio3" id="ejercicio3">
+                            <option value="nada">---</option>
+                        </select>
+                    </div>
+                    <script>
+                        function crearOption_ej3()
+                        {
+                            let count_ej3 = 1;
+                            function actualizarOption() 
+                            {
+                                let option = document.getElementById('ejercicio3');
+                                let nuevoElemento = document.createElement('option');
+                                nuevoElemento.textContent = "Elemento " + count_ej3;
+                                option.appendChild(nuevoElemento);
+                                count_ej3++;
+
+                                if (count_ej3 > 5) 
+                                {
+                                    clearInterval(miIntervalo);
+                                }
+                            }
+                        
+                            let miIntervalo = setInterval(actualizarOption, 1000);
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 4: Lista dinámica</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <button type="button" onclick="crearOption_ej4()" class="btn btn-primary border-black">Crear lista dinámica</button>
+                    <div class="output">
+                        <select name="ejercicio4" id="ejercicio4">
+                            <option value="nada">---</option>
+                        </select>
+                    </div>
+                    <script>
+                        function crearOption_ej4()
+                        {
+                            let count_ej4 = 1;
+                            function actualizarOption() 
+                            {
+                                let option = document.getElementById('ejercicio4');
+                                let nuevoElemento = document.createElement('option');
+                                nuevoElemento.textContent = "Elemento " + count_ej4;
+                                option.appendChild(nuevoElemento);
+                                count_ej4++;
+
+                                if (count_ej4 > 5) 
+                                {
+                                    clearInterval(miIntervalo);
+                                }
+                            }
+                        
+                            let miIntervalo = setInterval(actualizarOption, 1000);
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 5: Contar nodos hijos con childNodes</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <button type="button" onclick="" class="btn btn-primary border-black">Contar nodos</button>
+                    <div id="ejercicio5" class="output"></div>
+                    <div id="contenedor">
+                        <p>Texto 1</p>
+                        <p>Texto 2</p>
+                    </div>
+
+                    <script>
+                        
+                    </script>
+                </article>
+            </section>
+
+
+
+
+
+
+
+
+
+
+            
+
+            <br><br><hr><br><br>
+
+            <div id="parrafito"></div>
+            <ul id="l11">
+                <li> elemento</li>
+            </ul>
+
+                valor elemento : <input type="text" id="caja" value="defeccto">  <br>
+                Numero elemento :  <input type="text" id="cajaNumero" value="2">  <br>
+                <button onclick="addelemento()"> add elemento </button>
+                <button onclick="reemeplazarElemento()"> remplazar Elemento   </button>
+                <button onclick="eliminarElemento()">  eliminar Elemento </button>
+                <button onclick="eliminarprimerElemento()">  eliminar primerElemento </button>
+
+                <script>
+                    let contador = 1;
+
+
+                    function addelemento() {
+                        let lista = document.getElementById("l11");
+                        let textocaja = document.getElementById("caja").value;
+
+                        let elemento = document.createElement("li")
+                        let texto = document.createTextNode(textocaja+contador);
+                    
+                        elemento.appendChild(texto);
+                        lista.appendChild(elemento);
+                        contador++;
+                    }
+
+                    function reemeplazarElemento() {
+                        let lista = document.getElementById("l11");
+
+                        let elemento=document.createElement("li")
+                        let textocaja =document.getElementById("caja").value;
+                        let Numero =parseInt(document.getElementById("cajaNumero").value);
+                        let texto=document.createTextNode(textocaja+contador);
+                        elemento.appendChild(texto);
+
+                        let viejo = lista.childNodes[Numero];
+                        console.log(Numero)
+                        lista.replaceChild(elemento,viejo);            
+                    
+                        contador++;
+                    }
+                    
+
+                    function eliminarElemento() {
+                        let lista = document.getElementById("l11");
+                        let elemento=lista.lastChild;
+                        lista.removeChild(elemento)
+                    
+                    }
+
+                        function eliminarprimerElemento() {
+                        let lista = document.getElementById("l11");
+                        let elemento=lista.firstChild;
+                        lista.removeChild(elemento)
+                    
+                    }
+
+                    //  Para eliminar un nodo existente, lo podremos hacer con element.removeChild(referencia al nodo hijo).
+                    //Ejemplo de creación de elementos e inserción en el documento:
+                    //Creamos tres elementos nuevos: p, b, br
+                    var elementoP = document.createElement('p');
+                    var elementoB = document.createElement('b');
+                    var elementoBR = document.createElement('br');
+                    var elementoBR1 = document.createElement('br');
+                    var elementoBR2 = document.createElement('br');
+                    var elementoBR3 = document.createElement('br');
+                    var elementoBR4 = document.createElement('br');
+                    //Le asignamos un nuevo atributo title al elementoP que hemos creado.
+                    elementoP.setAttribute('title', 'Parrafo creado desde JavaScript');
+                    //Preparamos los nodos de texto
+                    var texto1 = document.createTextNode('Con JavaScript se ');
+                    var texto2 = document.createTextNode('pueden realizar ');
+                    var texto3 = document.createTextNode('un monton');
+                    var texto4 = document.createTextNode(' de cosas sobre el documento.');
+                    var texto5 = document.createTextNode(' fin del texto.');
+                    //Añadimos al elemento B los nodos de texto2, elemento BR y texto3.
+                    elementoB.appendChild(texto2);
+                    elementoB.appendChild(elementoBR);
+                    elementoB.appendChild(texto3);
+                    //Añadimos al elemento P los nodos de texto1, elemento B y texto 4.
+                    elementoP.appendChild(texto1);
+                    elementoP.appendChild(elementoB);
+                    elementoP.appendChild(texto4);
+                    elementoP.appendChild(elementoBR1);
+                    elementoP.appendChild(elementoBR2);
+                    elementoP.appendChild(elementoBR3);
+                    elementoP.appendChild(texto5);
+                    //insertamos el nuevo párrafo como un nuevo hijo de nuestro parrafo
+                    document.getElementById('parrafito').appendChild(elementoP);
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
