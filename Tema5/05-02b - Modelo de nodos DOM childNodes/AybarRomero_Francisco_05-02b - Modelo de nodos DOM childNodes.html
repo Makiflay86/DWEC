@@ -44,7 +44,7 @@
                 </div>
                 <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
                     <button type="button" onclick="add_ej1()" class="btn btn-primary border-black">Añadir párrafo</button>
-                    <div id="ejercicio1" class="output"><div> 
+                    <div id="ejercicio1" class="output my-3"><div> 
                     <script>
                         function add_ej1() 
                         {
@@ -69,7 +69,7 @@
                 </div>
                 <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
                     <button type="button" onclick="crearLista_ej2()" class="btn btn-primary border-black">Crear lista dinámica</button>
-                    <div id="ejercicio2" class="output"></div>
+                    <div id="ejercicio2" class="output my-3"></div>
                     <script>
                         function crearLista_ej2()
                         {
@@ -102,7 +102,7 @@
                 </div>
                 <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
                     <button type="button" onclick="crearOption_ej3()" class="btn btn-primary border-black">Crear lista dinámica</button>
-                    <div class="output">
+                    <div class="output my-3">
                         <select name="ejercicio3" id="ejercicio3">
                             <option value="nada">---</option>
                         </select>
@@ -139,7 +139,7 @@
                 </div>
                 <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
                     <button type="button" onclick="crearOption_ej4()" class="btn btn-primary border-black">Crear lista dinámica</button>
-                    <div class="output">
+                    <div class="output my-3">
                         <select name="ejercicio4" id="ejercicio4">
                             <option value="nada">---</option>
                         </select>
@@ -175,137 +175,259 @@
                     <h1>Ejercicio 5: Contar nodos hijos con childNodes</h1>
                 </div>
                 <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
-                    <button type="button" onclick="" class="btn btn-primary border-black">Contar nodos</button>
-                    <div id="ejercicio5" class="output"></div>
+                    <button type="button" onclick="contarNodos()" class="btn btn-primary border-black">Contar nodos</button>
+                    <div id="ejercicio5" class="output my-3"></div>
                     <div id="contenedor">
                         <p>Texto 1</p>
                         <p>Texto 2</p>
+                        <div>Hola soy un div</div>
+                        <ul>
+                            <li>lista 1</li>
+                            <li>lista 2</li>
+                        </ul>
+                        <!-- Soy un comentario -->
                     </div>
 
                     <script>
-                        
+                        function contarNodos() 
+                        {
+                            let contenedor = document.getElementById('contenedor');
+                            let nodos = contenedor.childNodes;
+                            let output = document.getElementById('ejercicio5');
+                            
+                            let mensaje = `<strong>Total de nodos:</strong> ${nodos.length}<br><br>`;
+                            
+                            nodos.forEach((nodo, index) => 
+                            {
+                                mensaje += `Nodo ${index}: Tipo = ${nodo.nodeType} (${nodo.nodeName})<br>`;
+                            });
+                            
+                            output.innerHTML = mensaje;
+                        }
                     </script>
                 </article>
             </section>
 
 
 
-
-
-
-
-
-
-
-            
-
-            <br><br><hr><br><br>
-
-            <div id="parrafito"></div>
-            <ul id="l11">
-                <li> elemento</li>
-            </ul>
-
-                valor elemento : <input type="text" id="caja" value="defeccto">  <br>
-                Numero elemento :  <input type="text" id="cajaNumero" value="2">  <br>
-                <button onclick="addelemento()"> add elemento </button>
-                <button onclick="reemeplazarElemento()"> remplazar Elemento   </button>
-                <button onclick="eliminarElemento()">  eliminar Elemento </button>
-                <button onclick="eliminarprimerElemento()">  eliminar primerElemento </button>
-
-                <script>
-                    let contador = 1;
-
-
-                    function addelemento() {
-                        let lista = document.getElementById("l11");
-                        let textocaja = document.getElementById("caja").value;
-
-                        let elemento = document.createElement("li")
-                        let texto = document.createTextNode(textocaja+contador);
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 6: Cambiar texto usando childNodes</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <p class="mb-3 text-muted">Haz clic para buscar el primer elemento de la lista del Ejercicio 3 y cambiar su texto.</p>
                     
-                        elemento.appendChild(texto);
-                        lista.appendChild(elemento);
-                        contador++;
-                    }
+                    <button type="button" onclick="modificarTexto_ej6()" class="btn btn-warning border-black">
+                        Modificar primer texto
+                    </button>
 
-                    function reemeplazarElemento() {
-                        let lista = document.getElementById("l11");
+                    <div id="ejercicio6_feedback" class="mt-3 small text-success"></div>
 
-                        let elemento=document.createElement("li")
-                        let textocaja =document.getElementById("caja").value;
-                        let Numero =parseInt(document.getElementById("cajaNumero").value);
-                        let texto=document.createTextNode(textocaja+contador);
-                        elemento.appendChild(texto);
+                    <script>
+                        function modificarTexto_ej6() 
+                        {
+                            let contenedor = document.getElementById('ejercicio3');
+                            let hijos = contenedor.childNodes;
+                            let modificado = false;
 
-                        let viejo = lista.childNodes[Numero];
-                        console.log(Numero)
-                        lista.replaceChild(elemento,viejo);            
+                            for (let i = 0; i < hijos.length; i++) 
+                            {
+                                if (hijos[i].nodeType === 1) 
+                                {
+                                    if (hijos[i].firstChild && hijos[i].firstChild.nodeType === 3) 
+                                    {
+                                        hijos[i].firstChild.nodeValue = "Opcion modificada";
+                                        modificado = true;
+                                        break; 
+                                    }
+                                }
+                            }
+
+                            let feedback = document.getElementById('ejercicio6_feedback');
+                            feedback.textContent = modificado ? "¡Se ha modificado el texto del primer nodo encontrado!" : "No se encontró ningún nodo de texto para modificar.";
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 7: Reemplazar elementos con replaceChild()</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <ul id="listaFrutas" class="list-group mb-4 w-50 mx-auto border rounded">
+                        <li class="list-group-item">Manzana</li>
+                        <li class="list-group-item">Banana</li>
+                        <li class="list-group-item">Naranja</li>
+                    </ul>
                     
-                        contador++;
-                    }
+                    <button type="button" onclick="reemplazarFruta()" class="btn btn-success border-black">
+                        Reemplazar Banana por Pera
+                    </button>
+
+                    <script>
+                        function reemplazarFruta() 
+                        {
+                            let lista = document.getElementById('listaFrutas');
+                            let elementos = lista.getElementsByTagName('li');
+                            
+                            let nuevaPera = document.createElement('li');
+                            nuevaPera.textContent = "Pera";
+                            nuevaPera.className = "list-group-item bg-light";
+
+                            if (elementos.length > 1) 
+                            {
+                                lista.replaceChild(nuevaPera, elementos[1]);
+                            }
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 8: Reemplazo condicional</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
+                    <div id="contenedorErrores">
+                        <p>Hola</p>
+                        <p>Hola error</p>
+                        <p>Adios error</p>
+                        <p>Adios</p>
+                    </div>
                     
+                    <button type="button" onclick="corregirErrores()" class="btn btn-danger border-black mt-3">
+                        Corregir Errores
+                    </button>
 
-                    function eliminarElemento() {
-                        let lista = document.getElementById("l11");
-                        let elemento=lista.lastChild;
-                        lista.removeChild(elemento)
+                    <script>
+                        function corregirErrores() 
+                        {
+                            let contenedor = document.getElementById('contenedorErrores');
+                            let parrafos = Array.from(contenedor.getElementsByTagName('p'));
+
+                            parrafos.forEach(p => 
+                            {
+                                if (p.textContent.includes("error")) 
+                                {
+                                    let parrafoCorregido = document.createElement('p');
+                                    parrafoCorregido.textContent = "Contenido corregido";
+                                    parrafoCorregido.style.color = "green"; 
+                                    
+                                    contenedor.replaceChild(parrafoCorregido, p);
+                                }
+                            });
+                        }
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 9: Eliminar elementos con bloqueo</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow text-center">
                     
-                    }
-
-                        function eliminarprimerElemento() {
-                        let lista = document.getElementById("l11");
-                        let elemento=lista.firstChild;
-                        lista.removeChild(elemento)
+                    <button type="button" id="btnEliminar" onclick="eliminarUltimo()" class="btn btn-danger border-black">
+                        Eliminar último elemento
+                    </button>
                     
-                    }
+                    <ul id="listaEliminar" class="list-group list-group-flush mt-4 w-50 mx-auto border rounded">
+                        <li class="list-group-item">Elemento 1</li>
+                        <li class="list-group-item">Elemento 2</li>
+                        <li class="list-group-item">Elemento 3</li>
+                        <li class="list-group-item">Elemento 4</li>
+                    </ul>
+                    
+                    <script>
+                        function eliminarUltimo() 
+                        {
+                            let lista = document.getElementById('listaEliminar');
+                            let boton = document.getElementById('btnEliminar');
+                            let ultimo = lista.lastElementChild;
 
-                    //  Para eliminar un nodo existente, lo podremos hacer con element.removeChild(referencia al nodo hijo).
-                    //Ejemplo de creación de elementos e inserción en el documento:
-                    //Creamos tres elementos nuevos: p, b, br
-                    var elementoP = document.createElement('p');
-                    var elementoB = document.createElement('b');
-                    var elementoBR = document.createElement('br');
-                    var elementoBR1 = document.createElement('br');
-                    var elementoBR2 = document.createElement('br');
-                    var elementoBR3 = document.createElement('br');
-                    var elementoBR4 = document.createElement('br');
-                    //Le asignamos un nuevo atributo title al elementoP que hemos creado.
-                    elementoP.setAttribute('title', 'Parrafo creado desde JavaScript');
-                    //Preparamos los nodos de texto
-                    var texto1 = document.createTextNode('Con JavaScript se ');
-                    var texto2 = document.createTextNode('pueden realizar ');
-                    var texto3 = document.createTextNode('un monton');
-                    var texto4 = document.createTextNode(' de cosas sobre el documento.');
-                    var texto5 = document.createTextNode(' fin del texto.');
-                    //Añadimos al elemento B los nodos de texto2, elemento BR y texto3.
-                    elementoB.appendChild(texto2);
-                    elementoB.appendChild(elementoBR);
-                    elementoB.appendChild(texto3);
-                    //Añadimos al elemento P los nodos de texto1, elemento B y texto 4.
-                    elementoP.appendChild(texto1);
-                    elementoP.appendChild(elementoB);
-                    elementoP.appendChild(texto4);
-                    elementoP.appendChild(elementoBR1);
-                    elementoP.appendChild(elementoBR2);
-                    elementoP.appendChild(elementoBR3);
-                    elementoP.appendChild(texto5);
-                    //insertamos el nuevo párrafo como un nuevo hijo de nuestro parrafo
-                    document.getElementById('parrafito').appendChild(elementoP);
-                </script>
+                            if (ultimo) 
+                            {
+                                lista.removeChild(ultimo);
+                            }
+
+                            if (lista.children.length === 0) 
+                            {
+                                boton.disabled = true;
+                                boton.textContent = "Lista vacía";
+                                boton.classList.replace('btn-danger', 'btn-secondary'); 
+                            }
+                        }
+                    </script>
+                </article>
+            </section>
 
 
 
+            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+                <div class="text-center py-2">
+                    <h1>Ejercicio 10: Editor dinámico de secciones</h1>
+                </div>
+                <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                    <div id="panel" class="text-start border p-3 mb-3 bg-light">
+                        <section class="border-bottom mb-2">
+                            <h3>Título 1</h3>
+                            <p>Contenido A</p>
+                        </section>
+                        <section>
+                            <h3>Título 2</h3>
+                            <p>Contenido B</p>
+                        </section>
+                    </div>
 
+                    <div class="controls text-center">
+                        <button id="btnReemplazar" onclick="reemplazarSeccion()" class="btn btn-warning m-1">Reemplazar sección 2</button>
+                        <button id="btnEliminar" onclick="eliminarSoloParrafo()" class="btn btn-danger m-1">Eliminar párrafo sección 1</button>
+                    </div>
 
+                    <script>
+                        function reemplazarSeccion() 
+                        {
+                            let panel = document.getElementById('panel');
+                            let secciones = Array.from(panel.childNodes).filter(n => n.nodeType === 1);
 
+                            if (secciones.length >= 2) 
+                            {
+                                let nuevaSec = document.createElement('section');
+                                nuevaSec.innerHTML = `<h3>Título reemplazado</h3><p>Este contenido fue creado dinámicamente</p>`;
+                                panel.replaceChild(nuevaSec, secciones[1]);
+                            }
+                        }
 
+                        function eliminarSoloParrafo() 
+                        {
+                            const panel = document.getElementById('panel');
+                            const secciones = Array.from(panel.childNodes).filter(n => n.nodeType === 1);
 
-
-
-
-
-
+                            if (secciones.length > 0) 
+                            {
+                                let primeraSec = secciones[0];
+                                let hijosDeSeccion = primeraSec.childNodes;
+                                
+                                for (let i = 0; i < hijosDeSeccion.length; i++) 
+                                {
+                                    if (hijosDeSeccion[i].nodeName === "P") 
+                                    {
+                                        primeraSec.removeChild(hijosDeSeccion[i]);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                </article>
+            </section>
 
 
         </div>
