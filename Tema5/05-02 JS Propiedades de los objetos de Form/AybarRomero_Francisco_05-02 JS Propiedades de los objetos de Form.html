@@ -1,276 +1,236 @@
 <!doctype html>
 <html lang="es-ES">
-    <head>
-        <title>AybarRomero_Francisco_05-02 JS Propiedades de los objetos de Form</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+    <title>AybarRomero_Francisco_05-02 JS Propiedades de los objetos de Form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    />
 
-        <style>
-            .output { 
-                background-color: #f8f9fa; 
-                padding: 15px; 
-                border-left: 5px solid #0dcaf0; 
-                font-family: monospace; 
-                border-radius: 4px; 
-            }
-            h5 { 
-                color: #084298; 
-                margin-bottom: 15px; 
-                font-weight: bold; 
-            }
-        </style>
+    <style>
+        .output { 
+            background-color: #f8f9fa; 
+            padding: 15px; 
+            border-left: 5px solid #0dcaf0; 
+            font-family: monospace; 
+            border-radius: 4px; 
+        }
+        h5 { 
+            color: #084298; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+        }
+        .selected-option { 
+            font-weight: bold; 
+            color: green; 
+        }
+    </style>
 
-    </head>
+</head>
 
-    <body>
-        
-        <div class="container-fluid w-75 py-5">
+<body>
+    <div class="container-fluid w-75 py-5">
+        <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
+            <h1 class="text-center">Ejercicio 1</h1>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <form id="formularioBusquedaId" name="formularioBusquedaName" method="post" class="text-center"> 
+                    <p> 
+                        <input type="text" id="entradaId" name="entradaName" value="123">
+                        <input type="button" value="Enviar" onclick="mostrarText()"> 
+                    </p> 
+                </form>
+                <div id="ejercicio1" class="output">waiting...</div> 
+            </article>
+        </section>
 
-            <section class="bg-info-subtle p-5 mb-5 border border-info rounded shadow">
-                <div class="text-center py-2">
-                    <h1>Ejercicio 1</h1>
-                </div>
-                <article class="bg-white mt-4 p-4 border border-black rounded shadow">
-                    <form id="formularioBusquedaId" action="#" name="formularioBusquedaName" method="post" class="text-center"> 
-                        <p> 
-                            <input type="text" id="entradaId" name="entradaName" value="123">
-                            <input type="button" id="" name="enviar" value="Enviar" onclick="mostrarText()"> 
-                        </p> 
-                    </form>
+        <section class="bg-info-subtle p-5 border border-info rounded shadow">
+            <h1 class="text-center">Ejercicios 2 al 11</h1>
+            <article class="bg-white mt-4 p-4 border border-black rounded shadow">
+                <form id="formulario" action="#" class="text-center">
+                    <div class="mb-3">
+                        <label for="nombre">Nombre y Apellidos:</label>
+                        <input type="text" id="nombre" name="nombre" value="FRANCISCO AYBAR" maxlength="30" size="30" onblur="convertirMayusculas()" onchange="ponerminusculas(this)">
+                    </div>
 
-                    <div id="ejercicio1" class="output">waiting...</div> 
+                    <div class="mb-3">
+                        <input class="form-check-input" type="checkbox" id="aprobar" name="aprobarn" value="Si"/> ¿Te gustaría Aprobar?
+                    </div>
 
-                    <script>
-                        let output = document.getElementById("ejercicio1");
-                        /*  
-                            Función que se vea el valor del text de las 5 maneras posibles
+                    <div class="mb-3" id="radioContainer">
+                        <label>Radios (Ejercicio 6):</label><br>
+                        <input type="radio" name="alternativas" value="1" checked> 1
+                        <input type="radio" name="alternativas" value="2"> 2
+                        <input type="radio" name="alternativas" value="3"> 3
+                        <input type="radio" name="alternativas" value="4"> 4
+                        <input type="radio" name="alternativas" value="5"> 5
+                    </div>
 
-                            document.getElementById("entradaId")
-                            document.formularioBusquedaName.entradaName
-                            document.formularioBusquedaName.elements[0]
-                            document.forms["formularioBusquedaName"].elements["entradaName"]
-                            document.forms["formularioBusquedaName"].entradaName
-                        */
-                        function mostrarText()
-                        {
-                            output.innerHTML = "";
-                            output.innerHTML += `document.getElementById("entradaId") -> ` + document.getElementById("entradaId").value + "<br>";
-                            output.innerHTML += `document.formularioBusquedaName.entradaName -> ` + document.formularioBusquedaName.entradaName.value + "<br>";
-                            output.innerHTML += `document.formularioBusquedaName.elements[0] -> ` + document.formularioBusquedaName.elements[0].value + "<br>";
-                            output.innerHTML += `document.forms["formularioBusquedaName"].elements["entradaName"] -> ` + document.forms["formularioBusquedaName"].elements["entradaName"].value + "<br>";
-                            output.innerHTML += `document.forms["formularioBusquedaName"].entradaName -> ` + document.forms["formularioBusquedaName"].entradaName.value + "<br>";
-                        }
-                    </script>
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-5 border border-info rounded shadow">
-                <div class="text-center py-2">
-                    <h1>Ejercicio 2,3,4,5,6,7,8</h1>
-                </div>
-                <article class="bg-white mt-4 p-4 border border-black rounded shadow">
-                    <form id="formulario" action="#" class="text-center"> 
-                        
-                        <div class="mb-3">
-                            <label for="nombre">
-                                Nombre y Apellidos: 
-                            </label>
-                            <input type="text" id="nombre" name="nombre" value="Francisco Aybar" maxlength="30" size="30" onblur="convertirMayusculas()"><br>
-                            <label for="nombre" style="font-size: small;">
-                                * Introduce tu Nombre y Apellidos y haz click fuera del campo.  
-                            </label> 
-                        </div>
-
-                        <div class="mb-3">
-                            <input class="form-check-input" type="checkbox" id="aprobar" name="aprobar" value="Si"/>¿Te gustaria Aprobar?
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="alternativas">
-                                Valores a elegir : 
-                            </label>
-                            <div>
-                                <input class="form-check-input" type="radio" name="alternativas" id="valor1">
-                                <label class="form-check-label" for="valor1">
-                                    1
-                                </label>
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="alternativas" id="valor2" checked>
-                                <label class="form-check-label" for="valor2">
-                                    2
-                                </label>
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="alternativas" id="valor3" >
-                                <label class="form-check-label" for="valor3">
-                                    3
-                                </label>
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="alternativas" id="valor4">
-                                <label class="form-check-label" for="valor4">
-                                    4
-                                </label>
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="alternativas" id="valor5">
-                                <label class="form-check-label" for="valor5">
-                                    5
-                                </label>
-                            </div>
-                        </div>
-                        
-
-
-
-                        <button type="button" class="btn btn-primary border-black" onclick="ejercicio3()">ejercicio3</button>
-                        <button type="button" class="btn btn-info border-black" onclick="ejercicio4()">ejercicio4</button>
-                        <button type="button" class="btn btn-danger border-black" onclick="ejercicio5()">ejercicio5</button>
-                        <button type="button" class="btn btn-warning border-black" onclick="ejercicio6()">ejercicio6</button>
-                        <button type="button" class="btn btn-success border-black" onclick="ejercicio7()">ejercicio7</button>
-                        <button type="button" class="btn btn-light border-black" onclick="ejercicio8()">ejercicio8</button>
-                    </form>
+                    <div class="mb-3">
+                        <label for="paises">Selecciona un país (Ej 7, 8, 10):</label>
+                        <select name="paises" id="paises" class="form-select w-50 mx-auto" onchange="cambiarimagen(this)">
+                            <option value="spain.jpg">España</option>
+                            <option value="reinounido.jpg">Reino unido</option>
+                            <option value="francia.jpg">Francia</option>
+                            <option value="italia.jpg">Italia</option>
+                            <option value="alemania.jpg">Alemania</option>
+                            <option value="portugal.jpg">Portugal</option>
+                        </select>
+                    </div>
                     
-                    <div id="muchosEjercicios"></div>
+                    <img id="bandera" src="./src/spain.jpg" alt="bandera" class="mb-3 border" style="width:100px; height:auto;">
 
-                    <script>
-                        function convertirMayusculas()
-                        { 
-	                        document.getElementById("nombre").value = document.getElementById("nombre").value.toUpperCase();
-                        }
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button type="button" class="btn btn-primary" onclick="ejercicio3()">Ej 3 (Propiedades)</button>
+                        <button type="button" class="btn btn-info" onclick="ejercicio4()">Ej 4 (Nombre Aleatorio)</button>
+                        <button type="button" class="btn btn-danger" onclick="ejercicio5()">Ej 5 (Toggle Checkbox)</button>
+                        <button type="button" class="btn btn-warning" onclick="ejercicio6()">Ej 6 (Siguiente Radio)</button>
+                        <button type="button" class="btn btn-success" onclick="ejercicio7()">Ej 7 (Listar Select)</button>
+                        <button type="button" class="btn btn-secondary" onclick="ejercicio8()">Ej 8 (Add Option)</button>
+                        <button type="button" class="btn btn-dark" onclick="ejercicio11()">Ej 11 (Eliminar Select)</button>
+                    </div>
+                </form>
+
+                <div id="muchosEjercicios" class="mt-4"></div>
+            </article>
+        </section>
+    </div>
+
+    <script>
+        const outputGlobal = document.getElementById("muchosEjercicios");
+
+        function print(titulo, contenido) 
+        {
+            outputGlobal.innerHTML = `<hr><h5>${titulo}</h5><div class="output">${contenido}</div>`;
+        }
+
+        // Ejercicio 1
+        function mostrarText() 
+        {
+            let out = document.getElementById("ejercicio1");
+            out.innerHTML = 
+                `1. getElementById: ${document.getElementById("entradaId").value}<br>` +
+                `2. form.name: ${document.formularioBusquedaName.entradaName.value}<br>` +
+                `3. elements[0]: ${document.formularioBusquedaName.elements[0].value}<br>` +
+                `4. forms["name"].elements["name"]: ${document.forms["formularioBusquedaName"].elements["entradaName"].value}<br>` +
+                `5. forms["name"].name: ${document.forms["formularioBusquedaName"].entradaName.value}`;
+        }
+
+        // Ejercicio 2 & 9
+        function convertirMayusculas() 
+        { 
+            document.getElementById("nombre").value = document.getElementById("nombre").value.toUpperCase(); 
+        }
+        
+        function ponerminusculas(input) 
+        { 
+            input.value = input.value.toLowerCase(); 
+        }
+
+        // Ejercicio 3
+        function ejercicio3() 
+        {
+            let input = document.getElementById("nombre");
+            let info = `<ul>
+                <li>DefaultValue: ${input.defaultValue}</li>
+                <li>MaxLength: ${input.maxLength}</li>
+                <li>Name: ${input.name}</li>
+                <li>ReadOnly: ${input.readOnly}</li>
+                <li>Size: ${input.size}</li>
+                <li>Type: ${input.type}</li>
+                <li>Value: ${input.value}</li>
+            </ul>`;
+            print("Ejercicio 3 - Propiedades", info);
+        }
+
+        // Ejercicio 4
+        function ejercicio4() 
+        {
+            let nombres = ["Homer Simpson", "Marge Simpson", "Bart Simpson", "Lisa Simpson", "Maggie Simpson", "Ned Flanders"];
+            document.getElementById("nombre").value = nombres[Math.floor(Math.random() * nombres.length)];
+        }
+
+        // Ejercicio 5
+        function ejercicio5() 
+        {
+            let check = document.getElementById("aprobar");
+            check.checked = !check.checked;
+        }
+
+        // Ejercicio 6
+        function ejercicio6() 
+        {
+            let radios = document.getElementsByName("alternativas");
+            for (let i = 0; i < radios.length; i++) 
+            {
+                if (radios[i].checked) 
+                {
+                    radios[(i + 1) % radios.length].checked = true;
+                    break;
+                }
+            }
+        }
+
+        // Ejercicio 7
+        function ejercicio7() 
+        {
+            let select = document.getElementById("paises");
+            let contenido = "<ul>";
+            for (let i = 0; i < select.options.length; i++) 
+            {
+                let style = i === select.selectedIndex ? "class='selected-option'" : "";
+                contenido += `<li ${style}>Texto: ${select.options[i].text}, Valor: ${select.options[i].value}</li>`;
+            }
+            contenido += "</ul>";
+            print("Ejercicio 7 - Opciones", contenido);
+        }
+
+        // Ejercicio 8
+        function ejercicio8() 
+        {
+            let select = document.getElementById("paises");
+            let nuevoValor = document.getElementById("nombre").value;
+            let option = document.createElement("option");
+            option.text = nuevoValor;
+            option.value = nuevoValor.toLowerCase() + ".jpg";
+            select.add(option);
+        }
+
+        // Ejercicio 10
+        function cambiarimagen(sel) 
+        {
+            document.getElementById("bandera").src = "./src/" + sel.value;
+        }
+
+        // Ejercicio 11
+        function ejercicio11() 
+        {
+            document.getElementById("paises").remove();
+        }
+    </script>
 
 
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"
+    ></script>
 
-                        function print(id, titulo, contenido) 
-                        {
-                            let target = document.getElementById(id);
-                            target.innerHTML = `<hr><div class="text-center"><h5>${titulo}</h5><div class="output">${contenido}</div></div>`;
-                        }
-
-                        function ejercicio3()
-                        {
-
-                        }
-
-                        function ejercicio4()
-                        {
-                            let nombresArray = ["Homer Simpson", "Marge Simpson", "Bart Simpson", "Lisa Simpson", "Maggie Simpson", "Ned Flanders"]
-                            let numRandom = Math.round(Math.random() * (nombresArray.length - 1));
-                            let change = "No cambiado";
-
-                            for (let i = 0; i < nombresArray.length; i++)
-                            {
-                                if (nombresArray[i] == nombresArray[numRandom])
-                                {
-                                       change = "El nombre es -> " + nombresArray[i];
-                                       document.getElementById("nombre").value = nombresArray[i];
-                                }
-                            }
-
-                            print("muchosEjercicios", "Ejercicio 4", change);
-                        }
-
-                        function ejercicio5()
-                        {
-                            let estadoCheck = aprobar.checked ? "Si" : "No";
-                         
-                            print("muchosEjercicios", "Ejercicio 5", "¿Quieres aprobar? -> " + estadoCheck);
-                        }
-
-                        function ejercicio6()
-                        {
-                            let valor1 = document.getElementById("valor1");
-                            let valor2 = document.getElementById("valor2");
-                            let valor3 = document.getElementById("valor3");
-                            let valor4 = document.getElementById("valor4");
-                            let valor5 = document.getElementById("valor5");
-                            let alternativas = [valor1, valor2, valor3, valor4, valor5];
-                            let mensaje = "ERROR";
-                            
-                            let count = 0;
-                            while (true)
-                            {
-                                if (alternativas[count].checked)
-                                {
-                                    alternativas[count+1].checked = true;
-                                    mensaje = "Cambiado";
-                                    break;
-                                }
-
-                                count++;
-                            }
-                            
-                            /* for (let i = 0; i < alternativas.length; i++)
-                            {
-                                if (alternativas[i].checked)
-                                {
-                                    if (alternativas[i] == alternativas.length)
-                                    {
-                                        alternativas[0].checked = true;
-                                        mensaje = "Cambiado";
-                                        break;
-                                    }
-                                    alternativas[i+1].checked = true;
-                                    mensaje = "Cambiado";
-                                    break;
-                                }
-                            } */
-                            
-                            print("muchosEjercicios", "Ejercicio 6", mensaje);
-                        }
-                        
-                    </script>
-                </article>
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"
+    ></script>
+</body>
 </html>
+
