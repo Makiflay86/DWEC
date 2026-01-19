@@ -29,6 +29,14 @@
     </head>
 
     <body>
+        <!-- Mostrar resultados -->
+        <script>
+            function mostrar(id, contenido)
+            {
+                const target = document.getElementById(id);
+                target.innerHTML = `<div class="output">${contenido}</div>`;
+            }
+        </script>
         
         <div class="container-fluid w-50 my-3">
 
@@ -39,8 +47,13 @@
                 </div>
                 <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                     <div class="text-center">
-                        <p>Ok ✔️</p>
+                        <p id="ejercicio1"></p>
                     </div>
+
+                    <script>
+                        let text_ejercicio1 = "Ok ✔️";
+                        mostrar("ejercicio1", text_ejercicio1);
+                    </script>
                 </article>
             </section>
 
@@ -53,10 +66,16 @@
                 </div>
                 <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                     <div class="text-center">
-                        <p>
-                            Secuencia de caracteres que define un patrón de búsqueda para encontrar y manipular texto.
-                        </p>
+                        <h4>
+                            Explica que es una Expresión regular con tus palabras 
+                        </h4>
+                        <p id="ejercicio2"></p>
                     </div>
+
+                    <script>
+                        let text_ejercicio2 = "Secuencia de caracteres que define un patrón de búsqueda para encontrar y manipular texto.";
+                        mostrar("ejercicio2", text_ejercicio2);
+                    </script>
                 </article>
             </section>
 
@@ -69,10 +88,16 @@
                 </div>
                 <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                     <div class="text-center">
-                        <p>
-                            Para buscar, validar y manipular patrones de texto de forma eficiente.
-                        </p>
+                        <h4>
+                            Para que sirven las expresiones regulares
+                        </h4>
+                        <p id="ejercicio3"></p>
                     </div>
+
+                    <script>
+                        let text_ejercicio3 = "Para buscar, validar y manipular patrones de texto de forma eficiente.";
+                        mostrar("ejercicio3", text_ejercicio3);s
+                    </script>
                 </article>
             </section>
 
@@ -86,14 +111,16 @@
                 <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                     <div class="text-center">
                         <p>
-                            Forma más básica de regex, donde usas caracteres que coinciden exactamente con el texto que buscas.
+                            Expresión regular, donde se busca la letra "b" aparece 
+                            1 o más veces y después las letras "ca".
                         </p>
                         <p id="ejercicio4"></p>
                     </div>
 
                     <script>  
                         let re1 = /b+ca/;  
-                        document.getElementById("ejercicio4").innerHTML = re1.exec('acbbbcabaabbbceee');
+                        let text_ejercicio4 = "A buscar (/b+ca/) -> " + re1.exec('acbbbcabaabbbceee');
+                        mostrar("ejercicio4", text_ejercicio4);
                     </script>
                 </article>
             </section>
@@ -108,14 +135,16 @@
                 <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                     <div class="text-center">
                         <p>
-                            Crear un objeto de expresiones regulares con el 
+                            Expresión regular, donde se busca la letra "ab" donde "b" aparece 
+                            1 o más veces y después la letra "c".
                         </p>
                         <p id="ejercicio5"></p>
                     </div>
 
                     <script>  
-                        let re2 = /ab+c/;  
-                        document.getElementById("ejercicio5").innerHTML = re2.exec('ababaabbbceee');
+                        let re2 = /ab+c/;
+                        let text_ejercicio5 = "A buscar (/ab+c/) -> " + re2.exec('ababaabbbceee');
+                        mostrar("ejercicio5", text_ejercicio5);
                     </script>
                 </article>
             </section>
@@ -135,8 +164,403 @@
                         <p id="ejercicio6"></p>
                     </div>
 
-                    <script>  
+                    <script>
+                        let ejercicio6 = document.getElementById("ejercicio6");
+                        /* ejercicio6.innerHTML +=  + "<br>"; */
+
                         
+                        ejercicio6.innerHTML += "exec y test" + "<br>";
+                        let re = /[a-z]+ca/i
+                        ejercicio6.innerHTML += re.exec('acBbbBcaaabbBcaeee') + "<br>";
+                        ejercicio6.innerHTML += re.test('acBbbBcaaabbBcaeee') + "<br><br>";
+                        
+                        ejercicio6.innerHTML += "match" + "<br>";
+                        let texto=" hola que tal . 93429798 . adiios 4345 mal43243 agasdfas 34242 a 3243 "
+                        busquedamatch=texto.match(/\d+/);
+                        ejercicio6.innerHTML += busquedamatch + "<br><br>";
+                        
+                        ejercicio6.innerHTML += "matchGlobal" + "<br>";
+                        busquedamatch=texto.match(/\d+/g);
+                        ejercicio6.innerHTML += busquedamatch + "<br><br>";
+
+                        ejercicio6.innerHTML += "matchall" + "<br>";
+                        letbusqueda=texto.matchAll(/\d+/g);
+                        letbusqueda.forEach((e)=>(ejercicio6.innerHTML += e + " "))
+                        ejercicio6.innerHTML += "<br><br>";
+
+                        ejercicio6.innerHTML += "search" + "<br>";
+                        letbusqueda=texto.search(/\d+/g);
+                        ejercicio6.innerHTML += letbusqueda + "<br><br>";
+
+                        ejercicio6.innerHTML += "replace" + "<br>";
+                        letbusqueda=texto.replace(/\d+/g,"********");
+                        ejercicio6.innerHTML += letbusqueda + "<br><br>";
+
+                        ejercicio6.innerHTML += "replaceAll" + "<br>";
+                        letbusqueda=texto.replaceAll(/\d+/g,"********");
+                        ejercicio6.innerHTML += letbusqueda + "<br><br>";
+
+                        ejercicio6.innerHTML += "split" + "<br>";
+                        cadena_a_separar="hola.adios;adios2,fdfasdf.asdfasdf_dfsaf";
+                        arrayseparado=cadena_a_separar.split(/[\.;,_]/g);
+                        ejercicio6.innerHTML += arrayseparado.join("___") + "<br><br>";
+
+                        ejercicio6.innerHTML += "Numero de Telefono" + "<br>";
+                        let re22 = /(?:\d{3}|\(\d{3}\))([-\/\.])?\d{3}([-\/\.])?\d{3}/;
+                        ejercicio6.innerHTML += re22.exec("(984)345-345") + "<br>";
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 8</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <h4>
+                            ¿Que son Patrones simples?
+                        </h4>
+                        <p id="ejercicio8"></p>
+                    </div>
+
+                    <script>
+                        let text_ejercicio8 = "Caracteres para los que deseas encontrar una coincidencia directa.";
+                        mostrar("ejercicio8", text_ejercicio8);
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 9</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <h4>
+                            ¿Que son Caracteres especiales?
+                        </h4>
+                        <p id="ejercicio9"></p>
+                    </div>
+
+                    <script>
+                        let text_ejercicio9 = "Búsqueda de una coincidencia requiere algo más que una coincidencia exacta.";
+                        mostrar("ejercicio9", text_ejercicio9);
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 10</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <h4>
+                            ¿Que son Caracteres escape?
+                        </h4>
+                        <p id="ejercicio10"></p>
+                    </div>
+
+                    <script>
+                        let text_ejercicio10 = "Si necesitas usar literalmente cualquiera de los caracteres especiales (en realidad buscando un '*', por ejemplo), lo debes escapar colocando una barra invertida delante de él.";
+                        mostrar("ejercicio10", text_ejercicio10);
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 11</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <p id="ejercicio11"></p>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="table-dark">Caracteres Especiales</th>
+                                <td>
+                                    Distingue diferentes tipos de caracteres. Por ejemplo,
+                                    distinguir entre letras y dígitos, cualquier caracter 
+                                    o saltos de linea.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table-dark">Aserciones</th>
+                                <td>
+                                    Las aserciones incluyen límites, que indican el comienzo y el
+                                    final de líneas y palabras, y otros patrones que indican de
+                                    alguna manera que el reconocimiento es posible (incluidas
+                                    las expresiones anticipadas, inversas y condicionales).
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table-dark">Grupos y rangos</th>
+                                <td>
+                                    Indica grupos y rangos de caracteres de expresión. Los
+                                    Grupos con paréntesis se utilizan como dispositivos de
+                                    memoria. La coincidencia realizada con esta parte del patrón
+                                    se recuerda para su uso posterior.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table-dark">Cuantificadores</th>
+                                <td>
+                                    Indica el número de caracteres o expresiones que deben coincidir.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table-dark">Escapes de propiedades Unicode</th>
+                                <td>
+                                    Distinguen según las propiedades de los caracteres
+                                    Unicode, por ejemplo, letras mayúsculas y minúsculas,
+                                    símbolos matemáticos y de puntuaciónsafsad.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 12</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <h4>
+                            ¿Que son Caracteres de escape?
+                        </h4>
+                        <p id="ejercicio12"></p>
+                    </div>
+
+                    <script>
+                        let text_ejercicio12 = "";
+                        mostrar("ejercicio12", text_ejercicio12);
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 13</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <p>
+                            Ingresa tu número de teléfono (con el código de área) y luego haz clic en "Comprobar".
+                            <br>
+                            El formato esperado es como ###-###-####.
+                        </p>
+
+                        <form action="#" class="form mb-3">
+                            <input id="phone" class="form-controll">
+                            <button onclick="testInfo(document.getElementById('phone'));" class="btn btn-primary">
+                                Comprobar
+                            </button>
+                        </form>
+                        <p id="ejercicio13"></p>
+                    </div>
+
+                    <script>
+                        let ejercicio13 = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+                        
+                        function testInfo(phoneInput) 
+                        {
+                            let text_ejercicio13 = "";
+                            let OK = ejercicio13.exec(phoneInput.value);
+                            
+                            if (!OK) 
+                            {
+                                text_ejercicio13 = phoneInput.value + ' isn\'t a phone number with area code!';
+
+                            } else 
+                            {
+                                text_ejercicio13 = 'Gracias, tu número de teléfono es ' + OK[0];
+                            }
+
+                            mostrar("ejercicio13", text_ejercicio13);
+                        }
+
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 14</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <h4>
+                            Como son las dos formas de ejecutar una expresion regular?
+                        </h4>
+                        <p id="ejercicio14"></p>
+                    </div>
+
+                    <script>
+                        let text_ejercicio14 = `
+                            Literal -> <br>
+                            let literal = /(?:\\d{3}|\\(\\d{3}\\))([-\/\\.])\\d{3}\\1\\d{4}/ <br><br>
+
+                            Objeto new RegExp() -> <br>
+                            let regexp = new RegExp('(?:\\d{3}|\\(\\d{3}\\))([-\/\\.])\\d{3}\\1\\d{4}') <br>
+
+                        `;
+                        mostrar("ejercicio14", text_ejercicio14);
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 15</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <table class="table table-bordered">
+                            <tr class="table-dark">
+                                <th>Método</th>
+                                <th>Devuelve</th>
+                                <td>Descripción</td>
+                            </tr>
+                            <tr>
+                                <th>RegExp.exec(String)</th>
+                                <td>Array</td>
+                                <td>
+                                    Ejecuta una búsqueda por una coincidencia en una cadena.
+                                    Devuelve un arreglo de información o null en una discrepancia.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>RegExp.test(String)</th>
+                                <td>Booleano</td>
+                                <td>
+                                    Prueba una coincidencia en una cadena. Devuelve true o false.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>String.match(RegExp)</th>
+                                <td>Array</td>
+                                <td>
+                                    Devuelve un arreglo que contiene todas las coincidencias, incluidos
+                                    los grupos de captura, o null si no se encuentra ninguna coincidencia.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>String.matchAll(RegExp)</th>
+                                <td>Array</td>
+                                <td>
+                                    Devuelve un iterador que contiene todas las coincidencias, incluidos
+                                    los grupos de captura.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>String.search(RegExp)</th>
+                                <td>numero (índice)</td>
+                                <td>
+                                    Prueba una coincidencia en una cadena. Devuelve el índice de la
+                                    coincidencia, o -1 si la búsqueda falla.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>String.replace(RegExp)</th>
+                                <td>String</td>
+                                <td>
+                                    Ejecuta una búsqueda por una coincidencia en una cadena y
+                                    reemplaza la subcadena coincidente con una subcadena de
+                                    reemplazo.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>String.replaceAll(RegExp)</th>
+                                <td>String</td>
+                                <td>
+                                    Ejecuta una búsqueda de todas las coincidencias en una cadena y
+                                    reemplaza las subcadenas coincidentes con una subcadena de
+                                    reemplazo.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>String.split(RegExp)</th>
+                                <td>Array</td>
+                                <td>
+                                    Utiliza una expresión regular o una cadena fija para dividir una
+                                    cadena en un arreglo de subcadenas.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 16</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <p id="ejercicio16"></p>
+                    </div>
+
+                    <script>
+                        const regexp = /t(e)(st(\d?))/g;
+                        const str = 'test1test2';
+                        const array = [...str.matchAll(regexp)];
+
+                        mostrar("ejercicio16", array[0] + "<br>" + array[1])
+                    </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 17</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <p id="ejercicio17"></p>
+                    </div>
+
+                    <script>
+                        const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+                        const regex17 = /[A-Z]/g;  
+                        const found17 = paragraph.match(regex17); 
+
+                        const regex = /[A-Z]/;  
+                        const found = paragraph.match(regex); 
+
+                        mostrar("ejercicio17", found17 + "<br>" + found)
                     </script>
                 </article>
             </section>
@@ -146,14 +570,7 @@
         </div>
 
 
-        <!-- Mostrar resultados -->
-        <script>
-            function mostrar(id, contenido)
-            {
-                const target = document.getElementById(id);
-                target.innerHTML = `<div class="output">${contenido}</div>`;
-            }
-        </script>
+        
         
         <!-- Bootstrap JavaScript Libraries -->
         <script
