@@ -96,7 +96,7 @@
 
                     <script>
                         let text_ejercicio3 = "Para buscar, validar y manipular patrones de texto de forma eficiente.";
-                        mostrar("ejercicio3", text_ejercicio3);s
+                        mostrar("ejercicio3", text_ejercicio3);
                     </script>
                 </article>
             </section>
@@ -562,6 +562,143 @@
 
                         mostrar("ejercicio17", found17 + "<br>" + found)
                     </script>
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 18</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center">
+                        <p>
+                            Ingresa tu número de teléfono (con el código de área) y luego haz clic en "Comprobar".
+                            <br>
+                            El formato esperado es como ###-###-####.
+                        </p>
+
+                        <form action="#" class="form mb-3">
+                            <input id="phone2" class="form-controll">
+                            <button onclick="testInfo(document.getElementById('phone2'));" class="btn btn-primary">
+                                Comprobar
+                            </button>
+                        </form>
+                        <p id="ejercicio18"></p>
+                    </div>
+
+                    <script>
+                        let ejercicio18 = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+                        
+                        function testInfo(phoneInput) 
+                        {
+                            let text_ejercicio18 = "";
+                            let OK = ejercicio18.exec(phoneInput.value);
+                            
+                            if (!OK) 
+                            {
+                                text_ejercicio18 = phoneInput.value + ' isn\'t a phone number with area code!';
+
+                            } else 
+                            {
+                                text_ejercicio18 = 'Gracias, tu número de teléfono es ' + OK[0];
+                            }
+
+                            mostrar("ejercicio18", text_ejercicio18);
+                        }
+
+                    </script>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 19</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <div class="text-center output">
+                        Modificar el comportamiento de las expresiones regulares (RegEx), 
+                        alterando cómo buscan coincidencias
+                    </div>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 20</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <div class="text-center output">
+                        Se definen de dos formas, usando notación literal (/patrón/flags) y la 
+                        otra forma es con el constructor RegExp (new RegExp("patrón", "flags")), y 
+                        se usan dentro de funciones o métodos de cadena como test(), exec(), match(), 
+                        search(), o replace() para buscar y manipular texto mediante patrones con símbolos 
+                        especiales (^, $, \d, . etc.).
+                    </div>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 21</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <table class="table table-bordered">
+                        <tr class="table-dark">
+                            <th class="text-center">Bandera</th>
+                            <th>Descripción</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">d</th>
+                            <td>
+                                Genera índices para coincidencias de subcadenas.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">g</th>
+                            <td>
+                                Búsqueda global.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">i</th>
+                            <td>
+                                Búsqueda que no distingue entre mayúsculas y minúsculas.
+                            </td>
+                        </tr>
+                    </table>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 22</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
                 </article>
             </section>
 
