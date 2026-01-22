@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es-ES">
+    <head>
+        <title>AybarRomero_Francisco_05-08 JS cookies</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <style>
+            .output { 
+                background-color: #f8f9fa; 
+                padding: 15px; 
+                border-left: 5px solid #0dcaf0; 
+                font-family: monospace; 
+                border-radius: 4px; 
+            }
+            h5 { 
+                color: #084298; 
+                margin-bottom: 15px; 
+                font-weight: bold; 
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Script cookie -->
+        <script src="./cookie.js"></script>
+        
+        <!-- Script resultado -->
+        <script>
+            function mostrar(id, titulo, contenido)
+            {
+                const target = document.getElementById(id);
+                target.innerHTML = `<h5>${titulo}</h5><div class="output">${contenido}</div>`;
+            }
+        </script>
+        
+        <div class="container-fluid w-50">
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 0</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <div class="text-center">
+                        <button type="button" id="b1" class="btn btn-primary mb-2"> Ejercicio1 add cookie</button>
+                        
+                        <p id="ejercicio2id"></p>
+                    </div>
+
+                    <script>
+                        document.getElementById('b1').addEventListener('click',ejercicio0);
+                        function ejercicio0() 
+                        {
+                            document.cookie="ejemplo=1";
+                            document.getElementById('ejercicio2id').innerHTML = document.cookie;      
+                        }
+                    </script> 
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 1</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    <div class="text-center mb-3">
+                        <div class="mb-3">
+                            <button type="button" id="btn_ej1" class="btn btn-primary">ADD</button>
+                        </div>
+                        <textarea name="textarea_ej1" id="textarea_ej1" placeholder="Escribe aquí..."></textarea>
+                    </div>
+                    <div id="ej1"></div>
+
+                    <script>
+                        let btn_ej1 = document.getElementById("btn_ej1");
+
+                        btn_ej1.addEventListener("click", (e) => {
+                            let textarea_ej1 = document.getElementById("textarea_ej1").value;
+                            let nombre_cookie = "ej1";
+                            document.cookie = nombre_cookie + "=" + textarea_ej1;
+
+                            mostrar("ej1", "Guardar text en cookie", document.cookie)
+                        });
+                    </script>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 2</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <div class="text-center mb-3">
+                        <button type="button" id="btn_ej2" class="btn btn-primary">
+                            VER
+                        </button>
+                    </div>
+                    <div id="ej2"></div>
+
+                    <script>
+                        let btn_ej2 = document.getElementById("btn_ej2");
+
+                        btn_ej2.addEventListener("click", (e) => {
+                            let lista = document.cookie.split(";")
+                            let cookies = "";
+                            for (let i = 0; i < lista.length; i++) 
+                            {
+                                cookies += cookies + " " + lista[i];
+                            }
+                            mostrar("ej2", "Listado de cookies", cookies);
+                        });
+
+
+
+
+
+                        function listarCookies() {
+                        // Obtener la cadena de todas las cookies
+                        const todasLasCookies = document.cookie;
+                        console.log("Cookies crudas:", todasLasCookies);
+
+                        // Dividir la cadena en un array de pares 'nombre=valor'
+                        const cookiesArray = todasLasCookies.split(';');
+
+                        console.log("--- Listado de Cookies ---");
+
+                        // Iterar sobre cada cookie en el array
+                        for (let i = 0; i < cookiesArray.length; i++) {
+                            let cookie = cookiesArray[i].trim(); // Eliminar espacios en blanco al inicio/final
+
+                            // Encontrar la posición del primer '=' para separar nombre y valor
+                            const igualIndex = cookie.indexOf('=');
+
+                            // Si hay un '=', separar nombre y valor
+                            let nombre, valor;
+                            if (igualIndex > -1) {
+                            nombre = cookie.substring(0, igualIndex);
+                            valor = cookie.substring(igualIndex + 1);
+                            } else {
+                            // Si no hay '=', es solo el nombre (caso raro, pero posible)
+                            nombre = cookie;
+                            valor = "";
+                            }
+
+                            console.log(`Cookie ${i + 1}:`);
+                            console.log(`  Nombre: ${decodeURIComponent(nombre)}`); // Decodificar si es necesario
+                            console.log(`  Valor: ${decodeURIComponent(valor)}`); // Decodificar si es necesario
+                        }
+
+                        // También puedes usar forEach para mayor legibilidad (opcional)
+                        // cookiesArray.forEach((cookie, index) => { ... });
+                        }
+
+                        // Llama a la función para ver las cookies
+                        listarCookies();
+
+                    </script>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+        </div>
+        
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
