@@ -25,16 +25,22 @@
                 font-family: monospace; 
                 border-radius: 4px; 
             }
+            h5 { 
+                color: #084298; 
+                margin-bottom: 15px; 
+                font-weight: bold; 
+                text-align: center;
+            }
         </style>
     </head>
 
     <body>
         <!-- Mostrar resultados -->
         <script>
-            function mostrar(id, contenido)
+            function mostrar(id, titulo, contenido)
             {
                 const target = document.getElementById(id);
-                target.innerHTML = `<div class="output">${contenido}</div>`;
+                target.innerHTML = `<h5>${titulo}</h5><div class="output">${contenido}</div>`;
             }
         </script>
         
@@ -43,6 +49,207 @@
             <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                 <div class="text-center">
                     <h1>Ejercicio 1</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <h5>
+                        Los tres tipos de modelos de eventos en js
+                    </h5>
+                    <table class="table table-bordered text-center align-middle">
+                        <tr class="table-dark">
+                            <th>Modelo de eventos en línea</th>
+                            <th>Modelo de eventos tradicional</th>
+                            <th>Modelo de eventos según W3C</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Añadir el manejador directamente en el atributo HTML (como onclick="func()").
+                            </td>
+                            <td>
+                                Asigna una función a la propiedad del elemento desde el script (por ejemplo, 
+                                elemento.onclick = func).
+                            </td>
+                            <td>
+                                Utilizando el método addEventListener().
+                            </td>
+                        </tr>
+                    </table>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 2</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <div id="ejercicio2"></div>
+                    
+                    <script>
+                        let id = `ejercicio2`;
+                        let titulo = `¿Qué es el burbujeo?`;
+                        let contenido = `
+                            Imagina que tu página web es una matrioshka (esas muñecas rusas que van 
+                            una dentro de otra): el párrafo es la muñequita más pequeña, que está 
+                            guardada dentro de una caja, que a su vez está dentro de una habitación. 
+                            El burbujeo significa que si tú "tocas" a la muñeca pequeña, el sistema 
+                            considera que también has tocado la caja que la guarda y la habitación 
+                            donde están, por lo que el aviso de "¡alguien me ha tocado!" va subiendo 
+                            hacia afuera, capa por capa, hasta llegar a la más grande.
+                        `;
+
+                        mostrar(id, titulo, contenido);
+                    </script>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 3</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <a href="pagina.html" onclick="alertar(this); return false">Pulsa aqui</a>
+                    <script>
+                        function alertar(objeto)
+                        { 
+                            alert("Antes de eliminar -> "+ objeto.href); 
+                            objeto.href = "";
+                            alert("Después de eliminar -> "+ objeto.href);
+                        }
+                    </script>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio 4</h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    <div id="ejercicio4"></div>
+
+                    <script>
+                        id = `ejercicio4`;
+                        titulo = `Usar enveto onload`;
+                        contenido = `
+                            <div id='ejercicio4_cubo' class='mx-auto' style="width: 300px; height: 300px; background-color: red;"></div>
+                        `;
+
+                        mostrar(id, titulo, contenido);
+
+                        let ejercicio4_cubo = document.getElementById("ejercicio4_cubo");
+                        ejercicio4_cubo.addEventListener('click', (e) => {
+                            let color = "#" + Math.round(Math.random()* 256);
+                            ejercicio4_cubo.style.backgroundColor = color;
+                        });
+                    </script>
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
+                    <hr class="border border-primary w-25 mx-auto">
+                </div>
+                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                    
+                    
+
+                </article>
+            </section>
+
+
+
+            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                <div class="text-center">
+                    <h1>Ejercicio </h1>
                     <hr class="border border-primary w-25 mx-auto">
                 </div>
                 <article class="bg-secondary-subtle p-3 rounded shadow-sm">
