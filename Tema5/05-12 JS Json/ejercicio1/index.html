@@ -1,0 +1,14 @@
+<!DOCTYPE html> <head>    <title>Document</title></head>
+<body>
+<div id="json">  </div>
+<script> 
+    const JSONCadena =
+     '{"nombre": "Pepito", "Amiguitos": ["Manolo", "Juanito", "Kiko", "Pedrito"], "ciudad": "Torremolinos"}';
+  try {
+     const JSONObjeto = JSON.parse(JSONCadena);     
+     const JSONDisplay = document.getElementById("json");
+     JSONDisplay.innerHTML = JSONObjeto.nombre + ", [" + JSONObjeto.Amiguitos + "], " + JSONObjeto.ciudad;
+   } catch (error) {
+    console.log("Error json")
+   }
+</script></body></html>

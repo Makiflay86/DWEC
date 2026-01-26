@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>ejercicio3</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+
+                    <div id="json"></div>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <script> 
+            const JSONCadena = '{"nombre": "Pepito", "Amiguitos": ["Manolo", "Juanito", "Kiko", "Pedrito"], "ciudad": "Torremolinos"}';
+            const JSONData = `{
+                "Alumno1": {"name": "Pepito", "favFriends": ["Manolo", "Juanito", "Kiko", "Pedrito"], "from": "Torrem"},
+                "Alumno2": {"name": "Juanito", "favFriends": ["Loli", "Kiko", "Pepito", "Pedrito"], "from": "Malaga"},
+                "Alumno3": {"name": "Kiko", "favFriends": ["Loli", "Juanito", "Inma", "Maria"], "from": "Churriana"},
+                "Alumno4": {"name": "Loli", "favFriends": ["Kiko", "Juanito", "Inma", "Maria"], "from": "Torrem"},
+                "Alumno5": {"name": "Maria", "favFriends": ["Loli", "Juanito", "Inma", "Maria"], "from": "Churriana"}
+            }`;
+            try 
+            {
+                const JSONObjeto = JSON.parse(JSONCadena);
+                const JSONDisplay = document.getElementById("json");
+                JSONDisplay.innerHTML = JSONObjeto.nombre + ", [" + JSONObjeto.Amiguitos + "], " + JSONObjeto.ciudad;
+
+            } catch (error) 
+            {
+                console.log("Error json")
+            }
+        </script>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
