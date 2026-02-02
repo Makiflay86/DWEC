@@ -1,271 +1,189 @@
 <!doctype html>
 <html lang="es-ES">
-    <head>
-        <title>AybarRomero_Francisco_05-08 JS cookies</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+    <title>AybarRomero_Francisco_05-08 JS cookies</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
+    <style>
+        .output 
+        { 
+            background-color: #f8f9fa; 
+            padding: 15px; 
+            border-left: 5px solid #0dcaf0; 
+            font-family: monospace; 
+            border-radius: 4px; 
+            overflow-wrap: break-word; 
+        }
 
-        <style>
-            .output { 
-                background-color: #f8f9fa; 
-                padding: 15px; 
-                border-left: 5px solid #0dcaf0; 
-                font-family: monospace; 
-                border-radius: 4px; 
-            }
-            h5 { 
-                color: #084298; 
-                margin-bottom: 15px; 
-                font-weight: bold; 
-                text-align: center;
-            }
-        </style>
-    </head>
+        h5 
+        { 
+            color: #084298; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+            text-align: center; 
+        }
 
-    <body>
-        <!-- Script cookie -->
-        <script src="./cookie.js"></script>
-        
-        <!-- Script resultado -->
-        <script>
-            function mostrar(id, titulo, contenido)
-            {
-                const target = document.getElementById(id);
-                target.innerHTML = `<h5>${titulo}</h5><div class="output">${contenido}</div>`;
-            }
-        </script>
-        
-        <div class="container-fluid w-50">
+        .section-card 
+        { 
+            background-color: #e3f2fd; 
+            border: 1px solid #b3e5fc; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+    </style>
+</head>
 
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 0</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    <div class="text-center">
-                        <button type="button" id="b1" class="btn btn-primary mb-2"> Ejercicio1 add cookie</button>
-                        
-                        <p id="ejercicio2id"></p>
-                    </div>
+<body>
+    <script>
+        function mostrar(id, titulo, contenido) 
+        {
+            const target = document.getElementById(id);
+            target.innerHTML = `<h5>${titulo}</h5><div class="output">${contenido}</div>`;
+        }
 
-                    <script>
-                        document.getElementById('b1').addEventListener('click',ejercicio0);
-                        function ejercicio0() 
-                        {
-                            document.cookie="ejemplo=1";
-                            document.getElementById('ejercicio2id').innerHTML = document.cookie;      
-                        }
-                    </script> 
+        function actualizarSelect() 
+        {
+            const select = document.getElementById('selectCookies');
+            select.innerHTML = '<option value="">Selecciona una cookie...</option>';
+            const cookies = document.cookie.split(';');
+            cookies.forEach(c => {
+                if(!c.trim()) return;
+                let nombre = c.split('=')[0].trim();
+                let opt = document.createElement('option');
+                opt.value = nombre;
+                opt.innerHTML = nombre;
+                select.appendChild(opt);
+            });
+        }
+    </script>
 
-                </article>
-            </section>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
 
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 1</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div class="text-center mb-3">
-                        <div class="mb-3">
-                            <button type="button" id="btn_ej1" class="btn btn-primary">ADD</button>
+                <section class="section-card">
+                    <h5>Gestión de Cookies Nativas</h5>
+                    <div class="mb-3">
+                        <input type="text" id="cookieName" class="form-control mb-2" placeholder="Nombre de la cookie">
+                        <textarea id="cookieValue" class="form-control mb-2" placeholder="Valor (datos del texto)"></textarea>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center">
+                            <button id="btnGuardar" class="btn btn-primary">Guardar (1 Mes)</button>
+                            <button id="btnVerLista" class="btn btn-info">Ver Lista Simple</button>
+                            <button id="btnBorrarUltima" class="btn btn-warning">Borrar Última</button>
                         </div>
-                        <textarea name="textarea_ej1" id="textarea_ej1" placeholder="Escribe aquí..."></textarea>
                     </div>
-                    <div id="ej1"></div>
+                    <div id="out_gestion"></div>
+                </section>
 
-                    <script>
-                        let btn_ej1 = document.getElementById("btn_ej1");
-
-                        btn_ej1.addEventListener("click", (e) => {
-                            let textarea_ej1 = document.getElementById("textarea_ej1").value;
-                            let nombre_cookie = "ej1";
-                            document.cookie = nombre_cookie + "=" + textarea_ej1;
-
-                            mostrar("ej1", "Guardar text en cookie", document.cookie)
-                        });
-                    </script>
-
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 2</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    <div class="text-center mb-3">
-                        <button type="button" id="btn_ej2" class="btn btn-primary">
-                            VER
-                        </button>
+                <section class="section-card">
+                    <h5>Borrado por Selección</h5>
+                    <div class="mb-3">
+                        <select id="selectCookies" class="form-select mb-3" onfocus="actualizarSelect()">
+                            <option value="">Cargando cookies...</option>
+                        </select>
+                        <button id="btnBorrarSeleccionada" class="btn btn-danger w-100">Eliminar Seleccionada</button>
                     </div>
-                    <div id="ej2"></div>
+                    <div id="out_select"></div>
+                </section>
 
-                    <script>
-                        let btn_ej2 = document.getElementById("btn_ej2");
+                <section class="section-card">
+                    <h5>Uso de Librería js-cookie</h5>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button id="btnLibSet" class="btn btn-dark">Set con Librería</button>
+                        <button id="btnLibGet" class="btn btn-dark">Get con Librería</button>
+                        <button id="btnLibJSON" class="btn btn-dark">Set JSON Object</button>
+                    </div>
+                    <div id="out_lib" class="mt-3"></div>
+                </section>
 
-                        btn_ej2.addEventListener("click", (e) => {
-                            let lista = document.cookie.split(";")
-                            let cookies = "";
-                            for (let i = 0; i < lista.length; i++) 
-                            {
-                                cookies += cookies + " " + lista[i];
-                            }
-                            mostrar("ej2", "Listado de cookies", cookies);
-                        });
+                <section class="section-card">
+                    <h5>Atributos y Metadatos</h5>
+                    <button id="btnDetalle" class="btn btn-outline-primary w-100 mb-3">Mostrar Cookies Detalladas</button>
+                    <div id="out_detalle"></div>
+                </section>
 
-
-
-
-
-                        function listarCookies() {
-                        // Obtener la cadena de todas las cookies
-                        const todasLasCookies = document.cookie;
-                        console.log("Cookies crudas:", todasLasCookies);
-
-                        // Dividir la cadena en un array de pares 'nombre=valor'
-                        const cookiesArray = todasLasCookies.split(';');
-
-                        console.log("--- Listado de Cookies ---");
-
-                        // Iterar sobre cada cookie en el array
-                        for (let i = 0; i < cookiesArray.length; i++) {
-                            let cookie = cookiesArray[i].trim(); // Eliminar espacios en blanco al inicio/final
-
-                            // Encontrar la posición del primer '=' para separar nombre y valor
-                            const igualIndex = cookie.indexOf('=');
-
-                            // Si hay un '=', separar nombre y valor
-                            let nombre, valor;
-                            if (igualIndex > -1) {
-                            nombre = cookie.substring(0, igualIndex);
-                            valor = cookie.substring(igualIndex + 1);
-                            } else {
-                            // Si no hay '=', es solo el nombre (caso raro, pero posible)
-                            nombre = cookie;
-                            valor = "";
-                            }
-
-                            console.log(`Cookie ${i + 1}:`);
-                            console.log(`  Nombre: ${decodeURIComponent(nombre)}`); // Decodificar si es necesario
-                            console.log(`  Valor: ${decodeURIComponent(valor)}`); // Decodificar si es necesario
-                        }
-
-                        // También puedes usar forEach para mayor legibilidad (opcional)
-                        // cookiesArray.forEach((cookie, index) => { ... });
-                        }
-
-                        // Llama a la función para ver las cookies
-                        listarCookies();
-
-                    </script>
-
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio </h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    
-
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio </h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    
-
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio </h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    
-
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio </h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    
-
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio </h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    
-                    
-
-                </article>
-            </section>
-
+            </div>
         </div>
-        
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
+    </div>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+    <script>
+        document.getElementById('btnGuardar').addEventListener('click', () => {
+            const nom = document.getElementById('cookieName').value;
+            const val = document.getElementById('cookieValue').value;
+            if(!nom) return alert("Ponle un nombre");
+
+            let fecha = new Date();
+            fecha.setMonth(fecha.getMonth() + 1);
+            
+            document.cookie = `${nom}=${encodeURIComponent(val)}; expires=${fecha.toUTCString()}; path=/`;
+            mostrar('out_gestion', 'Cookie Guardada', `Nombre: ${nom}<br>Expira: ${fecha.toUTCString()}`);
+            actualizarSelect();
+        });
+
+        document.getElementById('btnVerLista').addEventListener('click', () => {
+            const lista = document.cookie.split(';').map(c => `<li>${c.trim()}</li>`).join('');
+            mostrar('out_gestion', 'Listado Actual', `<ul>${lista}</ul>`);
+        });
+
+        document.getElementById('btnBorrarUltima').addEventListener('click', () => {
+            const cookies = document.cookie.split(';');
+            if(cookies.length > 0 && cookies[0] !== "") {
+                const ultima = cookies[cookies.length - 1].split('=')[0].trim();
+                document.cookie = `${ultima}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+                mostrar('out_gestion', 'Acción', `Se intentó borrar: ${ultima}`);
+                actualizarSelect();
+            }
+        });
+
+        
+        
+        document.getElementById('btnBorrarSeleccionada').addEventListener('click', () => {
+            const sel = document.getElementById('selectCookies');
+            const valor = sel.value;
+            if(!valor) return;
+
+            document.cookie = `${valor}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+            sel.remove(sel.selectedIndex);
+            mostrar('out_select', 'Eliminado', `Cookie "${valor}" eliminada del sistema y del select.`);
+        });
+
+
+        
+        document.getElementById('btnLibSet').addEventListener('click', () => {
+            Cookies.set('LibCookie', 'Valor_con_Libreria', { expires: 7, path: '' });
+            mostrar('out_lib', 'js-cookie SET', 'Cookie "LibCookie" creada por 7 días.');
+        });
+
+        document.getElementById('btnLibGet').addEventListener('click', () => {
+            const val = Cookies.get('LibCookie');
+            mostrar('out_lib', 'js-cookie GET', `Valor recuperado: ${val || 'No encontrada'}`);
+        });
+
+        document.getElementById('btnLibJSON').addEventListener('click', () => {
+            const obj = { id: 1, user: 'admin', role: 'editor' };
+            Cookies.set('SessionObj', JSON.stringify(obj));
+            mostrar('out_lib', 'js-cookie JSON', 'Objeto guardado como string JSON.');
+        });
+
+        
+
+        document.getElementById('btnDetalle').addEventListener('click', () => {
+            const cookies = document.cookie.split(';');
+            let html = "<ul>";
+            cookies.forEach(c => {
+                html += `<li><strong>Contenido:</strong> ${c.trim()} <br><small>(Atributos como Domain/Path solo visibles en DevTools -> Application)</small></li>`;
+            });
+            html += "</ul>";
+            mostrar('out_detalle', 'Análisis de Almacenamiento', html);
+        });
+
+        
+        window.onload = actualizarSelect;
+    </script>
+</body>
 </html>
