@@ -25,255 +25,459 @@
                 font-family: monospace; 
                 border-radius: 4px; 
             }
+
+            /* Desactivar para poder navegar correctamente */
+            /* #miImagen 
+            {
+                position: absolute;
+                transition: transform 0.1s;
+                pointer-events: auto;
+                left: 0; top: 0;
+            } */
         </style>
     </head>
 
     <body>
         
-        <div class="container-fluid w-50 my-3">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
 
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 1</h1>
-                    <hr class="border border-primary w-25 mx-auto">
+                    <section class="bg-info-subtle mb-3 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 1</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+                            <div id="abuelo" style="width: 500px; background-color: greenyellow;" class="w-50 mx-auto">
+                                <ul id="padre" style="width: 300px; background-color: green;">
+                                    <li id="hijo1" style="width: 150px; background-color: red; border: 1px solid black;">Hola</li>
+                                    <li id="hijo2" style="width: 150px; background-color: red; border: 1px solid black;">Crack</li>
+                                    <li id="hijo3" style="width: 150px; background-color: yellow; border: 1px solid black;">de</li>
+                                    <li id="hijo4" style="width: 150px; background-color: red; border: 1px solid black;">la</li>
+                                    <li id="hijo5" style="width: 150px; background-color: red; border: 1px solid black;">Programación</li>
+                                </ul>
+                            </div>
+                            <div id="ejercicio1"></div>
+            
+                            <script>
+                                function echo(id, contenido)
+                                {
+                                    const target = document.getElementById(id);
+                                    target.innerHTML += `<div class="output">${contenido}</div><br>`;
+                                }
+            
+                                const elementoAbuelo = document.getElementById("abuelo")
+                                const elementoPadre = document.getElementById("padre")
+                                const hijo1 = document.getElementById("hijo1")
+                                const hijo2 = document.getElementById("hijo2")
+                                const hijo3 = document.getElementById("hijo3")
+                                const hijo4 = document.getElementById("hijo4")
+                                const hijo5 = document.getElementById("hijo5")
+            
+                                // Agregamos un detector de eventos al elemento principal
+                                elementoAbuelo.addEventListener('click', ()=>{ 
+                                    echo("ejercicio1", 'Se hizo clic en abuelo');
+                                    console.log('Se hizo clic en abuelo');
+                                })
+                                
+                                // Agregamos un detector de eventos al elemento principal
+                                elementoPadre.addEventListener('click', ()=>{ 
+                                    echo("ejercicio1", 'Se hizo clic en padre');
+                                    console.log('Se hizo clic en padre');
+                                })
+                                
+                                // Agregamos un detector de eventos a todos los elementos secundarios
+                                hijo1.addEventListener('click', (e)=>{
+                                    e.stopPropagation() // Impedimos que el evento se propague más
+                                    echo("ejercicio1", 'Se hizo clic en hijo1');
+                                    console.log('Se hizo clic en hijo1');
+                                })
+                                
+                                hijo2.addEventListener('click', (e)=>{
+                                    e.stopPropagation() // Impedimos que el evento se propague más
+                                    echo("ejercicio1", 'Se hizo clic en hijo2');
+                                    console.log('Se hizo clic en hijo2');
+                                })
+                                
+                                hijo3.addEventListener('click', (e)=>{
+                                    e.stopPropagation() // Impedimos que el evento se propague más
+                                    echo("ejercicio1", 'Se hizo clic en hijo3');
+                                    console.log('Se hizo clic en hijo3');
+                                })
+                                
+                                hijo4.addEventListener('click', (e)=>{
+                                    e.stopPropagation() // Impedimos que el evento se propague más
+                                    echo("ejercicio1", 'Se hizo clic en hijo4');
+                                    console.log('Se hizo clic en hijo4');
+                                })
+                                
+                                hijo5.addEventListener('click', (e)=>{
+                                    e.stopPropagation() // Impedimos que el evento se propague más
+                                    echo("ejercicio1", 'Se hizo clic en hijo5');
+                                    console.log('Se hizo clic en hijo5');
+                                })
+                            </script>
+                        </article>
+                    </section>
+            
+            
+            
+                    <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                        <div class="text-center">
+                            <h1>Ejercicio 2</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                            <div class="input-group my-3 w-25 mx-auto">
+                                <input id="input_ejercicio2" type="text" class="form-control border-primary-subtle">
+                            </div>
+                            <div id="ejercicio2"></div>
+            
+                            <script>
+                                let input_ejercicio2 = document.getElementById("input_ejercicio2");
+            
+                                input_ejercicio2.addEventListener('blur', (e)=> {
+                                    mostrar("ejercicio2", "Perdí el FOCO");
+                                })
+            
+                                input_ejercicio2.addEventListener('focus', (e)=> {
+                                    document.getElementById("ejercicio2").innerHTML = null;
+                                })
+                            </script>
+                        </article>
+                    </section>
+            
+            
+            
+                    <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                        <div class="text-center">
+                            <h1>Ejercicio 3</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                            <div class="input-group my-3 w-25 mx-auto">
+                                <input id="input_ejercicio3" type="text" class="form-control border-primary-subtle">
+                            </div>
+                            <div id="ejercicio3"></div>
+            
+                            <script>
+                                let input_ejercicio3 = document.getElementById("input_ejercicio3");
+            
+                                input_ejercicio3.addEventListener('blur', (e)=> {
+                                    mostrar("ejercicio3", "Perdí el FOCO");
+                                })
+            
+                                input_ejercicio3.addEventListener('focus', (e)=> {
+                                    mostrar("ejercicio3", "ESTOY FOCUS");
+                                })
+                            </script>
+                        </article>
+                    </section>
+            
+            
+            
+                    <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                        <div class="text-center">
+                            <h1>Ejercicio 4</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                            <div class="text-center my-3">
+                                <img id="img_ejercicio4" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
+                            </div>
+                            <div id="ejercicio4"></div>
+            
+                            <script>
+                                let img_ejercicio4 = document.getElementById("img_ejercicio4");
+            
+                                img_ejercicio4.addEventListener("load", (e) => {
+                                    mostrar("ejercicio4", "Se ha cargado correctamente la imágen.");
+                                })
+                            </script>
+                        </article>
+                    </section>
+            
+            
+            
+                    <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                        <div class="text-center">
+                            <h1>Ejercicio 5</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                            <div class="text-center my-3">
+                                <img id="img_ejercicio5" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
+                            </div>
+                            <div id="ejercicio5"></div>
+            
+                            <script>
+                                let img_ejercicio5 = document.getElementById("img_ejercicio5");
+                                let img_100_ejercicio5 = 256;
+                                let timer_ejercicio5 = null;
+            
+                                img_ejercicio5.addEventListener("click", () => 
+                                {
+                                    if (timer_ejercicio5) return;
+            
+                                    timer = setTimeout(() => {
+                                        let img_reducida = Math.round(img_ejercicio5.width * 0.85);
+                                        let img_porcentaje = Math.round((img_reducida / img_100_ejercicio5) * 100);
+                                        img_ejercicio5.width = img_reducida;
+                                        mostrar("ejercicio5", "Imagen reducida al " + img_porcentaje + "%.");
+                                        timer_ejercicio5 = null;
+                                    }, 250);
+                                });
+                            </script>
+                        </article>
+                    </section>
+            
+            
+            
+                    <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
+                        <div class="text-center">
+                            <h1>Ejercicio 6</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                            <div class="text-center my-3">
+                                <img id="img_ejercicio6" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
+                            </div>
+                            <div id="ejercicio6"></div>
+            
+                            <script>
+                                let img_ejercicio6 = document.getElementById("img_ejercicio6");
+                                let img_100_ejercicio6 = 256;
+                                let timer_ejercicio6 = null;
+            
+                                img_ejercicio6.addEventListener("click", () => 
+                                {
+                                    if (timer_ejercicio6) return;
+            
+                                    timer_ejercicio6 = setTimeout(() => {
+                                        let img_reducida = Math.round(img_ejercicio6.width * 0.85);
+                                        let img_porcentaje = Math.round((img_reducida / img_100_ejercicio6) * 100);
+                                        img_ejercicio6.width = img_reducida;
+                                        mostrar("ejercicio6", "Imagen reducida al " + img_porcentaje + "%.");
+                                        timer_ejercicio6 = null;
+                                    }, 250);
+                                });
+            
+                                img_ejercicio6.addEventListener("dblclick", () => 
+                                {
+                                    clearTimeout(timer_ejercicio6);
+                                    timer_ejercicio6 = null;
+            
+                                    let img_aumentada = Math.round(img_ejercicio6.width * 1.15);
+                                    let img_porcentaje = Math.round((img_aumentada / img_100_ejercicio6) * 100);
+                                    img_ejercicio6.width = img_aumentada;
+                                    mostrar("ejercicio6", "Imagen aumentada al " + img_porcentaje + "%.");
+                                });
+            
+                            </script>
+                        </article>
+                    </section>
+
+
+
+                    <section class="bg-info-subtle mb-5 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 7</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+            
+                            <img src="imagen_que_no_existe.jpg" 
+                                onerror="manejarError()" 
+                                alt="Espacio para imagen">
+                            
+                            <div id="ej7" class="mt-3"></div>
+
+                            <script>
+                                function manejarError() 
+                                {   
+                                    mostrar("ej7", "¡Error! La imagen no se ha podido cargar porque el archivo no existe.");
+                                }
+                            </script>
+
+                        </article>
+                    </section>
+
+
+
+                    <section class="bg-info-subtle mb-5 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 8</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+            
+                            <div class="mb-3">
+                                <label for="ej8_input" class="form-label">Escribe algo y pulsa fuera:</label>
+                                <input type="text" id="ej8_input" class="form-control" onchange="actualizarDiv(this.value)">
+                            </div>
+
+                            <div id="ej8"></div>
+
+                            <script>
+                                function actualizarDiv(valor) 
+                                {
+                                    mostrar("ej8", valor);
+                                }
+                            </script>
+
+                        </article>
+                    </section>
+
+
+
+                    <section class="bg-info-subtle mb-5 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 9</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+            
+                            <div class="mb-3">
+                                <label form="ej9_input" class="form-label">Escribe aquí para probar los eventos:</label>
+                                <input type="text" id="ej9_input" placeholder="Escribe algo..." class="form-control">
+                            </div>
+
+                            <div style="margin-top: 15px;">
+                                <div id="ej9_Keydown">Keydown: </div>
+                                <div id="ej9_Keypress">Keypress: </div>
+                                <div id="ej9_Keyup">Keyup: </div>
+                            </div>
+
+                            <script>
+                                let ej9_input = document.getElementById("ej9_input");
+
+                                ej9_input.addEventListener('keydown', function() {
+                                    document.getElementById("ej9_Keydown").innerHTML = "Keydown: " + this.value;
+                                });
+
+                                ej9_input.addEventListener('keypress', function() {
+                                    document.getElementById("ej9_Keypress").innerHTML = "Keypress: " + this.value;
+                                });
+
+                                ej9_input.addEventListener('keyup', function() {
+                                    document.getElementById("ej9_Keyup").innerHTML = "Keyup: " + this.value;
+                                });
+                            </script>
+
+                        </article>
+                    </section>
+
+
+
+                    <section class="bg-info-subtle mb-5 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 10</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+            
+                            <div class="mb-3">
+                                <label for="ej10_input" class="form-label">Selecciona una parte de este texto:</label><br>
+                                <input type="text" id="ej10_input" value="Hola, selecciona cualquier parte de esta frase" class="form-control">
+                            </div>
+
+                            <div id="ej10"></div>
+
+                            <script>
+                                let ej10_input = document.getElementById("ej10_input");
+
+                                ej10_input.onselect = function() 
+                                {
+                                    let inicio = this.selectionStart;
+                                    let fin = this.selectionEnd;
+                                    let textoExtraido = this.value.substring(inicio, fin);
+                                    
+                                    mostrar("ej10", "Texto seleccionado: " + textoExtraido);
+                                };
+                            </script>
+
+                        </article>
+                    </section>
+
+
+
+                    <section class="bg-info-subtle mb-5 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 11</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+            
+                            <div class="text-center">
+                                <img id="miImagen" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
+                            </div>
+
+                            <p class="mt-3 output">> Nota: Si no te sigue la imágen, mirá si no esta comentado el #miImagen arriba en style.</p>
+                            
+                            <script>
+                                let img = document.getElementById("miImagen");
+                                let originalSrc = "./src/spain.jpg?text=Orignial";
+                                let nuevaSrc = "./src/dino.jpeg?text=Cambianda";
+
+                                img.onmousedown = function() { 
+                                    this.src = nuevaSrc; 
+                                };
+                                img.onmouseup = function() { 
+                                    this.src = originalSrc; 
+                                };
+
+                                document.onmousemove = function(e) 
+                                {
+                                    img.style.left = (e.pageX - img.offsetWidth / 2) + "px";
+                                    img.style.top = (e.pageY - img.offsetHeight / 2) + "px";
+                                };
+
+                                img.onmouseout = function() { 
+                                    this.style.transform = "scale(0.9)"; 
+                                };
+                                img.onmouseover = function() { 
+                                    this.style.transform = "scale(1.05)"; 
+                                };
+                            </script>
+
+                        </article>
+                    </section>
+
+
+
+                    <section class="bg-info-subtle mb-5 pt-3 rounded shadow">
+                        <div class="text-center">
+                            <h1>Ejercicio 12</h1>
+                            <hr class="border border-primary w-25 mx-auto">
+                        </div>
+                        <article class="bg-secondary-subtle p-3 shadow-sm">
+            
+                            <h5 class="text-center">
+                                Cambia el tamaño de la ventana o intenta cerrar la pestaña para ver los eventos.<br><br>
+                            </h5>
+                            <p class="output">
+                                > Nota: Desactiva el script de abajo para poder navegar correctamente.
+                            </p>
+
+                            <script>
+                                window.addEventListener('resize', function() {
+                                    console.log("La ventana ha cambiado de tamaño");
+                                    alert("Has cambiado el tamaño de la ventana a: " + window.innerWidth + "x" + window.innerHeight);
+                                });
+
+                                window.addEventListener('beforeunload', function (e) {
+                                    e.preventDefault();
+                                    e.returnValue = ''; 
+                                    alert("¿Seguro que quieres salir?");
+                                });
+                            </script>
+
+                        </article>
+                    </section>
+
                 </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div id="abuelo" style="width: 500px; background-color: greenyellow;" class="w-50 mx-auto">
-                        <ul id="padre" style="width: 300px; background-color: green;">
-                            <li id="hijo1" style="width: 150px; background-color: red; border: 1px solid black;">Hola</li>
-                            <li id="hijo2" style="width: 150px; background-color: red; border: 1px solid black;">Crack</li>
-                            <li id="hijo3" style="width: 150px; background-color: yellow; border: 1px solid black;">de</li>
-                            <li id="hijo4" style="width: 150px; background-color: red; border: 1px solid black;">la</li>
-                            <li id="hijo5" style="width: 150px; background-color: red; border: 1px solid black;">Programación</li>
-                        </ul>
-                    </div>
-                    <div id="ejercicio1"></div>
-
-                    <script>
-                        function echo(id, contenido)
-                        {
-                            const target = document.getElementById(id);
-                            target.innerHTML += `<div class="output">${contenido}</div><br>`;
-                        }
-
-                        const elementoAbuelo = document.getElementById("abuelo")
-                        const elementoPadre = document.getElementById("padre")
-                        const hijo1 = document.getElementById("hijo1")
-                        const hijo2 = document.getElementById("hijo2")
-                        const hijo3 = document.getElementById("hijo3")
-                        const hijo4 = document.getElementById("hijo4")
-                        const hijo5 = document.getElementById("hijo5")
-
-                        // Agregamos un detector de eventos al elemento principal
-                        elementoAbuelo.addEventListener('click', ()=>{ 
-                            echo("ejercicio1", 'Se hizo clic en abuelo');
-                            console.log('Se hizo clic en abuelo');
-                        })
-                        
-                        // Agregamos un detector de eventos al elemento principal
-                        elementoPadre.addEventListener('click', ()=>{ 
-                            echo("ejercicio1", 'Se hizo clic en padre');
-                            console.log('Se hizo clic en padre');
-                        })
-                        
-                        // Agregamos un detector de eventos a todos los elementos secundarios
-                        hijo1.addEventListener('click', (e)=>{
-                            e.stopPropagation() // Impedimos que el evento se propague más
-                            echo("ejercicio1", 'Se hizo clic en hijo1');
-                            console.log('Se hizo clic en hijo1');
-                        })
-                        
-                        hijo2.addEventListener('click', (e)=>{
-                            e.stopPropagation() // Impedimos que el evento se propague más
-                            echo("ejercicio1", 'Se hizo clic en hijo2');
-                            console.log('Se hizo clic en hijo2');
-                        })
-                        
-                        hijo3.addEventListener('click', (e)=>{
-                            e.stopPropagation() // Impedimos que el evento se propague más
-                            echo("ejercicio1", 'Se hizo clic en hijo3');
-                            console.log('Se hizo clic en hijo3');
-                        })
-                        
-                        hijo4.addEventListener('click', (e)=>{
-                            e.stopPropagation() // Impedimos que el evento se propague más
-                            echo("ejercicio1", 'Se hizo clic en hijo4');
-                            console.log('Se hizo clic en hijo4');
-                        })
-                        
-                        hijo5.addEventListener('click', (e)=>{
-                            e.stopPropagation() // Impedimos que el evento se propague más
-                            echo("ejercicio1", 'Se hizo clic en hijo5');
-                            console.log('Se hizo clic en hijo5');
-                        })
-                    </script>
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 2</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div class="input-group my-3 w-25 mx-auto">
-                        <input id="input_ejercicio2" type="text" class="form-control border-primary-subtle">
-                    </div>
-                    <div id="ejercicio2"></div>
-
-                    <script>
-                        let input_ejercicio2 = document.getElementById("input_ejercicio2");
-
-                        input_ejercicio2.addEventListener('blur', (e)=> {
-                            mostrar("ejercicio2", "Perdí el FOCO");
-                        })
-
-                        input_ejercicio2.addEventListener('focus', (e)=> {
-                            document.getElementById("ejercicio2").innerHTML = null;
-                        })
-                    </script>
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 3</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div class="input-group my-3 w-25 mx-auto">
-                        <input id="input_ejercicio3" type="text" class="form-control border-primary-subtle">
-                    </div>
-                    <div id="ejercicio3"></div>
-
-                    <script>
-                        let input_ejercicio3 = document.getElementById("input_ejercicio3");
-
-                        input_ejercicio3.addEventListener('blur', (e)=> {
-                            mostrar("ejercicio3", "Perdí el FOCO");
-                        })
-
-                        input_ejercicio3.addEventListener('focus', (e)=> {
-                            mostrar("ejercicio3", "ESTOY FOCUS");
-                        })
-                    </script>
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 4</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div class="text-center my-3">
-                        <img id="img_ejercicio4" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
-                    </div>
-                    <div id="ejercicio4"></div>
-
-                    <script>
-                        let img_ejercicio4 = document.getElementById("img_ejercicio4");
-
-                        img_ejercicio4.addEventListener("load", (e) => {
-                            mostrar("ejercicio4", "Se ha cargado correctamente la imágen.");
-                        })
-                    </script>
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 5</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div class="text-center my-3">
-                        <img id="img_ejercicio5" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
-                    </div>
-                    <div id="ejercicio5"></div>
-
-                    <script>
-                        let img_ejercicio5 = document.getElementById("img_ejercicio5");
-                        let img_100_ejercicio5 = 256;
-                        let timer_ejercicio5 = null;
-
-                        img_ejercicio5.addEventListener("click", () => 
-                        {
-                            if (timer_ejercicio5) return;
-
-                            timer = setTimeout(() => {
-                                let img_reducida = Math.round(img_ejercicio5.width * 0.85);
-                                let img_porcentaje = Math.round((img_reducida / img_100_ejercicio5) * 100);
-                                img_ejercicio5.width = img_reducida;
-                                mostrar("ejercicio5", "Imagen reducida al " + img_porcentaje + "%.");
-                                timer_ejercicio5 = null;
-                            }, 250);
-                        });
-                    </script>
-                </article>
-            </section>
-
-
-
-            <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                <div class="text-center">
-                    <h1>Ejercicio 6</h1>
-                    <hr class="border border-primary w-25 mx-auto">
-                </div>
-                <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                    <div class="text-center my-3">
-                        <img id="img_ejercicio6" src="./src/spain.jpg" alt="Bandera de España" width="256" height="auto" class="rounded">
-                    </div>
-                    <div id="ejercicio6"></div>
-
-                    <script>
-                        let img_ejercicio6 = document.getElementById("img_ejercicio6");
-                        let img_100_ejercicio6 = 256;
-                        let timer_ejercicio6 = null;
-
-                        img_ejercicio6.addEventListener("click", () => 
-                        {
-                            if (timer_ejercicio6) return;
-
-                            timer_ejercicio6 = setTimeout(() => {
-                                let img_reducida = Math.round(img_ejercicio6.width * 0.85);
-                                let img_porcentaje = Math.round((img_reducida / img_100_ejercicio6) * 100);
-                                img_ejercicio6.width = img_reducida;
-                                mostrar("ejercicio6", "Imagen reducida al " + img_porcentaje + "%.");
-                                timer_ejercicio6 = null;
-                            }, 250);
-                        });
-
-                        img_ejercicio6.addEventListener("dblclick", () => 
-                        {
-                            clearTimeout(timer_ejercicio6);
-                            timer_ejercicio6 = null;
-
-                            let img_aumentada = Math.round(img_ejercicio6.width * 1.15);
-                            let img_porcentaje = Math.round((img_aumentada / img_100_ejercicio6) * 100);
-                            img_ejercicio6.width = img_aumentada;
-                            mostrar("ejercicio6", "Imagen aumentada al " + img_porcentaje + "%.");
-                        });
-
-                    </script>
-                </article>
-            </section>
-
-
-
-
-
-
-
-
+            </div>
         </div>
 
 
