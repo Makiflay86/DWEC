@@ -201,7 +201,7 @@
                                 <button id="btn_ej4" type="button" class="btn btn-primary">Mostrar</button>
                             </div>
                             
-                            <div class="ej4"></div>
+                            <div id="ej4"></div>
 
                             <script>
                                 let btn_ej4 = document.getElementById("btn_ej4");
@@ -229,12 +229,45 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 5</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
                         <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                             
-                            
+                            <div class="text-center">
+                                <h5>Borrado por Selección</h5>
+                                <div class="mb-3">
+                                    <select id="select_ej5" class="form-select mb-3" onfocus="rellenarSelect()"></select>
+                                    <button id="btn_ej5" type="button" class="btn btn-danger">Eliminar Seleccionado</button>
+                                </div>
+                            </div>
+                            <div id="output_ej5"></div>
+
+                            <script>
+                                // Función para cargar las llaves del localStorage en el select del Ejercicio 5
+                                function rellenarSelect() {
+                                    const select = document.getElementById('select_ej5');
+                                    select.innerHTML = ""; // Limpiar opciones previas
+                                    for (let i = 0; i < localStorage.length; i++) {
+                                        let clave = localStorage.key(i);
+                                        let opt = document.createElement('option');
+                                        opt.value = clave;
+                                        opt.innerHTML = clave;
+                                        select.appendChild(opt);
+                                    }
+                                }
+
+                                document.getElementById("btn_ej5").addEventListener("click", () => {
+                                    let selectObj = document.getElementById('select_ej5');
+                                    let valor = selectObj.value;
+                                    
+                                    if (valor) {
+                                        localStorage.removeItem(valor); // Borra del almacenamiento
+                                        rellenarSelect(); // Actualiza el select tras borrar
+                                        document.getElementById("output_ej5").innerHTML = `<div class="output mt-2">Eliminado: ${valor}</div>`;
+                                    }
+                                });
+                            </script>
 
                         </article>
                     </section>
@@ -243,26 +276,28 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 6</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
                         <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                             
-                            
+                            <div class="text-center">
+                                <h5>Mantenimiento de Storage</h5>
+                                <button id="btn_ej6" type="button" class="btn btn-dark">Limpiar Todo el Storage</button>
+                            </div>
+                            <div id="output_ej6" class="mt-3"></div>
 
-                        </article>
-                    </section>
-
-
-
-                    <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
-                        <div class="text-center">
-                            <h1>Ejercicio </h1>
-                            <hr class="border border-primary w-25 mx-auto">
-                        </div>
-                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
-                            
-                            
+                            <script>
+                                document.getElementById("btn_ej6").addEventListener("click", () => {
+                                    localStorage.clear();
+                                    
+                                    // Limpiar también el select visualmente
+                                    document.getElementById('select_ej3').innerHTML = "";
+                                    
+                                    document.getElementById("output_ej6").innerHTML = 
+                                        `<div class="alert alert-danger py-1">¡LocalStorage vacío!</div>`;
+                                });
+                            </script>
 
                         </article>
                     </section>
