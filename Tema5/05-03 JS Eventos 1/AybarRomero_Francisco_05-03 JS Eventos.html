@@ -199,12 +199,42 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 6</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
                         <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                             
+                            <div class="mb-3">
+                                <input type="number" id="num1" placeholder="Número 1" class="form-control">
+                                <input type="number" id="num2" placeholder="Número 2" class="form-control">
+                            </div>
                             
+                            <div class="mb-3">
+                                <button id="btnSumar" class="btn btn-primary">Calcular Suma</button>
+                            </div>
+
+                            <div id="ej6"></div>
+
+                            <script>
+                                let ej6_btn = document.getElementById('btnSumar');
+                                let ej6 = document.getElementById('ej6');
+
+                                ej6_btn.onclick = function() 
+                                { 
+                                    operacion('+'); 
+                                };
+
+                                function operacion(operador) 
+                                {
+                                    let n1 = parseFloat(document.getElementById('num1').value) || 0;
+                                    let n2 = parseFloat(document.getElementById('num2').value) || 0;
+                                    
+                                    let res = 0;
+                                    if (operador === '+') res = n1 + n2;
+                                    
+                                    ej6.innerText = "Resultado: " + res;
+                                }
+                            </script>
 
                         </article>
                     </section>
@@ -213,12 +243,42 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 7</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
                         <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                             
+                            <div class="mb-3">
+                                <input type="number" id="num1_ej7" placeholder="Número 1" class="form-control">
+                                <input type="number" id="num2_ej7" placeholder="Número 2" class="form-control">
+                            </div>
                             
+                            <div class="mb-3">
+                                <button id="btnSumar_ej7" class="btn btn-primary">Calcular Suma</button>
+                            </div>
+
+                            <div id="ej7"></div>
+
+                            <script>
+                                let ej7_btn = document.getElementById('btnSumar_ej7');
+                                let ej7 = document.getElementById('ej7');
+
+                                ej7_btn.addEventListener('click', function() 
+                                {
+                                    ej7_operacion.call(this, '+'); 
+                                });
+
+                                function ej7_operacion(operador) 
+                                {
+                                    let n1 = parseFloat(document.getElementById('num1_ej7').value) || 0;
+                                    let n2 = parseFloat(document.getElementById('num2_ej7').value) || 0;
+                                    
+                                    let res = 0;
+                                    if (operador === '+') res = n1 + n2;
+                                    
+                                    ej7.innerText = "Resultado: " + res;
+                                }
+                            </script>
 
                         </article>
                     </section>
@@ -227,12 +287,52 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 8</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
                         <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                             
+                            <div class="mb-3">
+                                <input type="number" id="num1_ej8" placeholder="Número 1" class="form-control">
+                                <input type="number" id="num2_ej8" placeholder="Número 2" class="form-control">
+                            </div>
                             
+                            <div class="mb-3">
+                                <button id="btnSumar_ej8" class="btn btn-primary">Calcular Suma</button>
+                                <button id="ej8_inhabilitar" class="btn btn-danger">Inhabilitar Suma</button>
+                            </div>
+
+                            <div id="ej8"></div>
+
+                            <script>
+                                let ej8_btn = document.getElementById('btnSumar_ej8');
+                                let ej8_inhabilitar = document.getElementById('ej8_inhabilitar');
+                                let ej8 = document.getElementById('ej8');
+
+                                function ejecutarOperacion() 
+                                {
+                                    ej8_operacion.call(ej8_btn, '+');
+                                }
+
+                                ej8_btn.addEventListener('click', ejecutarOperacion, false);
+
+                                ej8_inhabilitar.onclick = function() 
+                                {
+                                    ej8_btn.removeEventListener('click', ejecutarOperacion, false);
+                                    alert("Evento de suma eliminado");
+                                };
+
+                                function ej8_operacion(operador) 
+                                {
+                                    let n1 = parseFloat(document.getElementById('num1_ej8').value) || 0;
+                                    let n2 = parseFloat(document.getElementById('num2_ej8').value) || 0;
+                                    
+                                    let res = 0;
+                                    if (operador === '+') res = n1 + n2;
+                                    
+                                    ej8.innerText = "Resultado: " + res;
+                                }
+                            </script>
 
                         </article>
                     </section>
@@ -241,12 +341,28 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 9</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
-                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm" id="ej9" style="background-color: #e2e3e5 !important;">
                             
-                            
+                            <div class="text-center">
+                                <button id="ej9_btn" class="btn btn-primary">cambia de color</button>
+                            </div>
+
+                            <script>
+                                let ej9_btn = document.getElementById('ej9_btn');
+                                let ej9 = document.getElementById('ej9');
+
+                                ej9_btn.addEventListener('click', () => { 
+                                    let r = Math.floor(Math.random() * 256);
+                                    let g = Math.floor(Math.random() * 256);
+                                    let b = Math.floor(Math.random() * 256);
+                                    let color = "rgb(" + r + "," + g + "," + b + ")";
+                                    
+                                    ej9.style.backgroundColor = color;
+                                }, true);
+                            </script>
 
                         </article>
                     </section>
@@ -255,12 +371,26 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 10</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
-                        <article class="bg-secondary-subtle p-3 rounded shadow-sm">
+                        <article class="bg-secondary-subtle p-3 rounded shadow-sm" id="ej10" style="background-color: #e2e3e5 !important;">
                             
-                            
+                            <div class="text-center">
+                                <button id="ej10_btn" class="btn btn-primary">Rojo, Verde, Azul</button>
+                            </div>
+
+                            <script>
+                                let indiceColor = 0;
+                                let colores = ["red", "green", "blue"];
+                                let ej10_btn = document.getElementById('ej10_btn');
+                                let ej10 = document.getElementById('ej10');
+
+                                ej10_btn.addEventListener('click', function() {
+                                    ej10.style.backgroundColor = colores[indiceColor];
+                                    indiceColor = (indiceColor + 1) % colores.length;
+                                });
+                            </script>
 
                         </article>
                     </section>
@@ -269,12 +399,40 @@
 
                     <section class="bg-info-subtle p-3 my-5 rounded shadow border border-info-subtle">
                         <div class="text-center">
-                            <h1>Ejercicio </h1>
+                            <h1>Ejercicio 11</h1>
                             <hr class="border border-primary w-25 mx-auto">
                         </div>
                         <article class="bg-secondary-subtle p-3 rounded shadow-sm">
                             
-                            
+                            <div class="mb-3">
+                                <label for="text_ej11" class="form-label">Escribe un texto</label>
+                                <input type="text" name="text_ej11" id="text_ej11" class="form-control">
+                            </div>
+                            <div id="ej11"></div>
+
+                            <script>
+                                let text_ej11 = document.getElementById("text_ej11");
+
+                                if (text_ej11.attachEvent) 
+                                {
+                                    text_ej11.attachEvent('onchange', function() 
+                                    {
+                                        escribirAbajo_ej11(text_ej11);
+                                    });
+
+                                } else 
+                                {
+                                    text_ej11.addEventListener('change', function() 
+                                    {
+                                        escribirAbajo_ej11(this);
+                                    });
+                                }
+
+                                function escribirAbajo_ej11(a) 
+                                {
+                                    mostrar("ej11", "Lo que has escrito", a.value);
+                                }
+                            </script>
 
                         </article>
                     </section>
