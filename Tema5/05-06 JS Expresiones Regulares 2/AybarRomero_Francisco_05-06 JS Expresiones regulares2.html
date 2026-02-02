@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es-ES">
+    <head>
+        <title>AybarRomero_Francisco_05-06 JS Expresiones regulares2</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <style>
+            #ejercicioid { background: #f4f4f4; padding: 15px; border-radius: 8px; min-height: 50px; }
+            button { margin: 2px; }
+        </style>
+    </head>
+
+    <body>
+        
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12 col-lg-8">
+
+                    <div class="formulario">
+                        <fieldset class="p-5 shadow rounded">
+                            <legend>Panel de Expresiones Regulares</legend>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" id="textopeq" value="2" class="form-control" />
+                                <label for="textopeq" class="form-label">Nombre:</label>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea id="textogrande" style="height: 320px" class="form-control mb-3">
+Málaga (Andalucia) es una ciudad y municipio español, capital de la provincia homónima, situada en la comunidad autónoma de Andalucía (España). Con una población de 578 460 habitantes al 1 de enero de 2020,8 es la segunda ciudad más poblada de Andalucía y la sexta de España. contactohola@hola.com
+
+Además, es la zona urbana más densamente poblada de la Costa del Sol 10 11 y suma 987813 habitantes. Se estima que conforma la quinta área metropolitana de España.12 13
+
+Está situada en el "sur" de la península ibérica, a unos 100 km al este de Gibraltar (https://es.wikipedia.org/wiki/Gibraltar). Su término ocupa 398,25 km².
+
+Teléfonos Málaga: 952433421, 951433422. Otros: 954433422, 912433422.
+Webs: www.Feniciios.org, http://www.vivaspain.com.
+Email final: hola@hola.com
+                                </textarea>
+                                <label for="textogrande" class="form-label">Comentarios:</label>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <button id="b2" class="btn btn-info shadow-sm">Años (4 dígitos)</button>
+                                <button id="b3" class="btn btn-success shadow-sm">Vocal + 3 letras</button>
+                                <button id="b4" class="btn btn-primary shadow-sm">Inicio Párrafo</button>
+                                <button id="b5" class="btn btn-secondary shadow-sm">Fin Párrafo</button>
+                                <button id="b6" class="btn btn-primary shadow-sm">Entre Comillas</button>
+                                <button id="b7" class="btn btn-warning shadow-sm">Reemplazar o/a por @</button>
+                                <button id="b8" class="btn btn-secondary shadow-sm">Tlf Málaga</button>
+                                <button id="b9" class="btn btn-success shadow-sm">Emails</button>
+                                <button id="b10" class="btn btn-primary shadow-sm">URLs</button>
+                                <button id="b11" class="btn btn-danger shadow-sm">Quitar Saltos</button>
+                                <button id="b12" class="btn btn-primary shadow-sm">Palabras (sin núm)</button>
+                                <button id="b13" class="btn btn-success shadow-sm">Num o Palabras > 3</button>
+                                <button id="b14" class="btn btn-info shadow-sm">Artículos + Palabra</button>
+                                <button id="b15" class="btn btn-dark shadow-sm">Paréntesis</button>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="mt-3">
+                        <h2>Resultados</h2>
+                        <div id="ejercicioid"></div>
+                    </div>
+
+                    <script>
+                        function imprimir(iterador) {
+                            let res = Array.from(iterador);
+                            if (res.length === 0) {
+                                document.getElementById('ejercicioid').innerHTML = "No se encontraron coincidencias.";
+                                return;
+                            }
+                            let lista = "<ol><li>" + res.map(m => m[0]).join("</li><li>") + "</li></ol>";
+                            document.getElementById('ejercicioid').innerHTML = lista;
+                        }
+
+                        document.getElementById('b2').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/[0-9]{4}/g)));
+                        document.getElementById('b3').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/\b[aeiouAEIOU][a-zA-Z]{3}\b/g)));
+                        document.getElementById('b4').addEventListener('click', () => {
+                            let texto = document.getElementById('textogrande').value;
+                            let regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\w]+/gm; 
+                            imprimir(texto.matchAll(regex));
+                        });
+                        document.getElementById('b5').addEventListener('click', () => {
+                            let texto = document.getElementById('textogrande').value;
+                            let regex = /[a-zA-ZáéíóúÁÉÍÓÚñÑ\w²]+(?=[.\s]*$)/gm; 
+                            imprimir(texto.matchAll(regex));
+                        });
+                        document.getElementById('b6').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/'[^']*'|«[^»]*»|"[^"]*"/g)));
+                        document.getElementById('b7').addEventListener('click', () => {
+                            document.getElementById('ejercicioid').innerText = document.getElementById('textogrande').value.replace(/[oaOAóáÓÁ]/g, '@');
+                        });
+                        document.getElementById('b8').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/\b(952|951)\d{6,7}\b/g)));
+                        document.getElementById('b9').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g)));
+                        document.getElementById('b10').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/(https?:\/\/|www\.)[^\s)]+/g)));
+                        document.getElementById('b11').addEventListener('click', () => {
+                            document.getElementById('ejercicioid').innerText = document.getElementById('textogrande').value.replace(/\n/g, ' ');
+                        });
+                        document.getElementById('b12').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/\b[a-zA-ZáéíóúÁÉÍÓÚñÑ]+\b/g)));
+                        document.getElementById('b13').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/\b(\d{4,}|[a-zA-Záéíóúñ]{4,})\b/g)));
+                        document.getElementById('b14').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/\b(el|la|los|las|un|una|unos|unas)\s+\w+/gi)));
+                        document.getElementById('b15').addEventListener('click', () => imprimir(document.getElementById('textogrande').value.matchAll(/\(([^)]+)\)/g)));
+                    </script>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
