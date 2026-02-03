@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-ES">
     <head>
         <title>ejercicio3</title>
         <!-- Required meta tags -->
@@ -24,7 +24,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
 
-                    <div id="json"></div>
+                    <div id="json" class="text-center"></div>
 
                 </div>
             </div>
@@ -44,7 +44,15 @@
             {
                 const JSONObjeto = JSON.parse(JSONCadena);
                 const JSONDisplay = document.getElementById("json");
-                JSONDisplay.innerHTML = JSONObjeto.nombre + ", [" + JSONObjeto.Amiguitos + "], " + JSONObjeto.ciudad;
+                /* JSONDisplay.innerHTML = JSONObjeto.nombre + ", [" + JSONObjeto.Amiguitos + "], " + JSONObjeto.ciudad; */
+
+                for (let key in JSONObjeto) 
+                {
+                    JSONDisplay.innerHTML += `
+                        ${JSONData.name} es de ${JSONData.from} tiene por amigos a ${JSONData.favFriends}<br>
+                    `;
+                }
+                
 
             } catch (error) 
             {
