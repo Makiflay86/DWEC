@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="es-ES">
+<html lang="en">
     <head>
-        <title>ejercicio3</title>
+        <title>ejercicio4</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -26,37 +26,28 @@
 
                     <div id="json" class="text-center"></div>
                     <hr>
+                    <div id="1"></div>
 
                 </div>
             </div>
         </div>
 
-        
+
         <script> 
-            let JSONData = `{
-                "Alumno1": {"name": "Pepito", "favFriends": ["Manolo", "Juanito", "Kiko", "Pedrito"], "from": "Torremolino"},
-                "Alumno2": {"name": "Juanito", "favFriends": ["Loli", "Kiko", "Pepito", "Pedrito"], "from": "Malaga"},
-                "Alumno3": {"name": "Kiko", "favFriends": ["Loli", "Juanito", "Inma", "Maria"], "from": "Churriana"},
-                "Alumno4": {"name": "Loli", "favFriends": ["Kiko", "Juanito", "Inma", "Maria"], "from": "Torremolino"},
-                "Alumno5": {"name": "Maria", "favFriends": ["Loli", "Juanito", "Inma", "Maria"], "from": "Churriana"}
-            }`;
-            try 
+            let alumno = 
             {
-                let JSONObjeto = JSON.parse(JSONData);
-                let JSONDisplay = document.getElementById("json");
+                1:{ Alumno: "Paco", DWEC: 9, DIW: 9, DWES: 9, HLC: 9,
+                    notas: function () { return "Pedazo notas"; } } , 
+                2:{ Alumno: "pepe", DWEC: 8, DIW: 8, DWES: 8, HLC: 8,
+                    notas: function () { return "Pedazo notas"; }
+                    }
+            };
 
-                for (let key in JSONObjeto) 
-                {
-                    JSONDisplay.innerHTML += `
-                        ${JSONObjeto[key].name} es de ${JSONObjeto[key].from} tiene por amigos a ${JSONObjeto[key].favFriends}<br>
-                    `;
-                }
-
-            } catch (error) 
-            {
-                console.log("Error json")
-            }
+            let JSONString = JSON.stringify(alumno, null, 2);
+            let JSONDisplay = document.getElementById("json").innerHTML = JSONString;
         </script>
+
+
 
         <!-- Bootstrap JavaScript Libraries -->
         <script
