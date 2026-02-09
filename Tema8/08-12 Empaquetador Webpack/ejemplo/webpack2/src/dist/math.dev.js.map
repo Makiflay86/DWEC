@@ -1,0 +1,1 @@
+{"version":3,"sources":["math.js"],"names":["adiccion","a","b","module","exports"],"mappings":";;AAAA,SAASA,QAAT,CAAkBC,CAAlB,EAAqBC,CAArB,EAAwB;AACtB,SAAOD,CAAC,GAAGC,CAAX;AACD;;AAEDC,MAAM,CAACC,OAAP,GAAiB;AAAEJ,EAAAA,QAAQ,EAARA;AAAF,CAAjB","sourcesContent":["function adiccion(a, b) {\r\n  return a + b;\r\n}\r\n\r\nmodule.exports = { adiccion };\r\n"],"file":"math.dev.js"}
