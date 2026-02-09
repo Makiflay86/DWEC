@@ -1,0 +1,16 @@
+mkdir src
+cd src
+echo //webpack.config.js >webpack.config.js
+echo //index.js >index.js
+echo //math.js > math.js
+echo //style.css > style.css
+cd ..
+mkdir dist
+cd src
+echo //index.html  >index.html 
+
+code package.json
+code webpack.config.js
+code ./src/index.js
+code ./src/math.js
+code ./src/style.css

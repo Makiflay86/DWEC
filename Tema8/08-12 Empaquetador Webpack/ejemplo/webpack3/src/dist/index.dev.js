@@ -1,0 +1,10 @@
+"use strict";
+
+require("./style.css");
+
+var _math = require("./math");
+
+var result = (0, _math.sum)(5, 7);
+console.log('Resultado en consola:', result);
+document.getElementById('result').textContent = "5 + 7 = ".concat(result);
+//# sourceMappingURL=index.dev.js.map
