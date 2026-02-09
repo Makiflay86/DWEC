@@ -1,0 +1,21 @@
+# Enable Rewriting
+RewriteEngine on
+RewriteBase /DWEC/Tema9/09-04%20Mod%20ReWriting/
+
+
+# Rewrite user URLs
+# Input: user/NAME/
+# Output: user.php?id=NAME
+RewriteRule ^user/(\w+)/?$ user.php?id=$1
+
+
+# Give Hotlinkers a 403 Forbidden warning.
+#RewriteCond %{HTTP_REFERER} !^http://example\.net/?.*$ [NC]
+#RewriteCond %{HTTP_REFERER} !^http://example\.com/?.*$ [NC]
+RewriteRule \.(gif|jpe?g|png|bmp)$ - [F,NC]
+
+
+# Redirect Hotlinkers to "warning.png"
+RewriteCond %{HTTP_REFERER} !^http://example\.net/?.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://example\.com/?.*$ [NC]
+RewriteRule \.(gif|jpe?g|png|bmp)$ http://example.com/nohotlinking.jpg [R,NC]
