@@ -1,6 +1,6 @@
 # Enable Rewriting
 RewriteEngine on
-RewriteBase /DWEC/Tema9/09-04%20Mod%20ReWriting/
+RewriteBase /DWEC/Tema9/09-04%20Mod%20ReWriting/ejemplo
 
 
 # Rewrite user URLs
